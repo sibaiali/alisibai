@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ali Sibai — Computer Engineering student and developer building intelligent, game-driven software. Open to internship opportunities." />
+  <title>Ali Sibai | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <div class="layout">
+
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+
+        <div class="sidebar-top">
+          <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <div class="avatar">AS</div>
+          </div>
+          <h1 class="name">Ali Sibai</h1>
+          <p class="title">Computer Engineering Student</p>
+          <p class="tagline">Building intelligent systems &amp;<br>game-driven software.</p>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="#about" class="nav-link" data-section="about"><span class="nav-line"></span><span>About</span></a></li>
+            <li><a href="#experience" class="nav-link" data-section="experience"><span class="nav-line"></span><span>Experience</span></a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects"><span class="nav-line"></span><span>Projects</span></a></li>
+            <li><a href="#skills" class="nav-link" data-section="skills"><span class="nav-line"></span><span>Skills</span></a></li>
+            <li><a href="#education" class="nav-link" data-section="education"><span class="nav-line"></span><span>Education</span></a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact"><span class="nav-line"></span><span>Contact</span></a></li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-socials">
+          <a href="https://github.com/sibaiali" target="_blank" rel="noopener" aria-label="GitHub" class="social-link" id="gh-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/sibaiali/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link" id="li-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="mailto:alisibai01@gmail.com" aria-label="Email" class="social-link" id="email-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+          <a href="https://www.kaggle.com/alisibai" target="_blank" rel="noopener" aria-label="Kaggle" class="social-link" id="kaggle-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.980 8.932c.08.104.104.214.068.308z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content" id="main">
+
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="section-label">
+          <span class="label-num">01</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Hey! I'm <span class="highlight">Ali Sibai</span>, a Computer Engineering student based in
+              <span class="highlight">Istanbul</span>, passionate about turning ambitious ideas into working software.
+              I thrive in team environments and push my skills by diving into real projects, from games
+              submitted to national research competitions, to parking management systems.
+            </p>
+            <p>
+              My interests sit somewhere between <span class="highlight">game development</span>, <span class="highlight">data science</span>,
+              and <span class="highlight">systems programming</span>. I've been competing on Kaggle, submitted
+              a research project to TÜBİTAK, and built a parking management system at uni. Always working on something.
+            </p>
+            <p>
+              Right now I'm looking for an <span class="highlight">internship</span> where I can be useful,
+              keep learning, and work with people who care about what they build.
+            </p>
+
+            <a href="mailto:alisibai01@gmail.com" class="btn-primary" id="hire-btn">
+              <span>Get In Touch</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <a href="cv.html" target="_blank" class="btn-secondary" id="cv-btn">
+              <span>Download CV</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 15V3"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat-card" id="stat-1">
+              <div class="stat-icon">🎮</div>
+              <div class="stat-num">1</div>
+              <div class="stat-label">TÜBİTAK Project</div>
+            </div>
+            <div class="stat-card" id="stat-2">
+              <div class="stat-icon">💡</div>
+              <div class="stat-num">5+</div>
+              <div class="stat-label">Languages</div>
+            </div>
+            <div class="stat-card" id="stat-3">
+              <div class="stat-icon">🚀</div>
+              <div class="stat-num">5</div>
+              <div class="stat-label">Projects Shipped</div>
+            </div>
+            <div class="stat-card" id="stat-4">
+              <div class="stat-icon">🤝</div>
+              <div class="stat-num">1</div>
+              <div class="stat-label">Internship</div>
+            </div>
+            <div class="stat-card" id="stat-5">
+              <div class="stat-icon">🏅</div>
+              <div class="stat-num">3+</div>
+              <div class="stat-label">Competitions</div>
+            </div>
+            <div class="stat-card" id="stat-6">
+              <div class="stat-icon">📅</div>
+              <div class="stat-num">4th</div>
+              <div class="stat-label">Year of Study</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section">
+        <div class="section-label">
+          <span class="label-num">02</span>
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item" id="exp-hilton">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="job-header">
+                <div>
+                  <h3 class="job-title">IT Intern</h3>
+                  <p class="job-company">
+                    <a href="https://www.hilton.com/en/hotels/isttidi-doubletree-istanbul-avcilar/" target="_blank" rel="noopener" class="company-link">DoubleTree by Hilton</a>
+                  </p>
+                </div>
+                <div class="job-meta">
+                  <span class="job-duration">May 2025</span>
+                  <span class="job-location">📍 Istanbul, Turkey</span>
+                </div>
+              </div>
+              <ul class="job-bullets">
+                <li>Assisted the IT team with server maintenance, hardware setups, and network infrastructure across the hotel.</li>
+                <li>Deployed a web-based employee database covering all staff names and departments.</li>
+                <li>Handled networking tasks including Ethernet cabling and switching from wireless to wired connections.</li>
+              </ul>
+              <div class="job-tags">
+                <span class="tag">IT Infrastructure</span>
+                <span class="tag">Networking</span>
+                <span class="tag">Hardware</span>
+                <span class="tag">Team Collaboration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="competition-strip">
+          <h3 class="strip-title">Competitions &amp; Research</h3>
+          <div class="comp-cards">
+            <div class="comp-card" id="comp-tubitak">
+              <div class="comp-icon">🏆</div>
+              <div class="comp-body">
+                <div class="comp-name">TÜBİTAK 2209-A</div>
+                <div class="comp-desc">LuminFlow — submitted as an ongoing research project to Turkey's national science and technology foundation. Exploring predictive AI in game design.</div>
+              </div>
+            </div>
+            <div class="comp-card" id="comp-kaggle">
+              <div class="comp-icon">📊</div>
+              <div class="comp-body">
+                <div class="comp-name">Kaggle Competitions</div>
+                <div class="comp-desc">Active participant in data science competitions, applying machine learning models to real-world datasets and improving predictive analytics skills.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section">
+        <div class="section-label">
+          <span class="label-num">03</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- LuminFlow -->
+          <div class="project-card featured" id="proj-luminflow">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-top-row">
+                <div class="folder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="project-links">
+                  <a href="https://luminflow25.netlify.app/" target="_blank" rel="noopener" aria-label="Live Demo" class="proj-link" id="luminflow-live">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="project-badge">TÜBİTAK Research · In Progress</div>
+            </div>
+            <h3 class="project-name">LuminFlow: Utopia Run</h3>
+            <p class="project-desc">
+              An AI-powered browser game that watches how you play and predicts your next mistake before it happens.
+              Built a custom <strong>Markov-chain predictive engine</strong> that analyzes player behavior patterns in real time,
+              dynamically adjusting enemy DNA and difficulty to stay one step ahead of the player.
+              Submitted to <strong>TÜBİTAK</strong> as an active research project.
+            </p>
+            <ul class="project-features">
+              <li>Real-time player behavior prediction via Markov chains</li>
+              <li>Adaptive enemy DNA evolution system</li>
+              <li>PWA — installable, offline-capable</li>
+              <li>Deployed &amp; live on Netlify</li>
+            </ul>
+
+            <!-- HPIM Algorithm block -->
+            <div class="hpim-block" id="hpim-block">
+              <div class="hpim-header">
+                <span class="hpim-badge">Proprietary</span>
+                <span class="hpim-title">HPIM — High Performance Interaction Model</span>
+              </div>
+              <p class="hpim-desc">
+                A proprietary algorithm enabling buttery-smooth 60 FPS gameplay on mobile
+                via predictive input, interpolated motion, and adaptive quality scaling.
+              </p>
+              <div class="hpim-formulas">
+                <div class="hpim-formula-card" id="hpim-lerp">
+                  <div class="hpim-formula-label">① LERP Jitter Filter</div>
+                  <div class="hpim-formula-eq">
+                    <span class="math-var teal">v<sub>smooth</sub></span>
+                    <span class="math-op">=</span>
+                    <span class="math-var purple">v<sub>smooth</sub></span>
+                    <span class="math-op">+</span>
+                    <span class="math-var magenta">α</span>
+                    <span class="math-op">·</span>
+                    <span class="math-paren">(</span>
+                    <span class="math-var teal">v<sub>raw</sub></span>
+                    <span class="math-op">−</span>
+                    <span class="math-var purple">v<sub>smooth</sub></span>
+                    <span class="math-paren">)</span>
+                  </div>
+                  <div class="hpim-formula-note">Eliminates touch jitter by blending raw &amp; smoothed velocity each frame</div>
+                </div>
+                <div class="hpim-formula-card" id="hpim-frate">
+                  <div class="hpim-formula-label">② Frame-Rate Independence</div>
+                  <div class="hpim-formula-eq">
+                    <span class="math-var teal">p<sub>t+1</sub></span>
+                    <span class="math-op">=</span>
+                    <span class="math-var purple">p<sub>t</sub></span>
+                    <span class="math-op">+</span>
+                    <span class="math-var magenta">v</span>
+                    <span class="math-op">·</span>
+                    <span class="math-var blue">Δt</span>
+                  </div>
+                  <div class="hpim-formula-note">Position updated by velocity × delta-time, decoupled from frame rate</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-stack">
+              <span class="stack-tag">JavaScript</span>
+              <span class="stack-tag">Canvas API</span>
+              <span class="stack-tag">PWA</span>
+              <span class="stack-tag">AI / Markov Chain</span>
+              <span class="stack-tag">Netlify</span>
+            </div>
+          </div>
+
+          <!-- Parking System -->
+          <div class="project-card" id="proj-parking">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-top-row">
+                <div class="folder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/sibaiali/PMS/blob/main/pms.py" target="_blank" rel="noopener" aria-label="GitHub" class="proj-link" id="parking-gh">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <h3 class="project-name">Smart Parking System</h3>
+            <p class="project-desc">
+              A Python-based intelligent parking management system developed at 
+              <strong>Altinbas University</strong>. Designed to track, allocate, and manage
+              parking spaces efficiently. Features automated slot detection and occupancy 
+              tracking to streamline real-world parking operations.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">OOP</span>
+              <span class="stack-tag">Data Structures</span>
+              <span class="stack-tag">Algorithms</span>
+            </div>
+          </div>
+
+          <!-- NEST SafePod -->
+          <div class="project-card" id="proj-nest">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-top-row">
+                <div class="folder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="project-links">
+                  <a href="docs/Sibai-Ali-210502786-ERM416-Part2.pdf" target="_blank" rel="noopener" aria-label="View Report" class="proj-link" title="View Report">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="project-badge">ERM416 · Entrepreneurship Project · 2025</div>
+            </div>
+            <h3 class="project-name">NEST SafePod</h3>
+            <p class="project-desc">
+              A full-stack IoT urban startup concept: biometric sleep pods for Istanbul's city centers.
+              Designed the complete product from hardware to software, including an <strong>ESP32-powered smart lock</strong>,
+              a <strong>Flutter app</strong> with FaceID unlock, real-time pod availability via <strong>MQTT</strong>,
+              and a microservices backend. Includes full business plan with financial projections and break-even analysis.
+            </p>
+            <ul class="project-features">
+              <li>Biometric FaceID pod unlock via Flutter app and MQTT signal</li>
+              <li>Real-time pod status (Available, Occupied, Cleaning) on live map</li>
+              <li>AES-256 encrypted user data with KVKK compliance</li>
+              <li>Full financial model: 665K TRY startup, break-even at 22 months</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Flutter</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">ESP32</span>
+              <span class="stack-tag">MQTT</span>
+              <span class="stack-tag">PostgreSQL</span>
+              <span class="stack-tag">IoT</span>
+              <span class="stack-tag">Biometrics</span>
+            </div>
+          </div>
+
+          <!-- CLE NLP Framework -->
+          <div class="project-card" id="proj-cle">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-top-row">
+                <div class="folder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="project-links">
+                  <a href="docs/CE472_ResearchPaper_NLP.pdf" target="_blank" rel="noopener" aria-label="View Report" class="proj-link" title="View Report">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="project-badge">CE472 Artificial Intelligence · 2023</div>
+            </div>
+            <h3 class="project-name">CLE: Behavioral NLP Testing Framework</h3>
+            <p class="project-desc">
+              Proposed <strong>Comprehensive Linguistic Evaluation (CLE)</strong>, a behavioral testing framework
+              for NLP systems inspired by software black-box testing principles. Evaluated models like BERT, LSTM,
+              and GPT across sentiment analysis, question answering, and machine translation using structured
+              capability matrices and submodular test selection algorithms.
+            </p>
+            <ul class="project-features">
+              <li>Structured linguistic capability matrix across 3 NLP tasks</li>
+              <li>MFT, invariance, and directional test case generation methods</li>
+              <li>Submodular optimization for compact representative test selection</li>
+              <li>Human evaluation study comparing CLE vs standard benchmarks</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">NLP</span>
+              <span class="stack-tag">BERT</span>
+              <span class="stack-tag">Machine Learning</span>
+              <span class="stack-tag">Research</span>
+            </div>
+          </div>
+
+          <!-- AI Consciousness -->
+          <div class="project-card" id="proj-consciousness">
+            <div class="project-glow"></div>
+            <div class="project-header">
+              <div class="project-top-row">
+                <div class="folder-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div class="project-links">
+                  <a href="docs/AIConsciousness_AliSibai_TermPaper.pdf" target="_blank" rel="noopener" aria-label="View Report" class="proj-link" title="View Report">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="project-badge">CE472 Artificial Intelligence · Research Paper</div>
+            </div>
+            <h3 class="project-name">Exploring AI Consciousness</h3>
+            <p class="project-desc">
+              A research paper exploring theoretical foundations of machine consciousness, proposing a
+              <strong>Consciousness Capability Matrix</strong> to evaluate AI systems across self-awareness,
+              intentionality, subjective experience, and metacognition. Covers frameworks including IIT,
+              Global Workspace Theory, and Functionalism, with case studies on GPT-4, embodied robots, and neuromorphic systems.
+            </p>
+            <ul class="project-features">
+              <li>Proposed Consciousness Capability Matrix with 4 scored dimensions</li>
+              <li>Analyzed GPT-4, Atlas, Sophia, and Intel Loihi under the framework</li>
+              <li>Covered Turing Test, behavioral probing, and neuromorphic simulations</li>
+              <li>Addressed ethical implications of conscious-like AI behavior</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-tag">AI Research</span>
+              <span class="stack-tag">NLP</span>
+              <span class="stack-tag">Neuroscience</span>
+              <span class="stack-tag">Ethics</span>
+              <span class="stack-tag">LLMs</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="section">
+        <div class="section-label">
+          <span class="label-num">04</span>
+          <h2 class="section-title">Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category" id="skill-langs">
+            <h3 class="skill-cat-title">
+              <span class="cat-icon">⚙️</span> Languages
+            </h3>
+            <div class="skill-pills">
+              <div class="skill-pill" data-level="90" id="sp-js">
+                <span class="pill-name">JavaScript</span>
+                <div class="pill-bar"><div class="pill-fill" style="--w:90%"></div></div>
+              </div>
+              <div class="skill-pill" data-level="85" id="sp-python">
+                <span class="pill-name">Python</span>
+                <div class="pill-bar"><div class="pill-fill" style="--w:85%"></div></div>
+              </div>
+              <div class="skill-pill" data-level="75" id="sp-java">
+                <span class="pill-name">Java</span>
+                <div class="pill-bar"><div class="pill-fill" style="--w:75%"></div></div>
+              </div>
+              <div class="skill-pill" data-level="70" id="sp-cpp">
+                <span class="pill-name">C++</span>
+                <div class="pill-bar"><div class="pill-fill" style="--w:70%"></div></div>
+              </div>
+              <div class="skill-pill" data-level="70" id="sp-c">
+                <span class="pill-name">C</span>
+                <div class="pill-bar"><div class="pill-fill" style="--w:70%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category" id="skill-areas">
+            <h3 class="skill-cat-title">
+              <span class="cat-icon">🧠</span> Domains
+            </h3>
+            <div class="domain-tags">
+              <span class="domain-tag" id="dom-gamedev">Game Development</span>
+              <span class="domain-tag" id="dom-ai">AI &amp; Predictive Systems</span>
+              <span class="domain-tag" id="dom-ds">Data Science</span>
+              <span class="domain-tag" id="dom-pwa">PWA / Web Apps</span>
+              <span class="domain-tag" id="dom-oop">OOP &amp; Data Structures</span>
+              <span class="domain-tag" id="dom-team">Team Collaboration</span>
+              <span class="domain-tag" id="dom-algo">Algorithms</span>
+              <span class="domain-tag" id="dom-ml">Machine Learning</span>
+            </div>
+          </div>
+
+          <div class="skill-category" id="skill-tools">
+            <h3 class="skill-cat-title">
+              <span class="cat-icon">🛠️</span> Tools &amp; Platforms
+            </h3>
+            <div class="domain-tags">
+              <span class="domain-tag" id="tool-git">Git &amp; GitHub</span>
+              <span class="domain-tag" id="tool-netlify">Netlify</span>
+              <span class="domain-tag" id="tool-kaggle">Kaggle</span>
+              <span class="domain-tag" id="tool-canvas">Canvas API</span>
+              <span class="domain-tag" id="tool-pwa">Service Workers</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="section">
+        <div class="section-label">
+          <span class="label-num">05</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="edu-card" id="edu-main">
+          <div class="edu-glow"></div>
+          <div class="edu-left">
+            <div class="edu-degree">B.Sc. Computer Engineering</div>
+            <div class="edu-school">Altinbas University</div>
+            <div class="edu-years">2022 to June 2026</div>
+          </div>
+          <div class="edu-right">
+            <p class="edu-desc">
+              Studying core CS and engineering fundamentals including algorithms, data structures,
+              operating systems, software engineering, and computer networks. Actively applying
+              academic knowledge through research projects and competitions.
+            </p>
+            <div class="edu-highlights">
+              <div class="edu-highlight"><span>🔬</span> TÜBİTAK Research Submission</div>
+              <div class="edu-highlight"><span>📊</span> Kaggle Data Science Competitions</div>
+              <div class="edu-highlight"><span>👥</span> Team-based project development</div>
+              <div class="edu-highlight"><span>🎯</span> Graduating June 2026</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section section-last">
+        <div class="section-label">
+          <span class="label-num">06</span>
+          <h2 class="section-title">Get In Touch</h2>
+        </div>
+
+        <div class="contact-wrap">
+          <p class="contact-intro">
+            I'm actively looking for internship opportunities where I can contribute meaningful work
+            and grow alongside a great team. Whether you have a question or just want to say hi,
+            my inbox is always open.
+          </p>
+
+          <div class="contact-cards">
+            <a href="mailto:alisibai01@gmail.com" class="contact-card" id="contact-email">
+              <div class="cc-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="cc-body">
+                <div class="cc-title">Email</div>
+                <div class="cc-value">alisibai01@gmail.com</div>
+              </div>
+              <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+
+            <a href="https://github.com/sibaiali" target="_blank" rel="noopener" class="contact-card" id="contact-github">
+              <div class="cc-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </div>
+              <div class="cc-body">
+                <div class="cc-title">GitHub</div>
+                <div class="cc-value">github.com/sibaiali</div>
+              </div>
+              <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/sibaiali/" target="_blank" rel="noopener" class="contact-card" id="contact-linkedin">
+              <div class="cc-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <div class="cc-body">
+                <div class="cc-title">LinkedIn</div>
+                <div class="cc-value">linkedin.com/in/sibaiali</div>
+              </div>
+              <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
+          <p class="contact-foot">
+            Based in <strong>Istanbul, Turkey</strong> · Open to remote and on-site opportunities
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>Designed &amp; built by <span class="highlight">Ali Sibai</span> · 2026</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
