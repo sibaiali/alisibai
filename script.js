@@ -149,10 +149,14 @@ document.addEventListener('click', e => {
   }
 });
 
-// ── Tilt effect on project cards ──────────────────────
+// ── Tilt effect on project cards (coexists with antigravity CSS animation) ──
 const projectCards = document.querySelectorAll('.project-card');
 
 projectCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    // Pause the float so JS tilt can own the transform
+    card.style.animationPlayState = 'paused';
+  });
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const cx = rect.left + rect.width / 2;
@@ -163,8 +167,11 @@ projectCards.forEach(card => {
   });
   card.addEventListener('mouseleave', () => {
     card.style.transform = '';
-    card.style.transition = 'transform 0.5s ease';
-    setTimeout(() => { card.style.transition = ''; }, 500);
+    card.style.transition = 'transform 0.4s ease';
+    setTimeout(() => {
+      card.style.transition = '';
+      card.style.animationPlayState = '';
+    }, 420);
   });
 });
 
