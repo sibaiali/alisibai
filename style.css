@@ -1228,12 +1228,11 @@ main > .section-shell--compact:not(.hero) {
   border: 1px dashed var(--line-strong);
   background: rgb(14 20 23 / 64%);
   border-radius: var(--radius);
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.65fr);
-  gap: 30px;
+  grid-template-columns: 1fr;
 }
 
 .additional-experience-card h3 {
-  margin: 14px 0 6px;
+  margin: 0 0 6px;
   font-size: 1.1rem;
 }
 
