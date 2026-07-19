@@ -64,7 +64,7 @@ const prohibitedClaims = [
   /60 FPS on mobile/i,
   /AES-256/i,
   /KVKK compliance/i,
-  /internship in (?:Istanbul|Germany)/i
+  /looking for an internship/i
 ];
 
 for (const file of publicClaimFiles) {

@@ -73,8 +73,8 @@ window.portfolioData = Object.freeze({
   ],
   selectedCredentials: [
     {
-      name: "TOEFL iBT",
-      area: "English language"
+      name: "German",
+      area: "B1"
     }
   ]
 });

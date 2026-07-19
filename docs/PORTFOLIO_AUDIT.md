@@ -15,9 +15,9 @@ The strongest recruiting story is narrower: a Computer Engineering graduate who 
 ### Positioning
 
 - Outdated student and expected-graduation language appeared in metadata, the hero, education, contact copy, and CV.
-- The primary identity mixed software development, project management, psychology, competitions, and research without a clear role target.
+- The primary identity mixed software development, project management, competitions, and research without a clear role target.
 - The site asked recruiters to interpret a large amount of content before reaching the most relevant project.
-- The contact section still focused on an internship rather than engineering opportunities and relocation to Germany.
+- The contact section still focused on an internship rather than engineering opportunities.
 
 ### Claims and evidence
 
@@ -33,7 +33,6 @@ The strongest recruiting story is narrower: a Computer Engineering graduate who 
 | Regular Kaggle competition participation | Plausible but unverified and not supported by linked evidence | Remove from the primary portfolio. |
 | NEST SafePod implemented with AES-256/KVKK compliance and exact financial outcomes | Unsupported implementation/compliance claims | Remove from the homepage. |
 | NLP human evaluation study completed | Unsupported by accessible implementation evidence | Reframe as a course research paper proposing a behavioral evaluation framework. |
-| Psychology degree | Verified credential | State precisely as a General Psychology diploma, Universite Internationale de Casablanca, 2021. |
 | SpaceLumin playable browser game | Verified by public build/repository | Keep and make primary. |
 | 16/16 deterministic evaluator tests | Verified by current project status and repository test architecture | Keep with explicit scope. |
 
@@ -69,4 +68,3 @@ The strongest recruiting story is narrower: a Computer Engineering graduate who 
 ## Recommended outcome
 
 Use one recruiter path: focused hero, dominant SpaceLumin case study, two supporting projects, demonstrated capabilities, concise experience and education, and direct contact. Every performance, research, and adaptive-system claim should be either linked to evidence or explicitly marked as in evaluation/planned.
-

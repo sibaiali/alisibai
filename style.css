@@ -1154,7 +1154,7 @@ main > .section-shell:not(.hero) {
 
 .education-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 

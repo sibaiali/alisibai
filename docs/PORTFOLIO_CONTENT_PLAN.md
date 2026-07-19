@@ -9,7 +9,7 @@ Ali Sibai is a Computer Engineering graduate building measurable real-time game 
 - Game AI engineers and technical recruiters
 - Gameplay programmers
 - Games UI and web UI teams
-- German software employers evaluating relocation-ready candidates
+- Software employers building technically ambitious interactive systems
 
 ## Public information architecture
 
@@ -29,7 +29,6 @@ Ali Sibai is a Computer Engineering graduate building measurable real-time game 
 - Separate production prediction from evaluation instrumentation.
 - State that advanced adaptive paths and gameplay consumption of Director multipliers are not active.
 - Do not publish employer-specific language, affiliation claims, copied brand language, certificates, rankings, or fabricated metrics.
-- Keep psychology as supporting interdisciplinary education, not the primary engineering identity.
 
 ## SpaceLumin story
 
@@ -84,7 +83,5 @@ Present as course research proposing capability matrices and structured behavior
 - SpaceLumin first with verified evaluator evidence
 - DoubleTree IT internship with operational outcomes
 - B.Sc. Computer Engineering, graduated 2026
-- General Psychology diploma, 2021
-- English (TOEFL iBT), German B1 and improving
+- German language level: B1
 - No proficiency bars, certificate gallery, generic objective, or unsupported metrics
-
