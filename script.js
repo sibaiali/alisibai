@@ -1,283 +1,151 @@
-/* =====================================================
-   Ali Sibai Portfolio — script.js
-   ===================================================== */
+(function () {
+  "use strict";
 
-// ── Custom cursor ──────────────────────────────────────
-const cursor    = document.getElementById('cursor');
-const cursorDot = document.getElementById('cursorDot');
+  const data = window.portfolioData;
+  const projectGrid = document.querySelector("#project-grid");
+  const capabilityGrid = document.querySelector("#capability-grid");
 
-let mouseX = 0, mouseY = 0;
-let curX = 0,   curY = 0;
-let dotX = 0,   dotY = 0;
+  function createProjectCard(project) {
+    const article = document.createElement("article");
+    article.className = "project-card";
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+    const statusClass = project.status === "verified" ? "status--verified" : "status--evaluation";
+    const target = project.external ? ' target="_blank" rel="noopener noreferrer"' : "";
+    const arrow = project.external ? "↗" : "→";
 
-function animateCursor() {
-  // Trailing effect for the ring
-  curX += (mouseX - curX) * 0.14;
-  curY += (mouseY - curY) * 0.14;
-  cursor.style.left = curX + 'px';
-  cursor.style.top  = curY + 'px';
-
-  // Instant snapping for the dot
-  dotX += (mouseX - dotX) * 0.5;
-  dotY += (mouseY - dotY) * 0.5;
-  cursorDot.style.left = dotX + 'px';
-  cursorDot.style.top  = dotY + 'px';
-
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// ── Scroll-based section reveal ────────────────────────
-const sections = document.querySelectorAll('.section');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
-sections.forEach(sec => revealObserver.observe(sec));
-
-// ── Active nav highlight on scroll ────────────────────
-const navLinks = document.querySelectorAll('.nav-link');
-
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.dataset.section === id);
-      });
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach(sec => navObserver.observe(sec));
-
-// ── Smooth scroll for nav links ────────────────────────
-navLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-
-// ── Skill bar animation on section visible ─────────────
-// Bars animate via CSS when .section.visible is applied,
-// using the transition on .pill-fill { width: var(--w) }
-
-// ── Stat counter animation ─────────────────────────────
-function animateCount(el, target, duration = 1200) {
-  let start = 0;
-  const startTime = performance.now();
-  const isDecimal = String(target).includes('.');
-
-  function step(now) {
-    const elapsed  = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease     = 1 - Math.pow(1 - progress, 3);
-    const value    = Math.floor(ease * target);
-    el.textContent = value + (el.dataset.suffix || '');
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-// Observe stat cards to trigger count-up
-const statNums = document.querySelectorAll('.stat-num');
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const text = el.textContent.trim();
-      const hasPlus = text.includes('+');
-      // detect ordinal suffix: th, st, nd, rd
-      const ordinalMatch = text.match(/(st|nd|rd|th)$/i);
-      const num = parseInt(text.replace(/\D/g, ''), 10);
-      if (!isNaN(num) && num > 0) {
-        if (ordinalMatch) {
-          el.dataset.suffix = ordinalMatch[0];
-        } else {
-          el.dataset.suffix = hasPlus ? '+' : '';
-        }
-        animateCount(el, num);
-      }
-      countObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.8 });
-
-statNums.forEach(el => countObserver.observe(el));
-
-// ── Particle sparkles on click ─────────────────────────
-document.addEventListener('click', e => {
-  const colors = ['#a855f7', '#e040fb', '#2dd4bf', '#38bdf8', '#34d399'];
-  for (let i = 0; i < 8; i++) {
-    const spark = document.createElement('div');
-    spark.style.cssText = `
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: ${colors[Math.floor(Math.random() * colors.length)]};
-      left: ${e.clientX}px;
-      top: ${e.clientY}px;
-      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-      opacity: 1;
+    article.innerHTML = `
+      <div class="project-card__topline">
+        <span class="project-card__index">${project.index}</span>
+        <span class="status ${statusClass}">${project.statusLabel}</span>
+      </div>
+      <h3>${project.title}</h3>
+      <p class="project-card__description">${project.description}</p>
+      <ul class="project-card__points">
+        ${project.points.map((point) => `<li>${point}</li>`).join("")}
+      </ul>
+      <div class="project-card__footer">
+        <div class="tag-list" aria-label="Technology stack">
+          ${project.stack.map((item) => `<span class="tag">${item}</span>`).join("")}
+        </div>
+        <a class="project-card__link" href="${project.link}"${target}>${project.linkLabel} <span aria-hidden="true">${arrow}</span></a>
+      </div>
     `;
-    document.body.appendChild(spark);
-    const angle = (i / 8) * 360;
-    const distance = 40 + Math.random() * 40;
-    const rad = (angle * Math.PI) / 180;
-    requestAnimationFrame(() => {
-      spark.style.transform = `translate(${Math.cos(rad) * distance}px, ${Math.sin(rad) * distance}px) scale(0)`;
-      spark.style.opacity = '0';
-    });
-    setTimeout(() => spark.remove(), 700);
-  }
-});
 
-// ── Tilt effect on project cards (coexists with antigravity CSS animation) ──
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    // Pause the float so JS tilt can own the transform
-    card.style.animationPlayState = 'paused';
-  });
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width / 2);
-    const dy = (e.clientY - cy) / (rect.height / 2);
-    card.style.transform = `translateY(-6px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform 0.4s ease';
-    setTimeout(() => {
-      card.style.transition = '';
-      card.style.animationPlayState = '';
-    }, 420);
-  });
-});
-
-// ── Typing effect for tagline in sidebar ──────────────
-const taglineEl = document.querySelector('.tagline');
-if (taglineEl) {
-  const originalHTML = taglineEl.innerHTML;
-  const text1 = 'Building intelligent systems &';
-  const text2 = 'game-driven software.';
-  taglineEl.innerHTML = '';
-
-  let charIdx = 0;
-  const fullText = text1 + '\n' + text2;
-  const processedLines = [text1, text2];
-
-  function typeChar() {
-    const line0Done = charIdx >= processedLines[0].length;
-    const totalLen = processedLines[0].length + processedLines[1].length + 1; // +1 for <br>
-
-    if (charIdx === 0) {
-      taglineEl.innerHTML = '';
-    }
-
-    if (charIdx < processedLines[0].length) {
-      taglineEl.innerHTML = processedLines[0].slice(0, charIdx + 1);
-    } else if (charIdx === processedLines[0].length) {
-      taglineEl.innerHTML = processedLines[0] + '<br>';
-    } else {
-      const secondIdx = charIdx - processedLines[0].length - 1;
-      taglineEl.innerHTML = processedLines[0] + '<br>' + processedLines[1].slice(0, secondIdx + 1);
-    }
-
-    charIdx++;
-    if (charIdx <= processedLines[0].length + processedLines[1].length + 1) {
-      setTimeout(typeChar, 45);
-    }
+    return article;
   }
 
-  // Delay to let page load
-  setTimeout(typeChar, 800);
-}
+  function createCapabilityCard(capability) {
+    const article = document.createElement("article");
+    article.className = "capability-card";
+    article.innerHTML = `
+      <span class="capability-card__icon" aria-hidden="true">${capability.code}</span>
+      <h3>${capability.title}</h3>
+      <ul class="capability-list">
+        ${capability.items.map((item) => `<li>${item}</li>`).join("")}
+      </ul>
+    `;
+    return article;
+  }
 
-// ── Mobile nav toggle ─────────────────────────────────
-// On small screens, add a floating nav button
-if (window.innerWidth <= 768) {
-  const sidebar = document.getElementById('sidebar');
-  const mobileNavBtn = document.createElement('button');
-  mobileNavBtn.id = 'mobile-nav-btn';
-  mobileNavBtn.setAttribute('aria-label', 'Navigation');
-  mobileNavBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
-  mobileNavBtn.style.cssText = `
-    position: fixed; bottom: 24px; right: 24px; z-index: 1000;
-    width: 52px; height: 52px; border-radius: 50%;
-    background: linear-gradient(135deg, #7c3aed, #e040fb);
-    border: none; display: flex; align-items: center; justify-content: center;
-    color: white; cursor: pointer; box-shadow: 0 8px 24px rgba(124,58,237,0.4);
-  `;
-  document.body.appendChild(mobileNavBtn);
+  if (data && projectGrid) {
+    const projectFragment = document.createDocumentFragment();
+    data.supportingProjects.forEach((project) => projectFragment.append(createProjectCard(project)));
+    projectGrid.append(projectFragment);
+  }
 
-  const mobileNav = document.createElement('div');
-  mobileNav.id = 'mobile-nav-overlay';
-  mobileNav.style.cssText = `
-    display: none; position: fixed; inset: 0; z-index: 999;
-    background: rgba(5,11,24,0.95); backdrop-filter: blur(12px);
-    flex-direction: column; align-items: center; justify-content: center; gap: 28px;
-  `;
-  const sectionNames = ['About','Experience','Projects','Skills','Education','Contact'];
-  const sectionIds   = ['about','experience','projects','skills','education','contact'];
-  sectionNames.forEach((name, i) => {
-    const a = document.createElement('a');
-    a.href = '#' + sectionIds[i];
-    a.textContent = name;
-    a.style.cssText = `font-family: 'Fira Code', monospace; font-size: 1.4rem; color: #cdd9f5; transition: color 0.2s;`;
-    a.addEventListener('click', () => {
-      mobileNav.style.display = 'none';
-      document.querySelector('#' + sectionIds[i]).scrollIntoView({ behavior: 'smooth' });
+  if (data && capabilityGrid) {
+    const capabilityFragment = document.createDocumentFragment();
+    data.capabilities.forEach((capability) => capabilityFragment.append(createCapabilityCard(capability)));
+    capabilityGrid.append(capabilityFragment);
+  }
+
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const navigation = document.querySelector("[data-nav]");
+
+  function closeNavigation(restoreFocus) {
+    if (!navToggle || !navigation) return;
+    navToggle.setAttribute("aria-expanded", "false");
+    navigation.removeAttribute("data-open");
+    if (restoreFocus) navToggle.focus();
+  }
+
+  if (navToggle && navigation) {
+    navToggle.addEventListener("click", function () {
+      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!isOpen));
+      if (isOpen) {
+        navigation.removeAttribute("data-open");
+      } else {
+        navigation.setAttribute("data-open", "true");
+      }
     });
-    a.addEventListener('mouseover', () => a.style.color = '#a855f7');
-    a.addEventListener('mouseout',  () => a.style.color = '#cdd9f5');
-    mobileNav.appendChild(a);
-  });
-  document.body.appendChild(mobileNav);
 
-  mobileNavBtn.addEventListener('click', () => {
-    const open = mobileNav.style.display === 'flex';
-    mobileNav.style.display = open ? 'none' : 'flex';
-  });
-}
+    navigation.addEventListener("click", function (event) {
+      if (event.target.closest("a")) closeNavigation(false);
+    });
 
-// ── Page load entrance animation ──────────────────────
-window.addEventListener('load', () => {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.6s ease';
-  requestAnimationFrame(() => {
-    document.body.style.opacity = '1';
-  });
-});
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navigation.hasAttribute("data-open")) closeNavigation(true);
+    });
 
-// ── Internship day-log accordion ──────────────────────
-const internLogBtn  = document.getElementById('intern-log-btn');
-const internLogBody = document.getElementById('intern-log-body');
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 860) closeNavigation(false);
+    });
+  }
 
-if (internLogBtn && internLogBody) {
-  internLogBtn.addEventListener('click', () => {
-    const isOpen = internLogBody.classList.toggle('open');
-    internLogBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    internLogBody.setAttribute('aria-hidden',  isOpen ? 'false' : 'true');
-  });
-}
+  const navLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+  const observedSections = navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && observedSections.length) {
+    const activeSectionObserver = new IntersectionObserver(
+      function (entries) {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+
+        navLinks.forEach((link) => {
+          const matches = link.getAttribute("href") === `#${visible.target.id}`;
+          if (matches) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+      },
+      { rootMargin: "-28% 0px -62% 0px", threshold: [0.01, 0.2, 0.5] }
+    );
+
+    observedSections.forEach((section) => activeSectionObserver.observe(section));
+  }
+
+  const copyButton = document.querySelector("[data-copy-email]");
+  const copyStatus = document.querySelector("[data-copy-status]");
+  let toastTimer;
+
+  function showCopyStatus(message) {
+    if (!copyStatus) return;
+    copyStatus.textContent = message;
+    copyStatus.setAttribute("data-visible", "true");
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () {
+      copyStatus.removeAttribute("data-visible");
+    }, 2200);
+  }
+
+  if (copyButton) {
+    copyButton.addEventListener("click", async function () {
+      const email = copyButton.getAttribute("data-email");
+      try {
+        await navigator.clipboard.writeText(email);
+        copyButton.textContent = "Email copied";
+        showCopyStatus("Email copied to clipboard.");
+        window.setTimeout(() => {
+          copyButton.textContent = "Copy email";
+        }, 2200);
+      } catch (error) {
+        showCopyStatus(`Copy failed. Email: ${email}`);
+      }
+    });
+  }
+})();
