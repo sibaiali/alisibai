@@ -70,7 +70,7 @@
       </header>
       <div class="case-intro">
         <p class="case-lead">The engineering question: can a game observe meaningful player state, predict the next encoded state, and evaluate that prediction without contaminating gameplay?</p>
-        <p class="case-note">I designed and implemented the gameplay systems, telemetry pipeline, state encoding, Markov transition model, runtime prediction overlay, evaluator, deterministic tests, PWA support, and local runtime tooling.</p>
+        <p class="case-note">I designed and implemented the gameplay systems, telemetry pipeline, Markov prediction model, runtime overlay, leakage-safe evaluation system, deterministic tests, and supporting PWA tooling.</p>
       </div>
       <div class="case-links case-links--wide" aria-label="Implementation evidence">
         <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer"><span>Runtime architecture</span><span aria-hidden="true">↗</span></a>
@@ -130,7 +130,7 @@
           <p>Claims below describe the current implementation, not future results.</p>
         </div>
         <div class="evidence-grid">
-          <article><span class="status status--verified">Verified</span><strong>16/16 tests</strong><p>Deterministic coverage for the current evaluator contract.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>16/16 evaluator tests</strong><p>Deterministic coverage of event resolution, deduplication, model isolation, and exception-safe instrumentation.</p></article>
           <article><span class="status status--verified">Verified</span><strong>Immutable event ledger</strong><p>Completed prediction events remain inspectable after scoring.</p></article>
           <article><span class="status status--verified">Verified</span><strong>Production isolation</strong><p>Scoring does not replace the prediction selected by gameplay.</p></article>
           <article><span class="status status--verified">Verified</span><strong>Exception-safe hooks</strong><p>Instrumentation failure is isolated from the running game.</p></article>
