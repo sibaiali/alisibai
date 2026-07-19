@@ -3,7 +3,9 @@
 
   const data = window.portfolioData;
   const projectGrid = document.querySelector("#project-grid");
+  const researchGrid = document.querySelector("#research-grid");
   const capabilityGrid = document.querySelector("#capability-grid");
+  const trainingGrid = document.querySelector("#training-grid");
 
   function createProjectCard(project) {
     const article = document.createElement("article");
@@ -47,6 +49,37 @@
     return article;
   }
 
+  function createResearchCard(item) {
+    const article = document.createElement("article");
+    article.className = "research-card";
+    article.innerHTML = `
+      <div>
+        <span class="status status--evaluation">${item.statusLabel}</span>
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+      </div>
+      <div class="research-card__footer">
+        <div class="tag-list" aria-label="Research topics">
+          ${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
+        </div>
+        <a href="${item.link}">${item.linkLabel} <span aria-hidden="true">→</span></a>
+      </div>
+    `;
+    return article;
+  }
+
+  function createTrainingCard(item) {
+    const article = document.createElement("article");
+    article.className = "training-card";
+    article.innerHTML = `
+      <span class="status status--verified">Completed</span>
+      <h3>${item.name}</h3>
+      <p>${item.provider}</p>
+      <strong>${item.detail}</strong>
+    `;
+    return article;
+  }
+
   if (data && projectGrid) {
     const projectFragment = document.createDocumentFragment();
     data.supportingProjects.forEach((project) => projectFragment.append(createProjectCard(project)));
@@ -57,6 +90,18 @@
     const capabilityFragment = document.createDocumentFragment();
     data.capabilities.forEach((capability) => capabilityFragment.append(createCapabilityCard(capability)));
     capabilityGrid.append(capabilityFragment);
+  }
+
+  if (data && researchGrid) {
+    const researchFragment = document.createDocumentFragment();
+    data.researchWriting.forEach((item) => researchFragment.append(createResearchCard(item)));
+    researchGrid.append(researchFragment);
+  }
+
+  if (data && trainingGrid) {
+    const trainingFragment = document.createDocumentFragment();
+    data.selectedTraining.forEach((item) => trainingFragment.append(createTrainingCard(item)));
+    trainingGrid.append(trainingFragment);
   }
 
   const navToggle = document.querySelector("[data-nav-toggle]");

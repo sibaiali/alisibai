@@ -32,7 +32,8 @@
       "url": "https://alisibai.vercel.app/",
       "email": "mailto:alisibai01@gmail.com",
       "alumniOf": [
-        {"@type": "CollegeOrUniversity", "name": "Altınbaş University"}
+        {"@type": "CollegeOrUniversity", "name": "Altınbaş University"},
+        {"@type": "CollegeOrUniversity", "name": "Université Internationale de Casablanca"}
       ],
       "sameAs": [
         "https://github.com/sibaiali",
@@ -80,23 +81,28 @@
           <span class="hero-name">Ali Sibai</span>
           <span class="hero-role">Game AI &amp;<br>Gameplay Engineering</span>
         </h1>
-        <p class="hero-summary">Computer Engineering graduate building real-time player-behaviour prediction, adaptive gameplay architecture, and measurable interactive software.</p>
+        <p class="hero-summary">Computer Engineering graduate building real-time player-behaviour prediction, architecture for adaptive gameplay systems, and measurable interactive software.</p>
 
         <div class="hero-actions" aria-label="Primary portfolio actions">
-          <a class="button button--primary" href="#spacelumin">View SpaceLumin case study <span aria-hidden="true">↓</span></a>
-          <a class="button" href="https://luminflow25.netlify.app/" target="_blank" rel="noopener noreferrer">Play the game <span aria-hidden="true">↗</span></a>
+          <a class="button button--primary" href="#spacelumin">View SpaceLumin Case Study <span aria-hidden="true">↓</span></a>
+          <a class="button" href="https://luminflow25.netlify.app/" target="_blank" rel="noopener noreferrer">Play the Game <span aria-hidden="true">↗</span></a>
           <a class="button" href="https://github.com/sibaiali" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
           <a class="button button--quiet" href="cv.html">Engineering CV <span aria-hidden="true">→</span></a>
         </div>
 
+        <p class="location-line"><span class="pulse" aria-hidden="true"></span>Based in Istanbul, Türkiye · Open to international opportunities</p>
       </div>
 
       <aside class="brief-panel" aria-label="Recruiter brief">
         <div class="panel-topline">
           <span>Recruiter brief</span>
-          <span class="status status--verified">Available</span>
+          <span class="status status--verified">Open to opportunities</span>
         </div>
         <dl class="brief-list">
+          <div>
+            <dt>Availability</dt>
+            <dd>Open to opportunities</dd>
+          </div>
           <div>
             <dt>Degree</dt>
             <dd>B.Sc. Computer Engineering</dd>
@@ -140,11 +146,9 @@
       </div>
 
       <div class="case-links" aria-label="SpaceLumin project links">
+        <a href="spacelumin.html"><span>Full engineering case study</span><span aria-hidden="true">→</span></a>
         <a href="https://luminflow25.netlify.app/" target="_blank" rel="noopener noreferrer"><span>Playable build</span><span aria-hidden="true">↗</span></a>
         <a href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer"><span>Source code</span><span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer"><span>Runtime architecture</span><span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/PREDICTION_EVALUATION_DESIGN.md" target="_blank" rel="noopener noreferrer"><span>Evaluation design</span><span aria-hidden="true">↗</span></a>
-        <a href="https://github.com/sibaiali/SpaceLumin/tree/main/tests" target="_blank" rel="noopener noreferrer"><span>Test suite</span><span aria-hidden="true">↗</span></a>
       </div>
 
       <article class="architecture-card" aria-labelledby="architecture-title">
@@ -156,44 +160,14 @@
           <span class="mono-note">read-only instrumentation boundary</span>
         </div>
 
-        <ol class="architecture-flow" aria-label="Game input flows through telemetry, prediction, direction, evaluation, and runtime evidence">
+        <ol class="architecture-flow architecture-flow--compact" aria-label="Game input flows through telemetry, prediction, direction, and evaluation">
           <li><span class="node-index">01</span><strong>Game input</strong><small>movement · combat · flow</small></li>
-          <li><span class="node-index">02</span><strong>TelemetryService</strong><small>runtime observations</small></li>
-          <li><span class="node-index">03</span><strong>State encoding</strong><small>epoch-scoped state</small></li>
-          <li><span class="node-index">04</span><strong>PredictiveAI</strong><small>Markov next-state model</small></li>
-          <li><span class="node-index">05</span><strong>Director</strong><small>game-owned predictions</small></li>
-          <li><span class="node-index">06</span><strong>Evaluation adapter</strong><small>isolated scoring hooks</small></li>
-          <li class="node-output"><span class="node-index">07</span><strong>Evidence outputs</strong><small>F3 overlay · immutable ledger</small></li>
+          <li><span class="node-index">02</span><strong>Telemetry + state</strong><small>epoch-scoped observations</small></li>
+          <li><span class="node-index">03</span><strong>PredictiveAI</strong><small>Markov next-state model</small></li>
+          <li><span class="node-index">04</span><strong>Director</strong><small>game-owned predictions</small></li>
+          <li class="node-output"><span class="node-index">05</span><strong>Evaluation evidence</strong><small>F3 overlay · immutable ledger</small></li>
         </ol>
       </article>
-
-      <div class="problem-grid" aria-label="Technical problem breakdown">
-        <article class="problem-card">
-          <span class="problem-number">01</span>
-          <h3>Encode behaviour</h3>
-          <p>Runtime signals are reduced to discrete player states so transition counts can be updated and queried without blocking the game loop.</p>
-        </article>
-        <article class="problem-card">
-          <span class="problem-number">02</span>
-          <h3>Predict the next state</h3>
-          <p>The Markov model estimates the most likely next encoded state from observed transitions. It does not claim to predict a human “mistake.”</p>
-        </article>
-        <article class="problem-card">
-          <span class="problem-number">03</span>
-          <h3>Deduplicate frames</h3>
-          <p>A state epoch prevents repeated render frames from counting the same prediction opportunity multiple times.</p>
-        </article>
-        <article class="problem-card">
-          <span class="problem-number">04</span>
-          <h3>Prevent leakage</h3>
-          <p>Predictions are frozen before the outcome is observed. Evaluation receives completed events through an adapter instead of training on future data.</p>
-        </article>
-        <article class="problem-card">
-          <span class="problem-number">05</span>
-          <h3>Separate modes</h3>
-          <p>Mode A evaluates a frozen model; Mode B evaluates online prequential learning. Keeping them separate makes results interpretable.</p>
-        </article>
-      </div>
 
       <div class="evidence-section">
         <div class="subsection-heading">
@@ -206,10 +180,8 @@
         <div class="evidence-grid">
           <article><span class="status status--verified">Verified</span><strong>Playable 3D build</strong><p>Sector progression, enemies, pickups, HUD, and persistent progression run in the browser.</p></article>
           <article><span class="status status--verified">Verified</span><strong>16/16 tests</strong><p>Deterministic evaluator coverage for the current instrumentation contract.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>F3 overlay</strong><p>Read-only prediction and telemetry inspection at runtime.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>Two evaluation modes</strong><p>Frozen Mode A and prequential online Mode B are explicitly separated.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>Production isolation</strong><p>Evaluator scoring does not modify the prediction selected by production gameplay.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>Exception-safe hooks</strong><p>Instrumentation failure is isolated from the running game.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Two modes + F3 overlay</strong><p>Frozen and prequential evaluation are separated, with read-only runtime inspection.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Isolated instrumentation</strong><p>Evaluation cannot modify production predictions; hook failures are exception-safe.</p></article>
         </div>
       </div>
 
@@ -217,28 +189,16 @@
         <div class="evaluation-copy">
           <span class="status status--evaluation">In evaluation</span>
           <h3>Human-session evaluation in progress</h3>
-          <p>Final accuracy is intentionally not reported yet. Baseline comparisons, latency distribution, calibration, aggregate export, and confidence intervals will be added after controlled human-session data collection.</p>
+          <p>Final accuracy is intentionally not reported yet. Controlled human-session data, baseline comparison, latency distribution, calibration, and confidence intervals remain pending.</p>
         </div>
-        <dl class="evaluation-list">
-          <div><dt>Accuracy</dt><dd>Pending sessions</dd></div>
-          <div><dt>Baseline</dt><dd>Planned comparison</dd></div>
-          <div><dt>Latency</dt><dd>Distribution pending</dd></div>
-          <div><dt>Confidence</dt><dd>Intervals pending</dd></div>
-        </dl>
+        <a class="case-detail-link" href="spacelumin.html#evaluation">Review evaluation design <span aria-hidden="true">→</span></a>
       </div>
 
-      <details class="limitations">
-        <summary>
-          <span><span class="status status--planned">Known limitations</span> Open the engineering constraints</span>
-          <span class="summary-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="limitations-grid">
-          <p>KernelMapper, NeuroFlowController, and CognitiveOverloadDetector advanced update paths are currently inactive or unreachable.</p>
-          <p>Director adaptive multipliers are calculated but are not yet consumed by gameplay systems.</p>
-          <p>A documented Director ownership/reference integration defect remains unresolved.</p>
-          <p>No claim is made for statistically superior prediction or validated frame rate across all mobile devices.</p>
-        </div>
-      </details>
+      <div class="case-constraint">
+        <span class="status status--planned">Known limitations</span>
+        <p>Advanced adaptive paths are not active, gameplay does not yet consume the calculated multipliers, and statistically meaningful human-session evidence is still pending.</p>
+        <a href="spacelumin.html#limitations">Read the full constraints <span aria-hidden="true">→</span></a>
+      </div>
     </section>
 
     <section class="section-shell" id="work" aria-labelledby="work-title">
@@ -253,10 +213,21 @@
       <noscript><p class="noscript-note">Enable JavaScript to view the supporting project summaries. SpaceLumin and all contact links remain available above.</p></noscript>
     </section>
 
+    <section class="section-shell section-shell--compact" id="research" aria-labelledby="research-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">03 / Supporting analysis</p>
+          <h2 id="research-title">Research &amp; technical writing</h2>
+        </div>
+        <p class="heading-note">Methodology, clearly separated from shipped systems.</p>
+      </header>
+      <div class="research-grid" id="research-grid"></div>
+    </section>
+
     <section class="section-shell" id="capabilities" aria-labelledby="capabilities-title">
       <header class="section-heading">
         <div>
-          <p class="section-index">03 / Demonstrated use</p>
+          <p class="section-index">04 / Demonstrated use</p>
           <h2 id="capabilities-title">Engineering capabilities</h2>
         </div>
         <p class="heading-note">Grouped by evidence, not keyword count.</p>
@@ -273,7 +244,7 @@
     <section class="section-shell" id="experience" aria-labelledby="experience-title">
       <header class="section-heading">
         <div>
-          <p class="section-index">04 / Production context</p>
+          <p class="section-index">05 / Production context</p>
           <h2 id="experience-title">Experience</h2>
         </div>
       </header>
@@ -290,12 +261,27 @@
           <li><span>03</span><p>Ran Ethernet cabling and helped migrate workstations from wireless to wired connections.</p></li>
         </ul>
       </article>
+
+      <div class="subsection-heading subsection-heading--spaced">
+        <div>
+          <p class="mini-label">Additional experience</p>
+          <h3>Supporting human-behaviour context</h3>
+        </div>
+      </div>
+      <article class="additional-experience-card">
+        <div>
+          <span class="status status--planned">Details pending</span>
+          <h3>Psychology Intern</h3>
+          <p>[Institution to confirm] · [Location to confirm] · 3 months</p>
+        </div>
+        <p>Institution, dates, and responsibilities pending confirmation.</p>
+      </article>
     </section>
 
     <section class="section-shell" id="education" aria-labelledby="education-title">
       <header class="section-heading">
         <div>
-          <p class="section-index">05 / Foundations</p>
+          <p class="section-index">06 / Foundations</p>
           <h2 id="education-title">Education</h2>
         </div>
       </header>
@@ -311,23 +297,50 @@
           </div>
         </article>
 
+        <article class="education-card">
+          <div class="education-year">3 years</div>
+          <div>
+            <span class="status status--verified">Completed</span>
+            <h3>Diplôme de Psychologie Générale</h3>
+            <p class="education-school">Université Internationale de Casablanca</p>
+            <p>Completed after three years of study. Interdisciplinary education in cognition, behaviour, communication, and human-centred systems that informs my interest in player behaviour and adaptive interactive software.</p>
+          </div>
+        </article>
       </div>
 
-      <div class="credential-row">
-        <span class="mini-label">Language</span>
-        <strong>German</strong>
-        <span>B1</span>
+      <div class="credential-list" aria-label="Language credentials">
+        <div class="credential-row">
+          <span class="mini-label">Language</span>
+          <strong>English</strong>
+          <span>TOEFL iBT certified</span>
+        </div>
+        <div class="credential-row">
+          <span class="mini-label">Language</span>
+          <strong>German</strong>
+          <span>B1 and improving</span>
+        </div>
       </div>
+    </section>
+
+    <section class="section-shell section-shell--compact" id="training" aria-labelledby="training-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">07 / Selected credential</p>
+          <h2 id="training-title">Selected technical training</h2>
+        </div>
+        <p class="heading-note">Completed training relevant to intelligent systems.</p>
+      </header>
+      <div class="training-grid" id="training-grid"></div>
     </section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="section-shell contact-shell">
         <div>
-          <p class="section-index">06 / Contact</p>
+          <p class="section-index">08 / Contact</p>
           <h2 id="contact-title">Build the next<br>system with me.</h2>
         </div>
         <div class="contact-copy">
-          <p>Open to Game AI, gameplay, Games UI, and software-engineering opportunities with teams building technically ambitious interactive systems.</p>
+          <p>Open to Game AI, gameplay, Games UI, and software-engineering opportunities. Interested in teams building technically ambitious interactive systems and measurable real-time software.</p>
           <div class="contact-links">
             <a class="button button--primary" href="mailto:alisibai01@gmail.com">alisibai01@gmail.com <span aria-hidden="true">↗</span></a>
             <button class="button button--copy" type="button" data-copy-email data-email="alisibai01@gmail.com">Copy email</button>
@@ -335,6 +348,7 @@
             <a href="https://www.linkedin.com/in/sibaiali/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
             <a href="cv.html">Engineering CV <span aria-hidden="true">→</span></a>
           </div>
+          <p class="contact-location">Istanbul, Türkiye · Open to international opportunities</p>
         </div>
       </div>
     </section>
@@ -343,7 +357,7 @@
   <footer class="site-footer">
     <div class="section-shell footer-shell">
       <p>Designed and built by Ali Sibai.</p>
-      <p>Evidence over adjectives <span aria-hidden="true">·</span> 2026</p>
+      <p>Istanbul, Türkiye · Open to international opportunities</p>
     </div>
   </footer>
 
