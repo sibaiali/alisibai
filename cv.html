@@ -1,389 +1,428 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ali Sibai | CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ali Sibai - one-page Game AI and Gameplay Engineering CV.">
+  <meta name="theme-color" content="#0b0f12">
+  <link rel="canonical" href="https://alisibai.vercel.app/cv.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Ali Sibai | Engineering CV</title>
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --ink: #172021;
+      --muted: #536061;
+      --line: #cdd5d3;
+      --accent: #086a59;
+      --paper: #fff;
+      --screen: #0b0f12;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
 
+    * { box-sizing: border-box; }
+
+    html { background: var(--screen); }
+
     body {
-      font-family: 'Inter', sans-serif;
-      font-size: 10.5pt;
-      color: #1a1a2e;
-      background: #fff;
-      line-height: 1.5;
+      margin: 0;
+      color: var(--ink);
+      background: var(--screen);
+      font-family: var(--sans);
+      font-size: 10.25px;
+      line-height: 1.42;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    p, h1, h2, h3, ul { margin-top: 0; }
+
+    :focus-visible {
+      outline: 3px solid #79e0c0;
+      outline-offset: 3px;
+    }
+
+    .screen-actions {
+      display: flex;
+      width: min(calc(100% - 32px), 210mm);
+      margin: 22px auto 12px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .screen-actions a,
+    .screen-actions button {
+      padding: 10px 14px;
+      border: 1px solid #3b4b4d;
+      color: #eef5f3;
+      background: #11171b;
+      border-radius: 7px;
+      font: 700 12px var(--sans);
+      cursor: pointer;
+    }
+
+    .screen-actions button {
+      color: #07120f;
+      background: #79e0c0;
+      border-color: #79e0c0;
     }
 
     .page {
-      max-width: 794px;
-      margin: 0 auto;
-      padding: 48px 52px;
+      width: min(calc(100% - 32px), 210mm);
+      min-height: 297mm;
+      margin: 0 auto 28px;
+      padding: 12mm 13mm 10mm;
+      background: var(--paper);
+      box-shadow: 0 28px 90px rgb(0 0 0 / 34%);
     }
 
-    /* HEADER */
     .cv-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 2px solid #1a1a2e;
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-      gap: 20px;
-    }
-
-    .cv-name {
-      font-size: 26pt;
-      font-weight: 700;
-      color: #1a1a2e;
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-
-    .cv-role {
-      font-size: 10.5pt;
-      font-weight: 400;
-      color: #555;
-      margin-top: 4px;
-    }
-
-    .cv-contacts {
-      text-align: right;
-      font-size: 9pt;
-      color: #444;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .cv-contacts a {
-      color: #444;
-      text-decoration: none;
-    }
-
-    .cv-contacts a:hover {
-      text-decoration: underline;
-    }
-
-    /* SECTIONS */
-    .cv-section {
-      margin-bottom: 18px;
-    }
-
-    .cv-section-title {
-      font-size: 8.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #4a0080;
-      border-bottom: 1px solid #e0d0f0;
-      padding-bottom: 3px;
-      margin-bottom: 10px;
-    }
-
-    /* EXPERIENCE / EDUCATION ENTRIES */
-    .cv-entry {
-      margin-bottom: 12px;
-    }
-
-    .cv-entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .cv-entry-title {
-      font-size: 10.5pt;
-      font-weight: 600;
-      color: #1a1a2e;
-    }
-
-    .cv-entry-date {
-      font-size: 9pt;
-      color: #666;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .cv-entry-sub {
-      font-size: 9.5pt;
-      color: #555;
-      margin-top: 1px;
-      margin-bottom: 5px;
-    }
-
-    .cv-entry-sub strong {
-      color: #4a0080;
-      font-weight: 600;
-    }
-
-    ul.cv-bullets {
-      padding-left: 16px;
-      list-style: disc;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    ul.cv-bullets li {
-      font-size: 9.5pt;
-      color: #333;
-    }
-
-    /* PROJECTS */
-    .cv-project {
-      margin-bottom: 10px;
-    }
-
-    .cv-project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .cv-project-name {
-      font-size: 10.5pt;
-      font-weight: 600;
-      color: #1a1a2e;
-    }
-
-    .cv-project-link {
-      font-size: 8.5pt;
-      color: #4a0080;
-    }
-
-    .cv-project-desc {
-      font-size: 9.5pt;
-      color: #333;
-      margin-top: 2px;
-    }
-
-    .cv-project-stack {
-      font-size: 8.5pt;
-      color: #666;
-      margin-top: 2px;
-    }
-
-    /* SKILLS */
-    .skills-table {
       display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 4px 12px;
-      font-size: 9.5pt;
+      padding-bottom: 13px;
+      border-bottom: 2px solid var(--ink);
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
     }
 
-    .skill-label {
-      font-weight: 600;
-      color: #333;
+    .cv-header h1 {
+      margin-bottom: 2px;
+      font-size: 29px;
+      line-height: 1;
+      letter-spacing: -0.045em;
     }
 
-    .skill-value {
-      color: #444;
+    .role {
+      margin-bottom: 0;
+      color: var(--accent);
+      font-size: 12.3px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
     }
 
-    /* SUMMARY */
-    .cv-summary {
-      font-size: 9.5pt;
-      color: #333;
-      line-height: 1.65;
+    .contact {
+      display: grid;
+      align-content: end;
+      justify-items: end;
+      gap: 2px;
+      color: var(--muted);
+      font-size: 8.8px;
+      text-align: right;
     }
 
-    /* PRINT */
+    .contact a { color: var(--accent); font-weight: 700; }
+
+    .summary {
+      margin: 12px 0 13px;
+      color: #293536;
+      font-size: 10.6px;
+      line-height: 1.48;
+    }
+
+    .summary strong { color: var(--ink); }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.58fr);
+      gap: 19px;
+    }
+
+    .section { margin-bottom: 12px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      display: flex;
+      margin-bottom: 7px;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    .section-title::after {
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+      content: "";
+    }
+
+    .entry { margin-bottom: 10px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-heading {
+      display: flex;
+      margin-bottom: 3px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .entry-heading h2,
+    .entry-heading h3 {
+      margin-bottom: 0;
+      font-size: 11.7px;
+      line-height: 1.2;
+      letter-spacing: -0.012em;
+    }
+
+    .entry-meta {
+      min-width: max-content;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 7.5px;
+      text-align: right;
+    }
+
+    .entry-subtitle {
+      display: flex;
+      margin-bottom: 4px;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 8.6px;
+      font-weight: 760;
+    }
+
+    .entry-subtitle a { border-bottom: 1px solid #a9c8c1; }
+
+    .entry ul {
+      display: grid;
+      padding-left: 14px;
+      margin-bottom: 4px;
+      gap: 2px;
+    }
+
+    .entry li { padding-left: 1px; }
+
+    .stack {
+      margin-bottom: 0;
+      color: var(--muted);
+      font: 7.35px/1.35 var(--mono);
+    }
+
+    .status-note {
+      padding: 5px 7px;
+      border-left: 2px solid #bc8a26;
+      color: #654b18;
+      background: #fff9ec;
+      font-size: 7.7px;
+    }
+
+    .side-section {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .side-section:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .side-section h2 {
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .side-section h3 {
+      margin-bottom: 2px;
+      font-size: 9.5px;
+      line-height: 1.25;
+    }
+
+    .side-section p {
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 8.3px;
+    }
+
+    .side-section p:last-child { margin-bottom: 0; }
+
+    .skill-group { margin-bottom: 7px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-group strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 8.4px;
+    }
+
+    .skill-group p { line-height: 1.43; }
+
+    .cv-footer {
+      display: flex;
+      padding-top: 7px;
+      margin-top: 9px;
+      border-top: 1px solid var(--line);
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font: 7.2px var(--mono);
+    }
+
+    @page { size: A4; margin: 0; }
+
     @media print {
-      body {
-        background: #fff;
-      }
-
+      html, body { background: #fff; }
+      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .screen-actions { display: none !important; }
       .page {
-        padding: 30px 36px;
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        overflow: hidden;
       }
-
-      a {
-        color: inherit !important;
-      }
+      a { color: inherit; }
     }
 
-    @page {
-      size: A4;
-      margin: 0;
+    @media (max-width: 680px) {
+      .page { min-height: 0; padding: 28px 22px; }
+      .cv-header, .cv-grid { grid-template-columns: 1fr; }
+      .contact { justify-items: start; text-align: left; }
+      .entry-heading, .entry-subtitle { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .entry-meta { text-align: left; }
     }
   </style>
 </head>
-
 <body>
-  <div class="page">
+  <nav class="screen-actions" aria-label="CV actions">
+    <a href="index.html">← Portfolio</a>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </nav>
 
-    <!-- HEADER -->
+  <main class="page">
     <header class="cv-header">
       <div>
-        <div class="cv-name">Ali Sibai</div>
-        <div class="cv-role">Senior Computer Engineering Student | Software Developer &amp; Project Management Enthusiast · Istanbul, Turkey</div>
+        <h1>Ali Sibai</h1>
+        <p class="role">Game AI &amp; Gameplay Engineering</p>
       </div>
-      <div class="cv-contacts">
+      <div class="contact">
+        <span>Türkiye · Relocating to Germany · Open to Frankfurt</span>
         <a href="mailto:alisibai01@gmail.com">alisibai01@gmail.com</a>
-        <a href="https://github.com/sibaiali" target="_blank">github.com/sibaiali</a>
-        <a href="https://linkedin.com/in/sibaiali" target="_blank">linkedin.com/in/sibaiali</a>
-        <a href="https://kaggle.com/alisibai" target="_blank">kaggle.com/alisibai</a>
+        <span><a href="https://github.com/sibaiali">github.com/sibaiali</a> · <a href="https://www.linkedin.com/in/sibaiali/">linkedin.com/in/sibaiali</a></span>
+        <a href="https://alisibai.vercel.app/">alisibai.vercel.app</a>
       </div>
     </header>
 
-    <!-- SUMMARY -->
-    <section class="cv-section">
-      <div class="cv-section-title">Profile</div>
-      <p class="cv-summary">
-        Final-year Computer Engineering student at Altinbas University (Expected Graduation: June 2026).
-        I build and ship things: a TÜBİTAK-submitted game with a custom Markov-chain AI, a Python parking system, and an IoT startup concept with a full business plan.
-        I compete on Kaggle, write research papers, and always have something running locally.
-        Looking for an internship in Istanbul where I can do real work and learn fast.
-      </p>
-    </section>
+    <p class="summary"><strong>Computer Engineering graduate</strong> building measurable real-time Game AI, player-behaviour telemetry, and gameplay systems. Flagship work: a playable browser game with Markov next-state prediction and leakage-safe runtime evaluation.</p>
 
-    <!-- EXPERIENCE -->
-    <section class="cv-section">
-      <div class="cv-section-title">Experience</div>
+    <div class="cv-grid">
+      <div>
+        <section class="section" aria-labelledby="projects-heading">
+          <h2 class="section-title" id="projects-heading">Selected engineering projects</h2>
 
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">IT Intern</span>
-          <span class="cv-entry-date">May 2025 · Istanbul, Turkey</span>
-        </div>
-        <div class="cv-entry-sub"><strong>DoubleTree by Hilton</strong></div>
-        <ul class="cv-bullets">
-          <li>Supported the IT team on server maintenance, hardware rollouts, and network infrastructure across the hotel.</li>
-          <li>Built and deployed a web-based employee database covering all staff and departments.</li>
-          <li>Ran Ethernet cabling and migrated workstations from wireless to wired connections.</li>
-        </ul>
-      </div>
-    </section>
+          <article class="entry">
+            <div class="entry-heading">
+              <h3>SpaceLumin / Lumin Flow: Utopia Run</h3>
+              <span class="entry-meta">Flagship · Playable browser build</span>
+            </div>
+            <div class="entry-subtitle">
+              <span>Independent Game AI &amp; Gameplay Project</span>
+              <span><a href="https://luminflow25.netlify.app/">Play</a> · <a href="https://github.com/sibaiali/SpaceLumin">Source</a></span>
+            </div>
+            <ul>
+              <li>Built Three.js gameplay with sector progression, enemies, pickups, HUD, and persistent progression.</li>
+              <li>Implemented player-behaviour telemetry, state encoding, a Markov next-state model, and an F3 runtime prediction overlay.</li>
+              <li>Added leakage-safe frozen and prequential evaluation modes, state-epoch deduplication, an immutable event ledger, and exception-isolated instrumentation.</li>
+              <li>Maintained production-model isolation and verified the current evaluator contract with 16/16 deterministic tests.</li>
+            </ul>
+            <p class="stack">JavaScript · Three.js · Game loops · Telemetry · Markov transitions · Testing · PWA</p>
+            <p class="status-note">Human-session accuracy, baseline comparison, latency distribution, calibration, and confidence intervals are still in evaluation.</p>
+          </article>
 
-    <!-- PROJECTS -->
-    <section class="cv-section">
-      <div class="cv-section-title">Projects</div>
+          <article class="entry">
+            <div class="entry-heading">
+              <h3>Smart Parking System</h3>
+              <span class="entry-meta"><a href="https://github.com/sibaiali/PMS/blob/main/pms.py">Public source</a></span>
+            </div>
+            <ul>
+              <li>Implemented parking-space allocation, release, and occupancy records with Python and object-oriented data structures.</li>
+            </ul>
+            <p class="stack">Python · OOP · Data structures · Algorithms</p>
+          </article>
 
-      <div class="cv-project">
-        <div class="cv-project-header">
-          <span class="cv-project-name">LuminFlow: Utopia Run</span>
-          <span class="cv-project-link">luminflow25.netlify.app</span>
-        </div>
-        <div class="cv-project-desc">
-          A browser game with a custom Markov-chain predictive engine that tracks player behavior in real time and adjusts enemy DNA and difficulty before the next mistake happens.
-          Packaged as an installable PWA with 60 FPS mobile performance via the HPIM algorithm. Submitted to TÜBİTAK 2209-A as an active research project.
-          Ran the full development lifecycle using Agile/Scrum with structured sprint planning.
-        </div>
-        <div class="cv-project-stack">JavaScript, Canvas API, PWA, AI/Markov Chain, Netlify</div>
-      </div>
+          <article class="entry">
+            <div class="entry-heading">
+              <h3>Behavioral NLP Testing Framework</h3>
+              <span class="entry-meta"><a href="docs/CE472_ResearchPaper_NLP.pdf">Course research paper</a></span>
+            </div>
+            <ul>
+              <li>Explored capability matrices and minimum-functionality, invariance, and directional tests for structured NLP evaluation.</li>
+            </ul>
+            <p class="stack">NLP · AI evaluation · Research methodology</p>
+          </article>
+        </section>
 
-      <div class="cv-project">
-        <div class="cv-project-header">
-          <span class="cv-project-name">Smart Parking Management System</span>
-          <span class="cv-project-link">github.com/sibaiali/PMS</span>
-        </div>
-        <div class="cv-project-desc">
-          Python parking management system built at Altinbas University.
-          Automated slot detection, space allocation, and real-time occupancy tracking using OOP data structures.
-          Ran the project lifecycle using Agile/Scrum with structured sprint planning.
-        </div>
-        <div class="cv-project-stack">Python, OOP, Data Structures, Algorithms &middot; 2024</div>
-      </div>
-
-      <div class="cv-project">
-        <div class="cv-project-header">
-          <span class="cv-project-name">NEST SafePod: IoT Urban Startup Concept</span>
-          <span class="cv-project-link">Entrepreneurship Project · 2025</span>
-        </div>
-        <div class="cv-project-desc">
-          IoT startup concept for biometric sleep pods in Istanbul city centers.
-          Designed hardware to software: ESP32 smart lock, Flutter app with FaceID unlock, real-time pod status over MQTT, Node.js microservices backend.
-          Secured user data with AES-256 encryption and KVKK compliance. Modeled financials: 665K TRY startup cost, break-even at 22 months.
-        </div>
-        <div class="cv-project-stack">Flutter, Node.js, ESP32, MQTT, PostgreSQL, Redis, Biometrics &middot; 2025</div>
+        <section class="section" aria-labelledby="experience-heading">
+          <h2 class="section-title" id="experience-heading">Experience</h2>
+          <article class="entry">
+            <div class="entry-heading">
+              <h3>IT Intern · DoubleTree by Hilton</h3>
+              <span class="entry-meta">May 2025 · Istanbul, Türkiye</span>
+            </div>
+            <ul>
+              <li>Built and deployed a web-based employee database covering staff and departments.</li>
+              <li>Supported server maintenance, hardware rollouts, operational troubleshooting, and a wired-network migration.</li>
+            </ul>
+          </article>
+        </section>
       </div>
 
-      <div class="cv-project">
-        <div class="cv-project-header">
-          <span class="cv-project-name">CLE: Behavioral Testing Framework for NLP Systems</span>
-          <span class="cv-project-link">AI Research · Group Project</span>
-        </div>
-        <div class="cv-project-desc">
-          Designed Comprehensive Linguistic Evaluation (CLE), a black-box behavioral testing framework for NLP models.
-          Built a linguistic capability matrix covering 3 task types: sentiment analysis, QA, and machine translation.
-          Applied submodular optimization to compact test selection. Ran a human evaluation study benchmarking CLE against standard approaches.
-        </div>
-        <div class="cv-project-stack">Python, NLP, BERT, Machine Learning, Research &middot; 2023</div>
-      </div>
+      <aside aria-label="Education, skills, and languages">
+        <section class="side-section">
+          <h2>Education</h2>
+          <h3>B.Sc. Computer Engineering</h3>
+          <p>Altınbaş University · Graduated 2026</p>
+          <h3>Diplôme de Psychologie Générale</h3>
+          <p>Université Internationale de Casablanca · 2021</p>
+        </section>
 
-      <div class="cv-project">
-        <div class="cv-project-header">
-          <span class="cv-project-name">Exploring AI Consciousness</span>
-          <span class="cv-project-link">AI Research · Research Paper</span>
-        </div>
-        <div class="cv-project-desc">
-          Proposed a Consciousness Capability Matrix scoring AI systems across self-awareness, intentionality, subjective experience, and metacognition.
-          Tested GPT-4, Atlas, Sophia, and Intel Loihi against the framework using IIT, Global Workspace Theory, and Functionalism.
-          Examined ethical implications of conscious-like AI behavior.
-        </div>
-        <div class="cv-project-stack">AI Research, NLP, LLMs, Neuroscience, Ethics &middot; 2023</div>
-      </div>
-    </section>
+        <section class="side-section">
+          <h2>Game &amp; real-time systems</h2>
+          <p>Game loops, runtime telemetry, state prediction, adaptive-system architecture, object pooling, performance-aware browser games</p>
+        </section>
 
-    <!-- EDUCATION -->
-    <section class="cv-section">
-      <div class="cv-section-title">Education</div>
-      <div class="cv-entry">
-        <div class="cv-entry-header">
-          <span class="cv-entry-title">B.Sc. Computer Engineering</span>
-          <span class="cv-entry-date">2022, Expected Graduation: June 2026</span>
-        </div>
-        <div class="cv-entry-sub"><strong>Altinbas University</strong> · Istanbul, Turkey</div>
-        <ul class="cv-bullets">
-          <li>Submitted LuminFlow to TÜBİTAK 2209-A as an active national research project on predictive AI in game design</li>
-          <li>Compete regularly on Kaggle, applying ML models to real-world datasets</li>
-          <li>Delivered group projects across software engineering, AI, entrepreneurship, and systems courses</li>
-        </ul>
-      </div>
-    </section>
+        <section class="side-section">
+          <h2>Programming</h2>
+          <div class="skill-group"><strong>Project use</strong><p>JavaScript, Python</p></div>
+          <div class="skill-group"><strong>Academic / developing</strong><p>C++, C, Java</p></div>
+        </section>
 
-    <!-- SKILLS -->
-    <section class="cv-section">
-      <div class="cv-section-title">Skills</div>
-      <div class="skills-table">
-        <span class="skill-label">Languages</span>
-        <span class="skill-value">JavaScript, Python, Java, C++, C</span>
+        <section class="side-section">
+          <h2>Engineering practices</h2>
+          <p>Git, deterministic testing, runtime instrumentation, evaluation design, debugging, PWA development, technical documentation</p>
+        </section>
 
-        <span class="skill-label">Domains</span>
-        <span class="skill-value">Game Development, AI / Predictive Systems, Data Science, Web Development, OOP, Algorithms, Machine Learning, Project Management</span>
+        <section class="side-section">
+          <h2>Currently developing</h2>
+          <p>Modern C++, game-engine workflows, behaviour trees, Game AI interview preparation</p>
+        </section>
 
-        <span class="skill-label">Tools</span>
-        <span class="skill-value">Git, GitHub, Netlify, Kaggle, Canvas API, Service Workers</span>
+        <section class="side-section">
+          <h2>Languages</h2>
+          <p><strong>English:</strong> TOEFL iBT</p>
+          <p><strong>German:</strong> B1, improving</p>
+        </section>
+      </aside>
+    </div>
 
-        <span class="skill-label">IT / Hardware</span>
-        <span class="skill-value">Server Maintenance, Ethernet Cabling, Hardware Diagnostics, Network
-          Infrastructure</span>
-      </div>
-    </section>
-
-    <!-- COMPETITIONS -->
-    <section class="cv-section">
-      <div class="cv-section-title">Research and Competitions</div>
-      <div class="skills-table">
-        <span class="skill-label">TÜBİTAK 2209-A</span>
-        <span class="skill-value">Submitted LuminFlow as an active national research project. Focus: predictive AI in game design using Markov chains.</span>
-
-        <span class="skill-label">Kaggle</span>
-        <span class="skill-value">Compete regularly in ML challenges, testing classification and prediction models against real-world datasets.</span>
-      </div>
-    </section>
-
-  </div>
+    <footer class="cv-footer">
+      <span>Portfolio contains linked implementation and evaluation evidence.</span>
+      <span>Updated July 2026</span>
+    </footer>
+  </main>
 </body>
-
 </html>

@@ -1,724 +1,367 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Ali Sibai | Computer Engineering student and developer building intelligent, game-driven software. Open to internship opportunities." />
-  <title>Ali Sibai | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ali Sibai is a Computer Engineering graduate building real-time player-behaviour prediction, gameplay systems, and measurable interactive software.">
+  <meta name="theme-color" content="#0b0f12">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://alisibai.vercel.app/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ali Sibai - Engineering Portfolio">
+  <meta property="og:title" content="Ali Sibai | Game AI & Gameplay Engineering">
+  <meta property="og:description" content="A focused engineering portfolio built around SpaceLumin: playable browser gameplay, real-time telemetry, Markov state prediction, and leakage-safe evaluation.">
+  <meta property="og:url" content="https://alisibai.vercel.app/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ali Sibai | Game AI & Gameplay Engineering">
+  <meta name="twitter:description" content="Computer Engineering graduate building measurable real-time Game AI and gameplay systems.">
+
+  <title>Ali Sibai | Game AI & Gameplay Engineering</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="portfolio-data.js" defer></script>
+  <script src="script.js" defer></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ali Sibai",
+      "url": "https://alisibai.vercel.app/",
+      "email": "mailto:alisibai01@gmail.com",
+      "alumniOf": [
+        {"@type": "CollegeOrUniversity", "name": "Altınbaş University"},
+        {"@type": "CollegeOrUniversity", "name": "Université Internationale de Casablanca"}
+      ],
+      "sameAs": [
+        "https://github.com/sibaiali",
+        "https://www.linkedin.com/in/sibaiali/"
+      ]
+    }
+  </script>
 </head>
-
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Animated background blobs -->
-  <div class="bg-blobs" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
+  <header class="site-header" data-header>
+    <div class="header-shell">
+      <a class="brand" href="#top" aria-label="Ali Sibai, back to top">
+        <span class="brand-mark" aria-hidden="true">AS</span>
+        <span class="brand-copy">
+          <strong>Ali Sibai</strong>
+          <span>Engineering portfolio</span>
+        </span>
+      </a>
 
-  <!-- Custom cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-nav-toggle>
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
 
-  <div class="layout">
+      <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-nav>
+        <a href="#spacelumin">SpaceLumin</a>
+        <a href="#work">Work</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+      <noscript><style>.site-nav{display:flex!important}</style></noscript>
+    </div>
+  </header>
 
-    <!-- ===== LEFT SIDEBAR ===== -->
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-inner">
+  <main id="main-content">
+    <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>Portfolio / 2026</span><span class="eyebrow-rule" aria-hidden="true"></span>Game systems</p>
+        <h1 id="hero-title">
+          <span class="hero-name">Ali Sibai</span>
+          <span class="hero-role">Game AI &amp;<br>Gameplay Engineering</span>
+        </h1>
+        <p class="hero-summary">Computer Engineering graduate building real-time player-behaviour prediction, adaptive gameplay architecture, and measurable interactive software.</p>
 
-        <div class="sidebar-top">
-          <div class="avatar-wrap">
-            <div class="avatar-ring"></div>
-            <div class="avatar">AS</div>
-          </div>
-          <h1 class="name">Ali Sibai</h1>
-          <p class="title">Senior Computer Engineering Student | Software Developer &amp; Project Management Enthusiast
-          </p>
-          <p class="tagline">Building intelligent systems &amp;<br>game-driven software.</p>
+        <div class="hero-actions" aria-label="Primary portfolio actions">
+          <a class="button button--primary" href="#spacelumin">View SpaceLumin case study <span aria-hidden="true">↓</span></a>
+          <a class="button" href="https://luminflow25.netlify.app/" target="_blank" rel="noopener noreferrer">Play the game <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://github.com/sibaiali" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
+          <a class="button button--quiet" href="cv.html">Engineering CV <span aria-hidden="true">→</span></a>
         </div>
 
-        <nav class="nav" aria-label="Main navigation">
-          <ul>
-            <li><a href="#about" class="nav-link" data-section="about"><span
-                  class="nav-line"></span><span>About</span></a></li>
-            <li><a href="#experience" class="nav-link" data-section="experience"><span
-                  class="nav-line"></span><span>Experience</span></a></li>
-            <li><a href="#projects" class="nav-link" data-section="projects"><span
-                  class="nav-line"></span><span>Projects</span></a></li>
-            <li><a href="#skills" class="nav-link" data-section="skills"><span
-                  class="nav-line"></span><span>Skills</span></a></li>
-            <li><a href="#education" class="nav-link" data-section="education"><span
-                  class="nav-line"></span><span>Education</span></a></li>
-            <li><a href="#contact" class="nav-link" data-section="contact"><span
-                  class="nav-line"></span><span>Contact</span></a></li>
-          </ul>
-        </nav>
-
-        <div class="sidebar-socials">
-          <a href="https://github.com/sibaiali" target="_blank" rel="noopener" aria-label="GitHub" class="social-link"
-            id="gh-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/sibaiali/" target="_blank" rel="noopener" aria-label="LinkedIn"
-            class="social-link" id="li-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </a>
-          <a href="mailto:alisibai01@gmail.com" aria-label="Email" class="social-link" id="email-link">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-          </a>
-          <a href="https://www.kaggle.com/alisibai" target="_blank" rel="noopener" aria-label="Kaggle"
-            class="social-link" id="kaggle-link">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.980 8.932c.08.104.104.214.068.308z" />
-            </svg>
-          </a>
-        </div>
-
+        <p class="location-line">
+          <span class="pulse" aria-hidden="true"></span>
+          Based in Türkiye <span aria-hidden="true">·</span> Moving to Germany <span aria-hidden="true">·</span> Open to Frankfurt relocation
+        </p>
       </div>
-    </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="main-content" id="main">
+      <aside class="brief-panel" aria-label="Recruiter brief">
+        <div class="panel-topline">
+          <span>Recruiter brief</span>
+          <span class="status status--verified">Available</span>
+        </div>
+        <dl class="brief-list">
+          <div>
+            <dt>Degree</dt>
+            <dd>B.Sc. Computer Engineering</dd>
+          </div>
+          <div>
+            <dt>Primary focus</dt>
+            <dd>Real-time Game AI</dd>
+          </div>
+          <div>
+            <dt>Secondary route</dt>
+            <dd>Gameplay / Games UI</dd>
+          </div>
+          <div>
+            <dt>Flagship build</dt>
+            <dd>SpaceLumin</dd>
+          </div>
+        </dl>
+        <div class="signal-strip" aria-label="Verified SpaceLumin evidence">
+          <div><strong>16/16</strong><span>deterministic tests</span></div>
+          <div><strong>2</strong><span>evaluation modes</span></div>
+          <div><strong>F3</strong><span>runtime overlay</span></div>
+        </div>
+      </aside>
+    </section>
 
-      <!-- ABOUT -->
-      <section id="about" class="section">
-        <div class="section-label">
-          <span class="label-num">01</span>
-          <h2 class="section-title">About Me</h2>
+    <section class="section-shell case-study" id="spacelumin" aria-labelledby="spacelumin-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">01 / Flagship system</p>
+          <h2 id="spacelumin-title">SpaceLumin</h2>
+        </div>
+        <span class="status status--verified">Verified playable build</span>
+      </header>
+
+      <div class="case-intro">
+        <div>
+          <p class="case-kicker">Lumin Flow: Utopia Run</p>
+          <p class="case-lead">A playable Three.js browser game used to explore real-time player-state prediction, telemetry, and adaptive gameplay architecture.</p>
+        </div>
+        <p class="case-note">I designed and implemented the gameplay systems, telemetry pipeline, Markov transition model, runtime prediction overlay, leakage-safe evaluator, deterministic tests, PWA support, and local runtime tooling.</p>
+      </div>
+
+      <div class="case-links" aria-label="SpaceLumin project links">
+        <a href="https://luminflow25.netlify.app/" target="_blank" rel="noopener noreferrer"><span>Playable build</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer"><span>Source code</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer"><span>Runtime architecture</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/PREDICTION_EVALUATION_DESIGN.md" target="_blank" rel="noopener noreferrer"><span>Evaluation design</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin/tree/main/tests" target="_blank" rel="noopener noreferrer"><span>Test suite</span><span aria-hidden="true">↗</span></a>
+      </div>
+
+      <article class="architecture-card" aria-labelledby="architecture-title">
+        <div class="card-heading">
+          <div>
+            <p class="mini-label">Runtime pipeline</p>
+            <h3 id="architecture-title">Prediction and evaluation ownership</h3>
+          </div>
+          <span class="mono-note">read-only instrumentation boundary</span>
         </div>
 
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              Hey, I'm <span class="highlight">Ali Sibai</span>, a Computer Engineering student based in
-              <span class="highlight">Istanbul</span>. I build things, ship them, and figure out how to make them
-              better.
-              So far that's meant a game submitted to TÜBİTAK, a parking management system at uni, and a startup IoT
-              concept that went all the way to a full business plan.
-            </p>
-            <p>
-              My work sits across <span class="highlight">game development</span>, <span class="highlight">data
-                science</span>,
-              and <span class="highlight">systems programming</span>. I compete on Kaggle, write research papers, and
-              always have something running locally.
-            </p>
-            <p>
-              I'm looking for an <span class="highlight">internship</span> where I can do real work, pick up new skills
-              fast, and be around people who actually care about what they build.
-            </p>
+        <ol class="architecture-flow" aria-label="Game input flows through telemetry, prediction, direction, evaluation, and runtime evidence">
+          <li><span class="node-index">01</span><strong>Game input</strong><small>movement · combat · flow</small></li>
+          <li><span class="node-index">02</span><strong>TelemetryService</strong><small>runtime observations</small></li>
+          <li><span class="node-index">03</span><strong>State encoding</strong><small>epoch-scoped state</small></li>
+          <li><span class="node-index">04</span><strong>PredictiveAI</strong><small>Markov next-state model</small></li>
+          <li><span class="node-index">05</span><strong>Director</strong><small>game-owned predictions</small></li>
+          <li><span class="node-index">06</span><strong>Evaluation adapter</strong><small>isolated scoring hooks</small></li>
+          <li class="node-output"><span class="node-index">07</span><strong>Evidence outputs</strong><small>F3 overlay · immutable ledger</small></li>
+        </ol>
+      </article>
 
-            <a href="mailto:alisibai01@gmail.com" class="btn-primary" id="hire-btn">
-              <span>Get In Touch</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
-            <a href="cv.html" target="_blank" class="btn-secondary" id="cv-btn">
-              <span>Download CV</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 15V3" />
-                <path d="M7 10l5 5 5-5" />
-                <path d="M5 20h14" />
-              </svg>
-            </a>
-          </div>
+      <div class="problem-grid" aria-label="Technical problem breakdown">
+        <article class="problem-card">
+          <span class="problem-number">01</span>
+          <h3>Encode behaviour</h3>
+          <p>Runtime signals are reduced to discrete player states so transition counts can be updated and queried without blocking the game loop.</p>
+        </article>
+        <article class="problem-card">
+          <span class="problem-number">02</span>
+          <h3>Predict the next state</h3>
+          <p>The Markov model estimates the most likely next encoded state from observed transitions. It does not claim to predict a human “mistake.”</p>
+        </article>
+        <article class="problem-card">
+          <span class="problem-number">03</span>
+          <h3>Deduplicate frames</h3>
+          <p>A state epoch prevents repeated render frames from counting the same prediction opportunity multiple times.</p>
+        </article>
+        <article class="problem-card">
+          <span class="problem-number">04</span>
+          <h3>Prevent leakage</h3>
+          <p>Predictions are frozen before the outcome is observed. Evaluation receives completed events through an adapter instead of training on future data.</p>
+        </article>
+        <article class="problem-card">
+          <span class="problem-number">05</span>
+          <h3>Separate modes</h3>
+          <p>Mode A evaluates a frozen model; Mode B evaluates online prequential learning. Keeping them separate makes results interpretable.</p>
+        </article>
+      </div>
 
-          <div class="about-stats">
-            <div class="stat-card" id="stat-1">
-              <div class="stat-icon">🎮</div>
-              <div class="stat-num">1</div>
-              <div class="stat-label">TÜBİTAK Project</div>
-            </div>
-            <div class="stat-card" id="stat-2">
-              <div class="stat-icon">💡</div>
-              <div class="stat-num">5+</div>
-              <div class="stat-label">Languages</div>
-            </div>
-            <div class="stat-card" id="stat-3">
-              <div class="stat-icon">🚀</div>
-              <div class="stat-num">5</div>
-              <div class="stat-label">Projects Shipped</div>
-            </div>
-            <div class="stat-card" id="stat-4">
-              <div class="stat-icon">🤝</div>
-              <div class="stat-num">1</div>
-              <div class="stat-label">Internship</div>
-            </div>
-            <div class="stat-card" id="stat-5">
-              <div class="stat-icon">🏅</div>
-              <div class="stat-num">3+</div>
-              <div class="stat-label">Competitions</div>
-            </div>
-            <div class="stat-card" id="stat-6">
-              <div class="stat-icon">📅</div>
-              <div class="stat-num">4th</div>
-              <div class="stat-label">Year of Study</div>
-            </div>
+      <div class="evidence-section">
+        <div class="subsection-heading">
+          <div>
+            <p class="mini-label">Current evidence</p>
+            <h3>What the repository proves today</h3>
           </div>
+          <p>Implementation evidence, not aspirational metrics.</p>
         </div>
-      </section>
-
-      <!-- EXPERIENCE -->
-      <section id="experience" class="section">
-        <div class="section-label">
-          <span class="label-num">02</span>
-          <h2 class="section-title">Experience</h2>
+        <div class="evidence-grid">
+          <article><span class="status status--verified">Verified</span><strong>Playable 3D build</strong><p>Sector progression, enemies, pickups, HUD, and persistent progression run in the browser.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>16/16 tests</strong><p>Deterministic evaluator coverage for the current instrumentation contract.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>F3 overlay</strong><p>Read-only prediction and telemetry inspection at runtime.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Two evaluation modes</strong><p>Frozen Mode A and prequential online Mode B are explicitly separated.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Production isolation</strong><p>Evaluator scoring does not modify the prediction selected by production gameplay.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Exception-safe hooks</strong><p>Instrumentation failure is isolated from the running game.</p></article>
         </div>
+      </div>
 
-        <div class="timeline">
-          <div class="timeline-item" id="exp-hilton">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="job-header">
-                <div>
-                  <h3 class="job-title">IT Intern</h3>
-                  <p class="job-company">
-                    <a href="https://www.hilton.com/en/hotels/isttidi-doubletree-istanbul-avcilar/" target="_blank"
-                      rel="noopener" class="company-link">DoubleTree by Hilton</a>
-                  </p>
-                </div>
-                <div class="job-meta">
-                  <span class="job-duration">May 2025</span>
-                  <span class="job-location">📍 Istanbul, Turkey</span>
-                </div>
-              </div>
-              <ul class="job-bullets">
-                <li>Supported the IT team on server maintenance, hardware rollouts, and network infrastructure across
-                  the hotel.</li>
-                <li>Built and deployed a web-based employee database covering all staff and departments.</li>
-                <li>Ran Ethernet cabling and migrated workstations from wireless to wired connections.</li>
-              </ul>
-              <div class="job-tags">
-                <span class="tag">IT Infrastructure</span>
-                <span class="tag">Networking</span>
-                <span class="tag">Hardware</span>
-                <span class="tag">Team Collaboration</span>
-              </div>
-            </div>
-          </div>
+      <div class="evaluation-panel">
+        <div class="evaluation-copy">
+          <span class="status status--evaluation">In evaluation</span>
+          <h3>Human-session evaluation in progress</h3>
+          <p>Final accuracy is intentionally not reported yet. Baseline comparisons, latency distribution, calibration, aggregate export, and confidence intervals will be added after controlled human-session data collection.</p>
         </div>
+        <dl class="evaluation-list">
+          <div><dt>Accuracy</dt><dd>Pending sessions</dd></div>
+          <div><dt>Baseline</dt><dd>Planned comparison</dd></div>
+          <div><dt>Latency</dt><dd>Distribution pending</dd></div>
+          <div><dt>Confidence</dt><dd>Intervals pending</dd></div>
+        </dl>
+      </div>
 
-        <div class="competition-strip">
-          <h3 class="strip-title">Competitions &amp; Research</h3>
-          <div class="comp-cards">
-            <div class="comp-card" id="comp-tubitak">
-              <div class="comp-icon">🏆</div>
-              <div class="comp-body">
-                <div class="comp-name">TÜBİTAK 2209-A</div>
-                <div class="comp-desc">Submitted LuminFlow as an active research project to Turkey's national science
-                  and technology foundation. Focus: predictive AI in game design using Markov chains.</div>
-              </div>
-            </div>
-            <div class="comp-card" id="comp-kaggle">
-              <div class="comp-icon">📊</div>
-              <div class="comp-body">
-                <div class="comp-name">Kaggle Competitions</div>
-                <div class="comp-desc">Compete regularly in ML challenges, testing classification and prediction models
-                  against real-world datasets.</div>
-              </div>
-            </div>
-          </div>
+      <details class="limitations">
+        <summary>
+          <span><span class="status status--planned">Known limitations</span> Open the engineering constraints</span>
+          <span class="summary-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="limitations-grid">
+          <p>KernelMapper, NeuroFlowController, and CognitiveOverloadDetector advanced update paths are currently inactive or unreachable.</p>
+          <p>Director adaptive multipliers are calculated but are not yet consumed by gameplay systems.</p>
+          <p>A documented Director ownership/reference integration defect remains unresolved.</p>
+          <p>No claim is made for statistically superior prediction or validated frame rate across all mobile devices.</p>
         </div>
-      </section>
+      </details>
+    </section>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="section">
-        <div class="section-label">
-          <span class="label-num">03</span>
-          <h2 class="section-title">Projects</h2>
+    <section class="section-shell" id="work" aria-labelledby="work-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">02 / Supporting work</p>
+          <h2 id="work-title">Selected engineering projects</h2>
         </div>
+        <p class="heading-note">Only work with inspectable evidence.</p>
+      </header>
+      <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      <noscript><p class="noscript-note">Enable JavaScript to view the supporting project summaries. SpaceLumin and all contact links remain available above.</p></noscript>
+    </section>
 
-        <div class="projects-grid">
-
-          <!-- LuminFlow -->
-          <div class="project-card featured" id="proj-luminflow">
-            <div class="project-glow"></div>
-            <div class="project-header">
-              <div class="project-top-row">
-                <div class="folder-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
-                <div class="project-links">
-                  <a href="https://luminflow25.netlify.app/" target="_blank" rel="noopener" aria-label="Live Demo"
-                    class="proj-link" id="luminflow-live">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                      <polyline points="15 3 21 3 21 9" />
-                      <line x1="10" y1="14" x2="21" y2="3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="project-badge">TÜBİTAK Research · In Progress</div>
-            </div>
-            <h3 class="project-name">LuminFlow: Utopia Run</h3>
-            <p class="project-desc">
-              A browser game with a custom <strong>Markov-chain predictive engine</strong> that tracks player behavior
-              in real time and adjusts enemy DNA and difficulty before the player makes their next mistake.
-              Submitted to <strong>TÜBİTAK</strong> as an active research project.
-            </p>
-            <ul class="project-features">
-              <li>Built a Markov-chain engine that predicts player mistakes in real time</li>
-              <li>Designed an adaptive enemy DNA evolution system tied to behavior data</li>
-              <li>Packaged as a PWA: installable, offline-capable, 60 FPS on mobile</li>
-              <li>Deployed and live on Netlify</li>
-              <li>Ran the full development lifecycle using Agile/Scrum with structured sprint planning</li>
-            </ul>
-
-            <!-- HPIM Algorithm block -->
-            <div class="hpim-block" id="hpim-block">
-              <div class="hpim-header">
-                <span class="hpim-badge">Proprietary</span>
-                <span class="hpim-title">HPIM: High Performance Interaction Model</span>
-              </div>
-              <p class="hpim-desc">
-                A proprietary algorithm that holds 60 FPS on mobile using predictive input, LERP-interpolated motion,
-                and adaptive quality scaling.
-              </p>
-              <div class="hpim-formulas">
-                <div class="hpim-formula-card" id="hpim-lerp">
-                  <div class="hpim-formula-label">① LERP Jitter Filter</div>
-                  <div class="hpim-formula-eq">
-                    <span class="math-var teal">v<sub>smooth</sub></span>
-                    <span class="math-op">=</span>
-                    <span class="math-var purple">v<sub>smooth</sub></span>
-                    <span class="math-op">+</span>
-                    <span class="math-var magenta">α</span>
-                    <span class="math-op">·</span>
-                    <span class="math-paren">(</span>
-                    <span class="math-var teal">v<sub>raw</sub></span>
-                    <span class="math-op">−</span>
-                    <span class="math-var purple">v<sub>smooth</sub></span>
-                    <span class="math-paren">)</span>
-                  </div>
-                  <div class="hpim-formula-note">Removes touch jitter by blending raw and smoothed velocity every frame
-                  </div>
-                </div>
-                <div class="hpim-formula-card" id="hpim-frate">
-                  <div class="hpim-formula-label">② Frame-Rate Independence</div>
-                  <div class="hpim-formula-eq">
-                    <span class="math-var teal">p<sub>t+1</sub></span>
-                    <span class="math-op">=</span>
-                    <span class="math-var purple">p<sub>t</sub></span>
-                    <span class="math-op">+</span>
-                    <span class="math-var magenta">v</span>
-                    <span class="math-op">·</span>
-                    <span class="math-var blue">Δt</span>
-                  </div>
-                  <div class="hpim-formula-note">Position updated by velocity × delta-time, decoupled from frame rate
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-stack">
-              <span class="stack-tag">JavaScript</span>
-              <span class="stack-tag">Canvas API</span>
-              <span class="stack-tag">PWA</span>
-              <span class="stack-tag">AI / Markov Chain</span>
-              <span class="stack-tag">Netlify</span>
-            </div>
-          </div>
-
-          <!-- Parking System -->
-          <div class="project-card" id="proj-parking">
-            <div class="project-glow"></div>
-            <div class="project-header">
-              <div class="project-top-row">
-                <div class="folder-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/sibaiali/PMS/blob/main/pms.py" target="_blank" rel="noopener"
-                    aria-label="GitHub" class="proj-link" id="parking-gh">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <h3 class="project-name">Smart Parking System</h3>
-            <p class="project-desc">
-              A Python parking management system built at <strong>Altinbas University</strong>.
-              Tracks slot availability in real time, allocates spaces automatically, and logs occupancy data.
-            </p>
-            <ul class="project-features">
-              <li>Automated slot detection and real-time occupancy tracking via OOP data structures</li>
-              <li>Ran the project lifecycle using Agile/Scrum with structured sprint planning</li>
-            </ul>
-            <div class="project-stack">
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">OOP</span>
-              <span class="stack-tag">Data Structures</span>
-              <span class="stack-tag">Algorithms</span>
-            </div>
-          </div>
-
-          <!-- NEST SafePod -->
-          <div class="project-card" id="proj-nest">
-            <div class="project-glow"></div>
-            <div class="project-header">
-              <div class="project-top-row">
-                <div class="folder-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
-                <div class="project-links">
-                  <a href="docs/Sibai-Ali-210502786-ERM416-Part2.pdf" target="_blank" rel="noopener"
-                    aria-label="View Report" class="proj-link" title="View Report">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                      <polyline points="10 9 9 9 8 9" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="project-badge">Entrepreneurship Project · 2025</div>
-            </div>
-            <h3 class="project-name">NEST SafePod</h3>
-            <p class="project-desc">
-              An IoT startup concept for biometric sleep pods in Istanbul's city centers.
-              Designed hardware to software: an <strong>ESP32-powered smart lock</strong>, a <strong>Flutter
-                app</strong> with FaceID unlock, real-time pod status over <strong>MQTT</strong>, and a microservices
-              backend.
-              Paired with a full business plan, financial projections, and break-even analysis.
-            </p>
-            <ul class="project-features">
-              <li>Engineered FaceID pod unlock flow via Flutter app and MQTT signal</li>
-              <li>Wired real-time pod status (Available, Occupied, Cleaning) to a live map</li>
-              <li>Secured user data with AES-256 encryption and KVKK compliance</li>
-              <li>Modeled financials: 665K TRY startup cost, break-even at 22 months</li>
-            </ul>
-            <div class="project-stack">
-              <span class="stack-tag">Flutter</span>
-              <span class="stack-tag">Node.js</span>
-              <span class="stack-tag">ESP32</span>
-              <span class="stack-tag">MQTT</span>
-              <span class="stack-tag">PostgreSQL</span>
-              <span class="stack-tag">IoT</span>
-              <span class="stack-tag">Biometrics</span>
-            </div>
-          </div>
-
-          <!-- CLE NLP Framework -->
-          <div class="project-card" id="proj-cle">
-            <div class="project-glow"></div>
-            <div class="project-header">
-              <div class="project-top-row">
-                <div class="folder-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
-                <div class="project-links">
-                  <a href="docs/CE472_ResearchPaper_NLP.pdf" target="_blank" rel="noopener" aria-label="View Report"
-                    class="proj-link" title="View Report">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                      <polyline points="10 9 9 9 8 9" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="project-badge">AI Research · 2023</div>
-            </div>
-            <h3 class="project-name">CLE: Behavioral NLP Testing Framework</h3>
-            <p class="project-desc">
-              Designed <strong>Comprehensive Linguistic Evaluation (CLE)</strong>, a black-box behavioral testing
-              framework for NLP models.
-              Tested BERT, LSTM, and GPT across sentiment analysis, QA, and machine translation using structured
-              capability matrices and submodular test selection.
-            </p>
-            <ul class="project-features">
-              <li>Built a linguistic capability matrix covering 3 NLP task types</li>
-              <li>Generated MFT, invariance, and directional test cases at scale</li>
-              <li>Applied submodular optimization to pick compact, representative test sets</li>
-              <li>Ran a human evaluation study benchmarking CLE against standard approaches</li>
-            </ul>
-            <div class="project-stack">
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">NLP</span>
-              <span class="stack-tag">BERT</span>
-              <span class="stack-tag">Machine Learning</span>
-              <span class="stack-tag">Research</span>
-            </div>
-          </div>
-
-          <!-- AI Consciousness -->
-          <div class="project-card" id="proj-consciousness">
-            <div class="project-glow"></div>
-            <div class="project-header">
-              <div class="project-top-row">
-                <div class="folder-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                  </svg>
-                </div>
-                <div class="project-links">
-                  <a href="docs/AIConsciousness_AliSibai_TermPaper.pdf" target="_blank" rel="noopener"
-                    aria-label="View Report" class="proj-link" title="View Report">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <polyline points="14 2 14 8 20 8" />
-                      <line x1="16" y1="13" x2="8" y2="13" />
-                      <line x1="16" y1="17" x2="8" y2="17" />
-                      <polyline points="10 9 9 9 8 9" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="project-badge">AI Research · Research Paper</div>
-            </div>
-            <h3 class="project-name">Exploring AI Consciousness</h3>
-            <p class="project-desc">
-              A research paper on machine consciousness. Proposed a <strong>Consciousness Capability Matrix</strong>
-              that scores AI systems across self-awareness, intentionality, subjective experience, and metacognition.
-              Covers IIT, Global Workspace Theory, and Functionalism, with case studies on GPT-4, embodied robots, and
-              neuromorphic chips.
-            </p>
-            <ul class="project-features">
-              <li>Designed a Consciousness Capability Matrix with 4 independently scored dimensions</li>
-              <li>Tested GPT-4, Atlas, Sophia, and Intel Loihi against the framework</li>
-              <li>Evaluated Turing Test, behavioral probing, and neuromorphic simulation approaches</li>
-              <li>Examined ethical implications of conscious-like AI behavior</li>
-            </ul>
-            <div class="project-stack">
-              <span class="stack-tag">AI Research</span>
-              <span class="stack-tag">NLP</span>
-              <span class="stack-tag">Neuroscience</span>
-              <span class="stack-tag">Ethics</span>
-              <span class="stack-tag">LLMs</span>
-            </div>
-          </div>
-
+    <section class="section-shell" id="capabilities" aria-labelledby="capabilities-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">03 / Demonstrated use</p>
+          <h2 id="capabilities-title">Engineering capabilities</h2>
         </div>
-      </section>
-
-      <!-- SKILLS -->
-      <section id="skills" class="section">
-        <div class="section-label">
-          <span class="label-num">04</span>
-          <h2 class="section-title">Skills</h2>
+        <p class="heading-note">Grouped by evidence, not keyword count.</p>
+      </header>
+      <div class="capability-grid" id="capability-grid"></div>
+      <aside class="developing-row" aria-label="Capabilities currently in development">
+        <div>
+          <span class="status status--planned">Currently developing</span>
+          <p>Modern C++, game-engine workflows, behaviour trees, and Game AI interview preparation.</p>
         </div>
+      </aside>
+    </section>
 
-        <div class="skills-grid">
-          <div class="skill-category" id="skill-langs">
-            <h3 class="skill-cat-title">
-              <span class="cat-icon">⚙️</span> Languages
-            </h3>
-            <div class="skill-pills">
-              <div class="skill-pill" data-level="90" id="sp-js">
-                <span class="pill-name">JavaScript</span>
-                <div class="pill-bar">
-                  <div class="pill-fill" style="--w:90%"></div>
-                </div>
-              </div>
-              <div class="skill-pill" data-level="85" id="sp-python">
-                <span class="pill-name">Python</span>
-                <div class="pill-bar">
-                  <div class="pill-fill" style="--w:85%"></div>
-                </div>
-              </div>
-              <div class="skill-pill" data-level="75" id="sp-java">
-                <span class="pill-name">Java</span>
-                <div class="pill-bar">
-                  <div class="pill-fill" style="--w:75%"></div>
-                </div>
-              </div>
-              <div class="skill-pill" data-level="70" id="sp-cpp">
-                <span class="pill-name">C++</span>
-                <div class="pill-bar">
-                  <div class="pill-fill" style="--w:70%"></div>
-                </div>
-              </div>
-              <div class="skill-pill" data-level="70" id="sp-c">
-                <span class="pill-name">C</span>
-                <div class="pill-bar">
-                  <div class="pill-fill" style="--w:70%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-category" id="skill-areas">
-            <h3 class="skill-cat-title">
-              <span class="cat-icon">🧠</span> Domains
-            </h3>
-            <div class="domain-tags">
-              <span class="domain-tag" id="dom-gamedev">Game Development</span>
-              <span class="domain-tag" id="dom-ai">AI &amp; Predictive Systems</span>
-              <span class="domain-tag" id="dom-ds">Data Science</span>
-              <span class="domain-tag" id="dom-pwa">PWA / Web Apps</span>
-              <span class="domain-tag" id="dom-oop">OOP &amp; Data Structures</span>
-              <span class="domain-tag" id="dom-team">Team Collaboration</span>
-              <span class="domain-tag" id="dom-algo">Algorithms</span>
-              <span class="domain-tag" id="dom-ml">Machine Learning</span>
-            </div>
-          </div>
-
-          <div class="skill-category" id="skill-tools">
-            <h3 class="skill-cat-title">
-              <span class="cat-icon">🛠️</span> Tools &amp; Platforms
-            </h3>
-            <div class="domain-tags">
-              <span class="domain-tag" id="tool-git">Git &amp; GitHub</span>
-              <span class="domain-tag" id="tool-vercel">Vercel</span>
-              <span class="domain-tag" id="tool-kaggle">Kaggle</span>
-              <span class="domain-tag" id="tool-canvas">Canvas API</span>
-              <span class="domain-tag" id="tool-pwa">Service Workers</span>
-            </div>
-          </div>
+    <section class="section-shell" id="experience" aria-labelledby="experience-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">04 / Production context</p>
+          <h2 id="experience-title">Experience</h2>
         </div>
-      </section>
+      </header>
 
-      <!-- EDUCATION -->
-      <section id="education" class="section">
-        <div class="section-label">
-          <span class="label-num">05</span>
-          <h2 class="section-title">Education</h2>
+      <article class="experience-card">
+        <div class="experience-meta">
+          <p class="mini-label">May 2025 · Istanbul, Türkiye</p>
+          <h3>IT Intern</h3>
+          <a href="https://www.hilton.com/en/hotels/isttidi-doubletree-istanbul-avcilar/" target="_blank" rel="noopener noreferrer">DoubleTree by Hilton <span aria-hidden="true">↗</span></a>
         </div>
+        <ul class="impact-list">
+          <li><span>01</span><p>Built and deployed a web-based employee database covering staff and departments.</p></li>
+          <li><span>02</span><p>Supported server maintenance, hardware rollouts, and live operational troubleshooting.</p></li>
+          <li><span>03</span><p>Ran Ethernet cabling and helped migrate workstations from wireless to wired connections.</p></li>
+        </ul>
+      </article>
+    </section>
 
-        <div class="edu-card" id="edu-main">
-          <div class="edu-glow"></div>
-          <div class="edu-left">
-            <div class="edu-degree">B.Sc. Computer Engineering</div>
-            <div class="edu-school">Altinbas University</div>
-            <div class="edu-years">2022, Expected Graduation: June 2026</div>
+    <section class="section-shell" id="education" aria-labelledby="education-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">05 / Foundations</p>
+          <h2 id="education-title">Education</h2>
+        </div>
+      </header>
+
+      <div class="education-grid">
+        <article class="education-card education-card--primary">
+          <div class="education-year">2026</div>
+          <div>
+            <span class="status status--verified">Graduated</span>
+            <h3>B.Sc. Computer Engineering</h3>
+            <p class="education-school">Altınbaş University · Istanbul</p>
+            <p>Algorithms, data structures, operating systems, software engineering, computer networks, AI, and real-time project work.</p>
           </div>
-          <div class="edu-right">
-            <p class="edu-desc">
-              Covering algorithms, data structures, operating systems, software engineering, and computer networks.
-              I put the coursework to use through research projects, competitions, and solo builds.
-            </p>
-            <div class="edu-highlights">
-              <div class="edu-highlight"><span>🔬</span> TÜBİTAK Research Submission</div>
-              <div class="edu-highlight"><span>📊</span> Kaggle Data Science Competitions</div>
-              <div class="edu-highlight"><span>👥</span> Team-based project development</div>
-              <div class="edu-highlight"><span>🎯</span> Expected Graduation: June 2026</div>
-            </div>
+        </article>
+
+        <article class="education-card">
+          <div class="education-year">2021</div>
+          <div>
+            <span class="mini-label">Additional education</span>
+            <h3>Diplôme de Psychologie Générale</h3>
+            <p class="education-school">Université Internationale de Casablanca</p>
+            <p>Interdisciplinary foundation in cognition and behaviour that informs human-centred systems thinking.</p>
           </div>
+        </article>
+      </div>
+
+      <div class="credential-row">
+        <span class="mini-label">Selected credential</span>
+        <strong>English: TOEFL iBT</strong>
+        <span>German: B1 and improving</span>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-shell contact-shell">
+        <div>
+          <p class="section-index">06 / Contact</p>
+          <h2 id="contact-title">Build the next<br>system with me.</h2>
         </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="section section-last">
-        <div class="section-label">
-          <span class="label-num">06</span>
-          <h2 class="section-title">Get In Touch</h2>
-        </div>
-
-        <div class="contact-wrap">
-          <p class="contact-intro">
-            I'm looking for an internship where I can do real work and learn fast. If you have a role in mind or just
-            want to talk, send me a message.
-          </p>
-
-          <div class="contact-cards">
-            <a href="mailto:alisibai01@gmail.com" class="contact-card" id="contact-email">
-              <div class="cc-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-              </div>
-              <div class="cc-body">
-                <div class="cc-title">Email</div>
-                <div class="cc-value">alisibai01@gmail.com</div>
-              </div>
-              <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
-
-            <a href="https://github.com/sibaiali" target="_blank" rel="noopener" class="contact-card"
-              id="contact-github">
-              <div class="cc-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-              </div>
-              <div class="cc-body">
-                <div class="cc-title">GitHub</div>
-                <div class="cc-value">github.com/sibaiali</div>
-              </div>
-              <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
-
-            <a href="https://www.linkedin.com/in/sibaiali/" target="_blank" rel="noopener" class="contact-card"
-              id="contact-linkedin">
-              <div class="cc-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
-              </div>
-              <div class="cc-body">
-                <div class="cc-title">LinkedIn</div>
-                <div class="cc-value">linkedin.com/in/sibaiali</div>
-              </div>
-              <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
+        <div class="contact-copy">
+          <p>Open to Game AI, gameplay, Games UI, and software-engineering opportunities in Germany. Available for relocation and interested in teams building technically ambitious interactive systems.</p>
+          <div class="contact-links">
+            <a class="button button--primary" href="mailto:alisibai01@gmail.com">alisibai01@gmail.com <span aria-hidden="true">↗</span></a>
+            <button class="button button--copy" type="button" data-copy-email data-email="alisibai01@gmail.com">Copy email</button>
+            <a href="https://github.com/sibaiali" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/sibaiali/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="cv.html">Engineering CV <span aria-hidden="true">→</span></a>
           </div>
-
-          <p class="contact-foot">
-            Based in <strong>Istanbul, Turkey</strong> · Open to remote and on-site opportunities
-          </p>
+          <p class="contact-location">Türkiye → Germany · Open to Frankfurt relocation</p>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <footer class="footer">
-        <p>Designed &amp; built by <span class="highlight">Ali Sibai</span> · 2026</p>
-      </footer>
+  <footer class="site-footer">
+    <div class="section-shell footer-shell">
+      <p>Designed and built by Ali Sibai.</p>
+      <p>Evidence over adjectives <span aria-hidden="true">·</span> 2026</p>
+    </div>
+  </footer>
 
-    </main>
-  </div>
-
-  <script src="script.js"></script>
+  <div class="copy-toast" role="status" aria-live="polite" data-copy-status></div>
 </body>
-
 </html>
