@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SpaceLumin engineering case study: player-state telemetry, Markov prediction, leakage-safe evaluation, deterministic tests, and known limitations.">
+  <meta name="theme-color" content="#0b0f12">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://alisibai.vercel.app/spacelumin.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <title>SpaceLumin | Engineering Case Study</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="case-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-shell">
+      <a class="brand" href="index.html" aria-label="Ali Sibai portfolio">
+        <span class="brand-mark" aria-hidden="true">AS</span>
+        <span class="brand-copy">
+          <strong>Ali Sibai</strong>
+          <span>Engineering portfolio</span>
+        </span>
+      </a>
+      <nav class="site-nav case-page-nav" aria-label="Case study navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#limitations">Limitations</a>
+        <a class="nav-cta" href="index.html">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section-shell case-page-hero" aria-labelledby="case-title">
+      <div>
+        <p class="eyebrow"><span>Engineering case study</span><span class="eyebrow-rule" aria-hidden="true"></span>SpaceLumin</p>
+        <span class="status status--verified">Verified playable build</span>
+        <h1 id="case-title">Player-state prediction inside a running browser game.</h1>
+        <p class="case-page-lead">SpaceLumin / Lumin Flow: Utopia Run is a Three.js game and a systems testbed for runtime telemetry, Markov next-state prediction, adaptive gameplay architecture, and leakage-safe evaluation.</p>
+        <div class="hero-actions" aria-label="SpaceLumin links">
+          <a class="button button--primary" href="https://spacelumin.vercel.app/" target="_blank" rel="noopener noreferrer">Play the game <span aria-hidden="true">↗</span></a>
+          <a class="button" href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer">Inspect source <span aria-hidden="true">↗</span></a>
+          <a class="button button--quiet" href="index.html">Back to portfolio <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <aside class="brief-panel" aria-label="Case study summary">
+        <div class="panel-topline">
+          <span>Current evidence</span>
+          <span class="status status--evaluation">Human study pending</span>
+        </div>
+        <dl class="brief-list">
+          <div><dt>Runtime</dt><dd>Three.js browser game</dd></div>
+          <div><dt>Prediction</dt><dd>Markov next-state model</dd></div>
+          <div><dt>Inspection</dt><dd>F3 read-only overlay</dd></div>
+          <div><dt>Test state</dt><dd>16/16 deterministic</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section-shell" aria-labelledby="overview-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">01 / Scope</p>
+          <h2 id="overview-title">System and contribution</h2>
+        </div>
+        <p class="heading-note">A playable project with inspectable implementation evidence.</p>
+      </header>
+      <div class="case-intro">
+        <p class="case-lead">The engineering question: can a game observe meaningful player state, predict the next encoded state, and evaluate that prediction without contaminating gameplay?</p>
+        <p class="case-note">I designed and implemented the gameplay systems, telemetry pipeline, state encoding, Markov transition model, runtime prediction overlay, evaluator, deterministic tests, PWA support, and local runtime tooling.</p>
+      </div>
+      <div class="case-links case-links--wide" aria-label="Implementation evidence">
+        <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/ARCHITECTURE.md" target="_blank" rel="noopener noreferrer"><span>Runtime architecture</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin/blob/main/docs/PREDICTION_EVALUATION_DESIGN.md" target="_blank" rel="noopener noreferrer"><span>Evaluation design</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin/tree/main/tests" target="_blank" rel="noopener noreferrer"><span>Test suite</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer"><span>Repository</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section-shell" id="architecture" aria-labelledby="architecture-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">02 / Runtime architecture</p>
+          <h2 id="architecture-title">Prediction ownership</h2>
+        </div>
+        <span class="status status--verified">Read-only instrumentation boundary</span>
+      </header>
+
+      <article class="architecture-card">
+        <ol class="architecture-flow" aria-label="Game input flows through telemetry, prediction, direction, evaluation, and runtime evidence">
+          <li><span class="node-index">01</span><strong>Game input</strong><small>movement · combat · flow</small></li>
+          <li><span class="node-index">02</span><strong>TelemetryService</strong><small>runtime observations</small></li>
+          <li><span class="node-index">03</span><strong>State encoding</strong><small>epoch-scoped state</small></li>
+          <li><span class="node-index">04</span><strong>PredictiveAI</strong><small>Markov next-state model</small></li>
+          <li><span class="node-index">05</span><strong>Director</strong><small>game-owned predictions</small></li>
+          <li><span class="node-index">06</span><strong>Evaluation adapter</strong><small>isolated scoring hooks</small></li>
+          <li class="node-output"><span class="node-index">07</span><strong>Evidence outputs</strong><small>F3 overlay · immutable ledger</small></li>
+        </ol>
+      </article>
+
+      <div class="problem-grid" aria-label="Technical problem breakdown">
+        <article class="problem-card"><span class="problem-number">01</span><h3>Encode behaviour</h3><p>Runtime signals are reduced to discrete states so transition counts can be updated and queried without blocking the game loop.</p></article>
+        <article class="problem-card"><span class="problem-number">02</span><h3>Predict next state</h3><p>The Markov model estimates the most likely next encoded state from observed transitions. It does not claim to predict a human mistake.</p></article>
+        <article class="problem-card"><span class="problem-number">03</span><h3>Deduplicate frames</h3><p>A state epoch prevents repeated render frames from counting the same prediction opportunity multiple times.</p></article>
+        <article class="problem-card"><span class="problem-number">04</span><h3>Prevent leakage</h3><p>Predictions are frozen before the outcome is observed; the evaluator receives completed events through an adapter.</p></article>
+        <article class="problem-card"><span class="problem-number">05</span><h3>Separate modes</h3><p>Frozen-model and prequential learning modes remain distinct so their measurements stay interpretable.</p></article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="evaluation" aria-labelledby="evaluation-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">03 / Evaluation design</p>
+          <h2 id="evaluation-title">Evidence without leakage</h2>
+        </div>
+        <span class="status status--evaluation">Human sessions pending</span>
+      </header>
+
+      <div class="mode-grid">
+        <article class="mode-card"><span class="mini-label">Mode A</span><h3>Frozen evaluation</h3><p>Scores a fixed model so outcomes can be interpreted without online training changing the evaluated transition counts.</p></article>
+        <article class="mode-card"><span class="mini-label">Mode B</span><h3>Prequential evaluation</h3><p>Predicts first, observes the completed transition, scores it, and only then updates the online model.</p></article>
+      </div>
+
+      <div class="evidence-section evidence-section--case">
+        <div class="subsection-heading">
+          <div><p class="mini-label">Verified repository evidence</p><h3>Evaluator architecture and runtime proof</h3></div>
+          <p>Claims below describe the current implementation, not future results.</p>
+        </div>
+        <div class="evidence-grid">
+          <article><span class="status status--verified">Verified</span><strong>16/16 tests</strong><p>Deterministic coverage for the current evaluator contract.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Immutable event ledger</strong><p>Completed prediction events remain inspectable after scoring.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Production isolation</strong><p>Scoring does not replace the prediction selected by gameplay.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Exception-safe hooks</strong><p>Instrumentation failure is isolated from the running game.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>State epochs</strong><p>Repeated frames do not create duplicate prediction opportunities.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>F3 overlay</strong><p>Prediction and telemetry state can be inspected during play.</p></article>
+        </div>
+      </div>
+
+      <div class="evaluation-panel">
+        <div class="evaluation-copy">
+          <span class="status status--evaluation">In evaluation</span>
+          <h3>No final accuracy claim yet</h3>
+          <p>Controlled human-session data collection has not been completed. Accuracy, baseline comparison, latency distribution, calibration, aggregate export, and confidence intervals therefore remain pending.</p>
+        </div>
+        <dl class="evaluation-list">
+          <div><dt>Accuracy</dt><dd>Pending sessions</dd></div>
+          <div><dt>Baseline</dt><dd>Planned comparison</dd></div>
+          <div><dt>Latency</dt><dd>Distribution pending</dd></div>
+          <div><dt>Confidence</dt><dd>Intervals pending</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section-shell" id="limitations" aria-labelledby="limitations-title">
+      <header class="section-heading">
+        <div>
+          <p class="section-index">04 / Engineering constraints</p>
+          <h2 id="limitations-title">Known limitations</h2>
+        </div>
+        <span class="status status--planned">Explicitly documented</span>
+      </header>
+      <div class="limitations-grid limitations-grid--standalone">
+        <p>KernelMapper, NeuroFlowController, and CognitiveOverloadDetector advanced update paths are currently inactive or unreachable.</p>
+        <p>Director adaptive multipliers are calculated but are not yet consumed by gameplay systems.</p>
+        <p>A documented Director ownership/reference integration defect remains unresolved.</p>
+        <p>No claim is made for statistically superior prediction or validated frame rate across all mobile devices.</p>
+      </div>
+      <div class="case-page-close">
+        <p>SpaceLumin is a working engineering system and an active evaluation project. The repository separates what runs today from what still needs evidence.</p>
+        <a class="button button--primary" href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer">Inspect the implementation <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-shell footer-shell">
+      <p>Ali Sibai · SpaceLumin engineering case study</p>
+      <p><a href="index.html">Return to portfolio →</a></p>
+    </div>
+  </footer>
+</body>
+</html>
