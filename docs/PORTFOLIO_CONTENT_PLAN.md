@@ -14,12 +14,13 @@ Ali Sibai is a Computer Engineering graduate building measurable real-time game 
 ## Public information architecture
 
 1. Hero and recruiter summary
-2. SpaceLumin flagship case study
+2. Compact SpaceLumin flagship summary with dedicated case-study page
 3. Selected engineering work
-4. Demonstrated capabilities
-5. Experience
-6. Education and selected credential
-7. Contact
+4. Research and technical writing
+5. Demonstrated capabilities
+6. Experience, including a clearly incomplete psychology-internship record
+7. Education, languages, and selected technical training
+8. Contact
 
 ## Content rules
 
@@ -28,7 +29,8 @@ Ali Sibai is a Computer Engineering graduate building measurable real-time game 
 - Describe the Markov model as next-state prediction, not mistake prediction.
 - Separate production prediction from evaluation instrumentation.
 - State that advanced adaptive paths and gameplay consumption of Director multipliers are not active.
-- Do not publish employer-specific language, affiliation claims, copied brand language, certificates, rankings, or fabricated metrics.
+- Do not publish destination- or employer-specific targeting, affiliation claims, copied brand language, broad certificate galleries, rankings, or fabricated metrics.
+- Keep future project concepts in the data source with `Planned` and inactive states; do not render empty project cards.
 
 ## SpaceLumin story
 
@@ -76,12 +78,21 @@ Keep as a concise Python/OOP implementation with a public repository link. Avoid
 
 Present as course research proposing capability matrices and structured behavioral tests. Avoid claiming a completed human study or deployed framework.
 
+## Supporting background
+
+- Keep the Diplôme de Psychologie Générale as secondary education that supports player-behaviour and user-centred reasoning.
+- Keep the three-month Psychology Intern entry visibly incomplete until its institution, location, dates, and responsibilities are confirmed.
+- Feature only Elements of AI under selected technical training; omit basic, unrelated, and incomplete course certificates.
+
 ## CV content
 
 - One-page, English, print-optimized HTML
 - Game AI & Gameplay Engineering positioning
 - SpaceLumin first with verified evaluator evidence
 - DoubleTree IT internship with operational outcomes
+- Psychology internship placeholder with unverified details explicitly pending
 - B.Sc. Computer Engineering, graduated 2026
-- German language level: B1
+- Diplôme de Psychologie Générale, completed after three years of study
+- Elements of AI, 2 ECTS, completed 2024
+- English: TOEFL iBT certified; German: B1 and improving
 - No proficiency bars, certificate gallery, generic objective, or unsupported metrics

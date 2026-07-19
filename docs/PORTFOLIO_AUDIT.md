@@ -62,9 +62,9 @@ The strongest recruiting story is narrower: a Computer Engineering graduate who 
 ## Assets retained
 
 - `docs/CE472_ResearchPaper_NLP.pdf` as supporting research evidence.
-- `docs/Sibai-Ali-210502786-ERM416-Part2.pdf` only as an existing repository artifact; it is not featured without stronger technical implementation evidence.
-- `docs/AIConsciousness_AliSibai_TermPaper.pdf` remains in history/repository but is removed from the primary homepage path.
+- Elements of AI as the only selected technical-training credential; introductory, unrelated, and incomplete course certificates remain off the site.
+- The psychology diploma as a supporting interdisciplinary credential, not the primary engineering identity.
 
 ## Recommended outcome
 
-Use one recruiter path: focused hero, dominant SpaceLumin case study, two supporting projects, demonstrated capabilities, concise experience and education, and direct contact. Every performance, research, and adaptive-system claim should be either linked to evidence or explicitly marked as in evaluation/planned.
+Use one recruiter path: focused hero, a compact SpaceLumin summary linked to a dedicated engineering case study, one finished supporting project, a smaller research-writing section, demonstrated capabilities, concise experience and education, and direct contact. Every performance, research, and adaptive-system claim should be linked to evidence or explicitly marked as in evaluation/planned.
