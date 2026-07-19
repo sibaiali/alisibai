@@ -34,7 +34,7 @@ The strongest recruiting story is narrower: a Computer Engineering graduate who 
 | NEST SafePod implemented with AES-256/KVKK compliance and exact financial outcomes | Unsupported implementation/compliance claims | Remove from the homepage. |
 | NLP human evaluation study completed | Unsupported by accessible implementation evidence | Reframe as a course research paper proposing a behavioral evaluation framework. |
 | SpaceLumin playable browser game | Verified by public build/repository | Keep and make primary. |
-| 16/16 deterministic evaluator tests | Verified by current project status and repository test architecture | Keep with explicit scope. |
+| 16/16 evaluator tests | Verified by current project status and repository test architecture | Keep with explicit coverage scope. |
 
 ### Information architecture and UX
 

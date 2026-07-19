@@ -54,7 +54,7 @@ A playable Three.js browser game used to explore real-time player-state predicti
 
 - Public playable build
 - Public source repository
-- 16/16 deterministic evaluator tests
+- 16/16 evaluator tests covering event resolution, deduplication, model isolation, and exception-safe instrumentation
 - F3 telemetry/prediction overlay
 - Frozen Mode A and prequential Mode B
 - Exception-isolated evaluator hooks
@@ -81,7 +81,7 @@ Present as course research proposing capability matrices and structured behavior
 ## Supporting background
 
 - Keep the Diplôme de Psychologie Générale as secondary education that supports player-behaviour and user-centred reasoning.
-- Keep the three-month Psychology Intern entry visibly incomplete until its institution, location, dates, and responsibilities are confirmed.
+- Keep the three-month Psychology Intern entry concise: Elementary School, Casablanca, with supervised observation, structured pupil activities, documentation, and school communication.
 - Feature only Elements of AI under selected technical training; omit basic, unrelated, and incomplete course certificates.
 
 ## CV content
@@ -90,7 +90,7 @@ Present as course research proposing capability matrices and structured behavior
 - Game AI & Gameplay Engineering positioning
 - SpaceLumin first with verified evaluator evidence
 - DoubleTree IT internship with operational outcomes
-- Psychology internship placeholder with unverified details explicitly pending
+- Psychology internship framed as brief, supervised school-environment experience
 - B.Sc. Computer Engineering, graduated 2026
 - Diplôme de Psychologie Générale, completed after three years of study
 - Elements of AI, 2 ECTS, completed 2024

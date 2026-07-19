@@ -76,14 +76,58 @@ const prohibitedClaims = [
   blocked("relocation to Ger", "many"),
   blocked("moving to Ger", "many"),
   blocked("Cry", "tek"),
-  /\bGPA\b/i,
-  /TOEFL[^<\n]*\b68\b/i
+  blocked("\\bG", "PA\\b"),
+  blocked("TOE", "FL[^<\\n]*\\b6", "8\\b"),
+  blocked("Secondary rou", "te")
 ];
 
 for (const file of publicClaimFiles) {
   const content = readFileSync(resolve(root, file), "utf8");
   for (const claim of prohibitedClaims) {
     if (claim.test(content)) failures.push(`${file}: prohibited or outdated claim matched ${claim}`);
+  }
+}
+
+const indexHtml = htmlByFile["index.html"];
+const caseStudyHtml = htmlByFile["spacelumin.html"];
+const cvHtml = htmlByFile["cv.html"];
+const countOccurrences = (content, text) => content.split(text).length - 1;
+const recruiterBrief = indexHtml.match(/<aside class="brief-panel"[\s\S]*?<\/aside>/i)?.[0] ?? "";
+const footer = indexHtml.match(/<footer class="site-footer"[\s\S]*?<\/footer>/i)?.[0] ?? "";
+
+if (countOccurrences(recruiterBrief, "Open to opportunities") !== 1) {
+  failures.push("index.html: recruiter brief must contain Open to opportunities exactly once");
+}
+if (!/<dt>Secondary focus<\/dt>[\s\S]*?<dd>Gameplay \/ Games UI<\/dd>/i.test(recruiterBrief)) {
+  failures.push("index.html: recruiter brief is missing the secondary-focus wording");
+}
+if (/class="contact-location"/i.test(indexHtml)) {
+  failures.push("index.html: duplicated contact location remains above the footer");
+}
+if (countOccurrences(footer, "Istanbul, Türkiye · Open to international opportunities") !== 1) {
+  failures.push("index.html: footer must contain the location line exactly once");
+}
+
+const contributionSentence = "I designed and implemented the gameplay systems, telemetry pipeline, Markov prediction model, runtime overlay, leakage-safe evaluation system, deterministic tests, and supporting PWA tooling.";
+for (const [file, html] of [["index.html", indexHtml], ["spacelumin.html", caseStudyHtml]]) {
+  if (!html.includes(contributionSentence)) failures.push(`${file}: missing approved SpaceLumin contribution sentence`);
+  if (!html.includes("16/16 evaluator tests")) failures.push(`${file}: missing evaluator-test evidence title`);
+  if (!html.includes("Deterministic coverage of event resolution, deduplication, model isolation, and exception-safe instrumentation.")) {
+    failures.push(`${file}: missing evaluator-test coverage wording`);
+  }
+}
+
+const supervisedPsychologyPoints = [
+  "Supported supervised observation and structured activities with pupils.",
+  "Assisted with documentation and communication within the school environment.",
+  "Worked under professional supervision and defined responsibilities."
+];
+for (const [file, html] of [["index.html", indexHtml], ["cv.html", cvHtml]]) {
+  if (!html.includes("Elementary School · Casablanca · 3 months")) {
+    failures.push(`${file}: psychology internship setting or duration is inconsistent`);
+  }
+  for (const point of supervisedPsychologyPoints) {
+    if (!html.includes(point)) failures.push(`${file}: missing supervised psychology wording: ${point}`);
   }
 }
 
