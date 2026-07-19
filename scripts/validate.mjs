@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const requiredFiles = [
   "index.html",
+  "spacelumin.html",
   "cv.html",
   "style.css",
   "portfolio-data.js",
@@ -21,7 +22,7 @@ for (const file of requiredFiles) {
   if (!existsSync(resolve(root, file))) failures.push(`Missing required file: ${file}`);
 }
 
-const htmlFiles = ["index.html", "cv.html"];
+const htmlFiles = ["index.html", "spacelumin.html", "cv.html"];
 const htmlByFile = Object.fromEntries(
   htmlFiles.map((file) => [file, readFileSync(resolve(root, file), "utf8")])
 );
@@ -54,7 +55,8 @@ for (const [file, html] of Object.entries(htmlByFile)) {
   }
 }
 
-const publicClaimFiles = ["index.html", "cv.html", "portfolio-data.js"];
+const publicClaimFiles = ["index.html", "spacelumin.html", "cv.html", "portfolio-data.js"];
+const blocked = (...parts) => new RegExp(parts.join(""), "i");
 const prohibitedClaims = [
   /senior computer engineering student/i,
   /expected graduation/i,
@@ -64,7 +66,18 @@ const prohibitedClaims = [
   /60 FPS on mobile/i,
   /AES-256/i,
   /KVKK compliance/i,
-  /looking for an internship/i
+  /looking for an internship/i,
+  blocked("\\bGer", "many\\b"),
+  blocked("German emp", "loyer"),
+  blocked("Frank", "furt"),
+  blocked("Mar", "burg"),
+  blocked("\\bB", "FD\\b"),
+  blocked("\\bUK", "GM\\b"),
+  blocked("relocation to Ger", "many"),
+  blocked("moving to Ger", "many"),
+  blocked("Cry", "tek"),
+  /\bGPA\b/i,
+  /TOEFL[^<\n]*\b68\b/i
 ];
 
 for (const file of publicClaimFiles) {
