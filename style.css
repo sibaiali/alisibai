@@ -1228,7 +1228,8 @@ main > .section-shell--compact:not(.hero) {
   border: 1px dashed var(--line-strong);
   background: rgb(14 20 23 / 64%);
   border-radius: var(--radius);
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(260px, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(28px, 6vw, 76px);
 }
 
 .additional-experience-card h3 {
@@ -1240,6 +1241,31 @@ main > .section-shell--compact:not(.hero) {
   margin: 0;
   color: var(--muted);
   font-size: 0.78rem;
+}
+
+.additional-experience-list {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  list-style: none;
+}
+
+.additional-experience-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.additional-experience-list li::before {
+  position: absolute;
+  top: 0.64em;
+  left: 0;
+  width: 7px;
+  height: 1px;
+  background: var(--accent);
+  content: "";
 }
 
 .experience-meta h3 {
