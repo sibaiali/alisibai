@@ -15,22 +15,51 @@ window.portfolioData = Object.freeze({
       link: "https://github.com/sibaiali/PMS/blob/main/pms.py",
       linkLabel: "Inspect source",
       external: true
+    }
+  ],
+  researchWriting: [
+    {
+      status: "evaluation",
+      statusLabel: "Course research paper",
+      title: "Behavioral NLP Testing Framework",
+      description: "Explores capability matrices and minimum-functionality, invariance, and directional tests for structured NLP evaluation. Presented as research methodology, not a deployed validation system.",
+      tags: ["NLP", "Evaluation design", "Research methodology"],
+      link: "docs/CE472_ResearchPaper_NLP.pdf",
+      linkLabel: "Read paper"
+    }
+  ],
+  futureProjects: [
+    {
+      title: "C++ Behaviour-Tree AI Sandbox",
+      status: "planned",
+      active: false,
+      scopes: [
+        "Modern C++",
+        "Perception",
+        "Patrol, investigate, chase, attack, and retreat states",
+        "Behaviour tree",
+        "Finite-state-machine comparison",
+        "Debugging visualization",
+        "Profiling",
+        "Tests"
+      ]
     },
     {
-      index: "02.2",
-      status: "evaluation",
-      statusLabel: "Research paper",
-      title: "Behavioral NLP Testing Framework",
-      description: "A course research paper exploring capability matrices and structured behavioral tests for evaluating NLP systems across multiple task types.",
-      points: [
-        "Organizes minimum-functionality, invariance, and directional tests",
-        "Examines compact test selection as an evaluation-design problem",
-        "Presented as research methodology, not a deployed validation system"
-      ],
-      stack: ["NLP", "Evaluation design", "AI research", "Python"],
-      link: "docs/CE472_ResearchPaper_NLP.pdf",
-      linkLabel: "Read paper",
-      external: false
+      title: "Games UI Design System",
+      status: "planned",
+      active: false,
+      scopes: [
+        "TypeScript",
+        "Reusable game-interface components",
+        "Settings",
+        "HUD",
+        "Loadout",
+        "Keyboard/controller navigation",
+        "Accessibility",
+        "Localization",
+        "Testing",
+        "Performance"
+      ]
     }
   ],
   capabilities: [
@@ -71,10 +100,12 @@ window.portfolioData = Object.freeze({
       ]
     }
   ],
-  selectedCredentials: [
+  selectedTraining: [
     {
-      name: "German",
-      area: "B1"
+      name: "Elements of AI",
+      provider: "University of Helsinki & MinnaLearn",
+      detail: "2 ECTS · Completed 2024",
+      status: "verified"
     }
   ]
 });
