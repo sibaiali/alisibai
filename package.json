@@ -1,0 +1,12 @@
+{
+  "name": "ali-sibai-engineering-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static game AI and gameplay engineering portfolio.",
+  "scripts": {
+    "check": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

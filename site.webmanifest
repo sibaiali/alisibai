@@ -1,0 +1,17 @@
+{
+  "name": "Ali Sibai - Engineering Portfolio",
+  "short_name": "Ali Sibai",
+  "description": "Game AI and Gameplay Engineering portfolio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f12",
+  "theme_color": "#0b0f12",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
