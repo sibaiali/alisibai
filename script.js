@@ -81,24 +81,28 @@
   }
 
   if (data && projectGrid) {
+    projectGrid.innerHTML = "";
     const projectFragment = document.createDocumentFragment();
     data.supportingProjects.forEach((project) => projectFragment.append(createProjectCard(project)));
     projectGrid.append(projectFragment);
   }
 
   if (data && capabilityGrid) {
+    capabilityGrid.innerHTML = "";
     const capabilityFragment = document.createDocumentFragment();
     data.capabilities.forEach((capability) => capabilityFragment.append(createCapabilityCard(capability)));
     capabilityGrid.append(capabilityFragment);
   }
 
   if (data && researchGrid) {
+    researchGrid.innerHTML = "";
     const researchFragment = document.createDocumentFragment();
     data.researchWriting.forEach((item) => researchFragment.append(createResearchCard(item)));
     researchGrid.append(researchFragment);
   }
 
   if (data && trainingGrid) {
+    trainingGrid.innerHTML = "";
     const trainingFragment = document.createDocumentFragment();
     data.selectedTraining.forEach((item) => trainingFragment.append(createTrainingCard(item)));
     trainingGrid.append(trainingFragment);

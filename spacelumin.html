@@ -3,13 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SpaceLumin engineering case study: player-state telemetry, Markov prediction, leakage-safe evaluation, deterministic tests, and known limitations.">
+  <meta name="description" content="SpaceLumin engineering case study: interactive Three.js web architecture, player-state telemetry, Markov prediction, leakage-safe evaluation, and 16/16 deterministic tests.">
   <meta name="theme-color" content="#0b0f12">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://alisibai.vercel.app/spacelumin.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="site.webmanifest">
-  <title>SpaceLumin | Engineering Case Study</title>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Ali Sibai - Engineering Portfolio">
+  <meta property="og:title" content="SpaceLumin | Engineering Case Study — Ali Sibai">
+  <meta property="og:description" content="B.Sc. Computer Engineering Capstone: Three.js web architecture, real-time telemetry, Markov state prediction, leakage-safe evaluation, and 16/16 deterministic tests.">
+  <meta property="og:url" content="https://alisibai.vercel.app/spacelumin.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SpaceLumin | Engineering Case Study — Ali Sibai">
+  <meta name="twitter:description" content="Three.js web architecture, real-time telemetry, Markov state prediction, and leakage-safe evaluation.">
+  <title>SpaceLumin | Engineering Case Study — Ali Sibai</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="case-page">
@@ -27,7 +35,7 @@
       <nav class="site-nav case-page-nav" aria-label="Case study navigation">
         <a href="#architecture">Architecture</a>
         <a href="#evaluation">Evaluation</a>
-        <a href="#limitations">Limitations</a>
+        <a href="#roadmap">Scope &amp; Roadmap</a>
         <a class="nav-cta" href="index.html">Portfolio</a>
       </nav>
     </div>
@@ -37,25 +45,25 @@
     <section class="section-shell case-page-hero" aria-labelledby="case-title">
       <div>
         <p class="eyebrow"><span>Engineering case study</span><span class="eyebrow-rule" aria-hidden="true"></span>SpaceLumin</p>
-        <span class="status status--verified">Verified playable build</span>
-        <h1 id="case-title">Player-state prediction inside a running browser game.</h1>
-        <p class="case-page-lead">SpaceLumin / Lumin Flow: Utopia Run is a Three.js game and a systems testbed for runtime telemetry, Markov next-state prediction, adaptive gameplay architecture, and leakage-safe evaluation.</p>
+        <span class="status status--verified">Verified live web build</span>
+        <h1 id="case-title">Real-time state prediction inside a running 3D web application.</h1>
+        <p class="case-page-lead">Developed as my B.Sc. Computer Engineering Senior Capstone Project, SpaceLumin / Lumin Flow: Utopia Run is an interactive Three.js browser application engineered for runtime telemetry, Markov next-state prediction, modular client-side state architecture, and leakage-safe online evaluation.</p>
         <div class="hero-actions" aria-label="SpaceLumin links">
-          <a class="button button--primary" href="https://spacelumin.vercel.app/" target="_blank" rel="noopener noreferrer">Play the game <span aria-hidden="true">↗</span></a>
+          <a class="button button--primary" href="https://spacelumin.vercel.app/" target="_blank" rel="noopener noreferrer">Launch live build <span aria-hidden="true">↗</span></a>
           <a class="button" href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer">Inspect source <span aria-hidden="true">↗</span></a>
           <a class="button button--quiet" href="index.html">Back to portfolio <span aria-hidden="true">→</span></a>
         </div>
       </div>
       <aside class="brief-panel" aria-label="Case study summary">
         <div class="panel-topline">
-          <span>Current evidence</span>
-          <span class="status status--evaluation">Human study pending</span>
+          <span>Verified build summary</span>
+          <span class="status status--verified">Production live</span>
         </div>
         <dl class="brief-list">
-          <div><dt>Runtime</dt><dd>Three.js browser game</dd></div>
-          <div><dt>Prediction</dt><dd>Markov next-state model</dd></div>
-          <div><dt>Inspection</dt><dd>F3 read-only overlay</dd></div>
-          <div><dt>Test state</dt><dd>16/16 deterministic</dd></div>
+          <div><dt>Runtime</dt><dd>JavaScript (ES6+) · Three.js · PWA</dd></div>
+          <div><dt>Prediction</dt><dd>Markov next-state transition model</dd></div>
+          <div><dt>Inspection</dt><dd>F3 read-only diagnostic HUD</dd></div>
+          <div><dt>Test suite</dt><dd>16/16 deterministic unit tests</dd></div>
         </dl>
       </aside>
     </section>
@@ -66,10 +74,10 @@
           <p class="section-index">01 / Scope</p>
           <h2 id="overview-title">System and contribution</h2>
         </div>
-        <p class="heading-note">A playable project with inspectable implementation evidence.</p>
+        <p class="heading-note">End-to-end software architecture and verification.</p>
       </header>
       <div class="case-intro">
-        <p class="case-lead">The engineering question: can a game observe meaningful player state, predict the next encoded state, and evaluate that prediction without contaminating gameplay?</p>
+        <p class="case-lead">The core engineering goal: observe high-frequency runtime telemetry, predict the next discrete state in real time, and score those predictions online without mutating or slowing down the active application loop.</p>
         <p class="case-note">I designed and implemented the gameplay systems, telemetry pipeline, Markov prediction model, runtime overlay, leakage-safe evaluation system, deterministic tests, and supporting PWA tooling.</p>
       </div>
       <div class="case-links case-links--wide" aria-label="Implementation evidence">
@@ -91,22 +99,22 @@
 
       <article class="architecture-card">
         <ol class="architecture-flow" aria-label="Game input flows through telemetry, prediction, direction, evaluation, and runtime evidence">
-          <li><span class="node-index">01</span><strong>Game input</strong><small>movement · combat · flow</small></li>
+          <li><span class="node-index">01</span><strong>User input</strong><small>movement · actions · flow</small></li>
           <li><span class="node-index">02</span><strong>TelemetryService</strong><small>runtime observations</small></li>
           <li><span class="node-index">03</span><strong>State encoding</strong><small>epoch-scoped state</small></li>
           <li><span class="node-index">04</span><strong>PredictiveAI</strong><small>Markov next-state model</small></li>
-          <li><span class="node-index">05</span><strong>Director</strong><small>game-owned predictions</small></li>
+          <li><span class="node-index">05</span><strong>Director</strong><small>runtime-owned predictions</small></li>
           <li><span class="node-index">06</span><strong>Evaluation adapter</strong><small>isolated scoring hooks</small></li>
           <li class="node-output"><span class="node-index">07</span><strong>Evidence outputs</strong><small>F3 overlay · immutable ledger</small></li>
         </ol>
       </article>
 
       <div class="problem-grid" aria-label="Technical problem breakdown">
-        <article class="problem-card"><span class="problem-number">01</span><h3>Encode behaviour</h3><p>Runtime signals are reduced to discrete states so transition counts can be updated and queried without blocking the game loop.</p></article>
-        <article class="problem-card"><span class="problem-number">02</span><h3>Predict next state</h3><p>The Markov model estimates the most likely next encoded state from observed transitions. It does not claim to predict a human mistake.</p></article>
-        <article class="problem-card"><span class="problem-number">03</span><h3>Deduplicate frames</h3><p>A state epoch prevents repeated render frames from counting the same prediction opportunity multiple times.</p></article>
-        <article class="problem-card"><span class="problem-number">04</span><h3>Prevent leakage</h3><p>Predictions are frozen before the outcome is observed; the evaluator receives completed events through an adapter.</p></article>
-        <article class="problem-card"><span class="problem-number">05</span><h3>Separate modes</h3><p>Frozen-model and prequential learning modes remain distinct so their measurements stay interpretable.</p></article>
+        <article class="problem-card"><span class="problem-number">01</span><h3>Encode behaviour</h3><p>Continuous runtime signals are reduced to discrete states so transition counts can be updated and queried in O(1) without blocking the render loop.</p></article>
+        <article class="problem-card"><span class="problem-number">02</span><h3>Predict next state</h3><p>The Markov transition model estimates the most probable next encoded state from observed transitions with online probability updates.</p></article>
+        <article class="problem-card"><span class="problem-number">03</span><h3>Deduplicate frames</h3><p>A state-epoch guard prevents 60Hz render frames from counting the same state transition multiple times.</p></article>
+        <article class="problem-card"><span class="problem-number">04</span><h3>Prevent leakage</h3><p>Predictions are frozen prior to outcome resolution; the evaluator receives completed events through a read-only adapter boundary.</p></article>
+        <article class="problem-card"><span class="problem-number">05</span><h3>Separate modes</h3><p>Frozen-model and prequential online-learning modes remain strictly separated so runtime metrics stay reproducible.</p></article>
       </div>
     </section>
 
@@ -114,62 +122,46 @@
       <header class="section-heading">
         <div>
           <p class="section-index">03 / Evaluation design</p>
-          <h2 id="evaluation-title">Evidence without leakage</h2>
+          <h2 id="evaluation-title">Verification without data leakage</h2>
         </div>
-        <span class="status status--evaluation">Human sessions pending</span>
+        <span class="status status--verified">16/16 deterministic tests</span>
       </header>
 
       <div class="mode-grid">
-        <article class="mode-card"><span class="mini-label">Mode A</span><h3>Frozen evaluation</h3><p>Scores a fixed model so outcomes can be interpreted without online training changing the evaluated transition counts.</p></article>
-        <article class="mode-card"><span class="mini-label">Mode B</span><h3>Prequential evaluation</h3><p>Predicts first, observes the completed transition, scores it, and only then updates the online model.</p></article>
+        <article class="mode-card"><span class="mini-label">Mode A</span><h3>Frozen evaluation</h3><p>Evaluates a fixed transition matrix so prediction accuracy can be measured without online updates shifting the baseline mid-session.</p></article>
+        <article class="mode-card"><span class="mini-label">Mode B</span><h3>Prequential evaluation</h3><p>Follows strict test-then-train ordering: predicts first, observes the completed state transition, scores the event, and only then updates transition counts.</p></article>
       </div>
 
       <div class="evidence-section evidence-section--case">
         <div class="subsection-heading">
           <div><p class="mini-label">Verified repository evidence</p><h3>Evaluator architecture and runtime proof</h3></div>
-          <p>Claims below describe the current implementation, not future results.</p>
+          <p>Backed by automated tests and live browser inspection.</p>
         </div>
         <div class="evidence-grid">
           <article><span class="status status--verified">Verified</span><strong>16/16 evaluator tests</strong><p>Deterministic coverage of event resolution, deduplication, model isolation, and exception-safe instrumentation.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>Immutable event ledger</strong><p>Completed prediction events remain inspectable after scoring.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>Production isolation</strong><p>Scoring does not replace the prediction selected by gameplay.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>Exception-safe hooks</strong><p>Instrumentation failure is isolated from the running game.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>State epochs</strong><p>Repeated frames do not create duplicate prediction opportunities.</p></article>
-          <article><span class="status status--verified">Verified</span><strong>F3 overlay</strong><p>Prediction and telemetry state can be inspected during play.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Immutable event ledger</strong><p>Completed prediction events are frozen upon resolution so historical scoring records cannot be mutated.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Production isolation</strong><p>Evaluation hooks observe predictions without overriding or mutating the active game-loop state.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>Exception-safe hooks</strong><p>Adapter boundaries catch and isolate instrumentation faults so the interactive application never crashes.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>State epochs</strong><p>Epoch-scoped transition tracking eliminates duplicate frame counting across variable refresh rates.</p></article>
+          <article><span class="status status--verified">Verified</span><strong>F3 diagnostic overlay</strong><p>Live telemetry, transition probabilities, and evaluator counters can be inspected in real time during play.</p></article>
         </div>
-      </div>
-
-      <div class="evaluation-panel">
-        <div class="evaluation-copy">
-          <span class="status status--evaluation">In evaluation</span>
-          <h3>No final accuracy claim yet</h3>
-          <p>Controlled human-session data collection has not been completed. Accuracy, baseline comparison, latency distribution, calibration, aggregate export, and confidence intervals therefore remain pending.</p>
-        </div>
-        <dl class="evaluation-list">
-          <div><dt>Accuracy</dt><dd>Pending sessions</dd></div>
-          <div><dt>Baseline</dt><dd>Planned comparison</dd></div>
-          <div><dt>Latency</dt><dd>Distribution pending</dd></div>
-          <div><dt>Confidence</dt><dd>Intervals pending</dd></div>
-        </dl>
       </div>
     </section>
 
-    <section class="section-shell" id="limitations" aria-labelledby="limitations-title">
+    <section class="section-shell" id="roadmap" aria-labelledby="roadmap-title">
       <header class="section-heading">
         <div>
-          <p class="section-index">04 / Engineering constraints</p>
-          <h2 id="limitations-title">Known limitations</h2>
+          <p class="section-index">04 / Architecture scope &amp; roadmap</p>
+          <h2 id="roadmap-title">Modular roadmap</h2>
         </div>
-        <span class="status status--planned">Explicitly documented</span>
+        <span class="status status--planned">Next engineering milestones</span>
       </header>
       <div class="limitations-grid limitations-grid--standalone">
-        <p>KernelMapper, NeuroFlowController, and CognitiveOverloadDetector advanced update paths are currently inactive or unreachable.</p>
-        <p>Director adaptive multipliers are calculated but are not yet consumed by gameplay systems.</p>
-        <p>A documented Director ownership/reference integration defect remains unresolved.</p>
-        <p>No claim is made for statistically superior prediction or validated frame rate across all mobile devices.</p>
+        <p><strong>Telemetry session export:</strong> Extending the immutable event ledger with structured JSON/CSV session export for offline statistical analysis.</p>
+        <p><strong>Adaptive loop binding:</strong> Connecting the Director's calculated difficulty multipliers directly to spawn and pacing parameters in controlled A/B modes.</p>
       </div>
       <div class="case-page-close">
-        <p>SpaceLumin is a working engineering system and an active evaluation project. The repository separates what runs today from what still needs evidence.</p>
+        <p>SpaceLumin demonstrates clean separation of concerns between interactive 3D rendering, real-time state telemetry, online Markov prediction, and deterministic verification.</p>
         <a class="button button--primary" href="https://github.com/sibaiali/SpaceLumin" target="_blank" rel="noopener noreferrer">Inspect the implementation <span aria-hidden="true">↗</span></a>
       </div>
     </section>

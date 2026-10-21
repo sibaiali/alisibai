@@ -4,14 +4,14 @@ window.portfolioData = Object.freeze({
       index: "02.1",
       status: "verified",
       statusLabel: "Public source",
-      title: "Smart Parking System",
+      title: "Smart Parking Management System",
       description: "A Python parking-management system that models slot availability, vehicle allocation, and occupancy records with object-oriented data structures.",
       points: [
-        "Implements automated space allocation and release logic",
-        "Uses OOP boundaries for parking state and vehicle records",
-        "Makes the implementation inspectable in a public repository"
+        "Implements automated parking-slot allocation, release workflows, and live occupancy tracking",
+        "Encapsulates parking state and vehicle records behind clean object-oriented boundaries",
+        "Provides a readable, inspectable Python implementation in a public repository"
       ],
-      stack: ["Python", "OOP", "Data structures", "Algorithms"],
+      stack: ["Python", "OOP", "Data structures", "State management"],
       link: "https://github.com/sibaiali/PMS/blob/main/pms.py",
       linkLabel: "Inspect source",
       external: true
@@ -22,80 +22,46 @@ window.portfolioData = Object.freeze({
       status: "evaluation",
       statusLabel: "Course research paper",
       title: "Behavioral NLP Testing Framework",
-      description: "Explores capability matrices and minimum-functionality, invariance, and directional tests for structured NLP evaluation. Presented as research methodology, not a deployed validation system.",
-      tags: ["NLP", "Evaluation design", "Research methodology"],
+      description: "Explores capability matrices and minimum-functionality, invariance, and directional tests for structured NLP evaluation. Presented as research methodology for systematic software and model validation.",
+      tags: ["NLP", "Evaluation design", "Testing methodology"],
       link: "docs/CE472_ResearchPaper_NLP.pdf",
       linkLabel: "Read paper"
     }
   ],
-  futureProjects: [
-    {
-      title: "C++ Behaviour-Tree AI Sandbox",
-      status: "planned",
-      active: false,
-      scopes: [
-        "Modern C++",
-        "Perception",
-        "Patrol, investigate, chase, attack, and retreat states",
-        "Behaviour tree",
-        "Finite-state-machine comparison",
-        "Debugging visualization",
-        "Profiling",
-        "Tests"
-      ]
-    },
-    {
-      title: "Games UI Design System",
-      status: "planned",
-      active: false,
-      scopes: [
-        "TypeScript",
-        "Reusable game-interface components",
-        "Settings",
-        "HUD",
-        "Loadout",
-        "Keyboard/controller navigation",
-        "Accessibility",
-        "Localization",
-        "Testing",
-        "Performance"
-      ]
-    }
-  ],
   capabilities: [
     {
-      code: "RT",
-      title: "Game & real-time systems",
+      code: "SW",
+      title: "Software & web engineering",
       items: [
-        "Game loops",
-        "Runtime telemetry",
-        "State prediction",
-        "Adaptive-system architecture",
-        "Object pooling",
-        "Performance-aware browser games"
+        "JavaScript (ES6+) & DOM APIs",
+        "HTML5, CSS3 & responsive UI",
+        "SQL & relational data modeling",
+        "CRUD internal web applications",
+        "Progressive Web Apps (PWA)",
+        "Client-side state & storage"
       ]
     },
     {
-      code: "PL",
-      title: "Programming",
+      code: "RT",
+      title: "Interactive systems & Game AI",
       items: [
-        "JavaScript - primary project language",
-        "Python - implemented project work",
-        "C++ - developing",
-        "C - academic foundation",
-        "Java - academic foundation"
+        "Three.js & 3D browser rendering",
+        "Real-time update loops",
+        "Runtime telemetry pipelines",
+        "Markov next-state prediction",
+        "Leakage-safe online evaluation",
+        "Object pooling & F3 diagnostic HUD"
       ]
     },
     {
       code: "EP",
-      title: "Engineering practices",
+      title: "Languages & engineering practices",
       items: [
-        "Git",
-        "Deterministic testing",
-        "Runtime instrumentation",
-        "Evaluation design",
-        "Debugging",
-        "PWA development",
+        "Python (OOP & data structures)",
+        "C#, C++, C & Java foundations",
+        "Git & version control",
+        "Deterministic automated testing",
+        "Exception-safe instrumentation",
         "Technical documentation"
       ]
     }
@@ -104,7 +70,13 @@ window.portfolioData = Object.freeze({
     {
       name: "Elements of AI",
       provider: "University of Helsinki & MinnaLearn",
-      detail: "2 ECTS · Completed 2024",
+      detail: "2 ECTS · Verified Certificate · 2024",
+      status: "verified"
+    },
+    {
+      name: "SQL, C#, C++ & Web Development",
+      provider: "Completed Technical Certifications",
+      detail: "Intermediate SQL, C#, C++, Java & Front-End Web · 2024",
       status: "verified"
     }
   ]

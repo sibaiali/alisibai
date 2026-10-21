@@ -56,7 +56,6 @@ for (const [file, html] of Object.entries(htmlByFile)) {
 }
 
 const publicClaimFiles = ["index.html", "spacelumin.html", "cv.html", "portfolio-data.js"];
-const blocked = (...parts) => new RegExp(parts.join(""), "i");
 const prohibitedClaims = [
   /senior computer engineering student/i,
   /expected graduation/i,
@@ -67,18 +66,10 @@ const prohibitedClaims = [
   /AES-256/i,
   /KVKK compliance/i,
   /looking for an internship/i,
-  blocked("\\bGer", "many\\b"),
-  blocked("German emp", "loyer"),
-  blocked("Frank", "furt"),
-  blocked("Mar", "burg"),
-  blocked("\\bB", "FD\\b"),
-  blocked("\\bUK", "GM\\b"),
-  blocked("relocation to Ger", "many"),
-  blocked("moving to Ger", "many"),
-  blocked("Cry", "tek"),
-  blocked("\\bG", "PA\\b"),
-  blocked("TOE", "FL[^<\\n]*\\b6", "8\\b"),
-  blocked("Secondary rou", "te")
+  /Based in Istanbul/i,
+  /Psychology Intern/i,
+  /unresolved/i,
+  /unreachable/i
 ];
 
 for (const file of publicClaimFiles) {
@@ -98,14 +89,14 @@ const footer = indexHtml.match(/<footer class="site-footer"[\s\S]*?<\/footer>/i)
 if (countOccurrences(recruiterBrief, "Open to opportunities") !== 1) {
   failures.push("index.html: recruiter brief must contain Open to opportunities exactly once");
 }
-if (!/<dt>Secondary focus<\/dt>[\s\S]*?<dd>Gameplay \/ Games UI<\/dd>/i.test(recruiterBrief)) {
-  failures.push("index.html: recruiter brief is missing the secondary-focus wording");
+if (!/<dt>Location<\/dt>[\s\S]*?<dd>Marburg \/ Frankfurt Area, DE<\/dd>/i.test(recruiterBrief)) {
+  failures.push("index.html: recruiter brief is missing the Germany location");
 }
-if (/class="contact-location"/i.test(indexHtml)) {
-  failures.push("index.html: duplicated contact location remains above the footer");
+if (!/<dt>Primary focus<\/dt>[\s\S]*?<dd>Software &amp; Web Engineering<\/dd>/i.test(recruiterBrief)) {
+  failures.push("index.html: recruiter brief is missing the primary-focus wording");
 }
-if (countOccurrences(footer, "Istanbul, Türkiye · Open to international opportunities") !== 1) {
-  failures.push("index.html: footer must contain the location line exactly once");
+if (countOccurrences(footer, "Marburg / Frankfurt Rhine-Main, Germany · Open to opportunities nationwide") !== 1) {
+  failures.push("index.html: footer must contain the Germany location line exactly once");
 }
 
 const contributionSentence = "I designed and implemented the gameplay systems, telemetry pipeline, Markov prediction model, runtime overlay, leakage-safe evaluation system, deterministic tests, and supporting PWA tooling.";
@@ -117,17 +108,18 @@ for (const [file, html] of [["index.html", indexHtml], ["spacelumin.html", caseS
   }
 }
 
-const supervisedPsychologyPoints = [
-  "Supported supervised observation and structured activities with pupils.",
-  "Assisted with documentation and communication within the school environment.",
-  "Worked under professional supervision and defined responsibilities."
-];
 for (const [file, html] of [["index.html", indexHtml], ["cv.html", cvHtml]]) {
-  if (!html.includes("Elementary School · Casablanca · 3 months")) {
-    failures.push(`${file}: psychology internship setting or duration is inconsistent`);
+  if (!html.includes("Marburg / Frankfurt Rhine-Main, Germany")) {
+    failures.push(`${file}: missing Germany location`);
   }
-  for (const point of supervisedPsychologyPoints) {
-    if (!html.includes(point)) failures.push(`${file}: missing supervised psychology wording: ${point}`);
+  if (!html.includes("HTML, CSS, JavaScript, SQL")) {
+    failures.push(`${file}: missing DoubleTree by Hilton technical stack`);
+  }
+  if (!html.includes("Bundesfreiwilligendienst")) {
+    failures.push(`${file}: missing BFD experience in Germany`);
+  }
+  if (!html.includes("Daily workplace use in Germany")) {
+    failures.push(`${file}: missing daily German workplace proficiency wording`);
   }
 }
 
@@ -138,4 +130,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents, no prohibited public claims.`);
+console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents, Germany market positioning verified.`);

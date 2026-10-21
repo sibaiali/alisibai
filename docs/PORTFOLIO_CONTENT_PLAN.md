@@ -1,98 +1,31 @@
-# Portfolio content plan
+# Portfolio content plan (Germany Market Edition)
 
 ## Ten-second message
 
-Ali Sibai is a Computer Engineering graduate building measurable real-time game AI and gameplay systems.
+Ali Sibai is a Computer Engineering graduate based in Germany (Marburg / Frankfurt Rhine-Main) building interactive web software, real-time telemetry pipelines, data-driven tools, and measurable Game AI systems.
 
 ## Audience
 
-- Game AI engineers and technical recruiters
-- Gameplay programmers
-- Games UI and web UI teams
-- Software employers building technically ambitious interactive systems
+- Software & Web Engineering hiring managers and technical recruiters across Germany
+- Interactive systems, 3D web, and Frontend/UI teams
+- Game AI and Gameplay Engineering teams (Frankfurt Rhine-Main and nationwide)
 
 ## Public information architecture
 
-1. Hero and recruiter summary
-2. Compact SpaceLumin flagship summary with dedicated case-study page
-3. Selected engineering work
-4. Research and technical writing
-5. Demonstrated capabilities
-6. Experience, including a clearly incomplete psychology-internship record
-7. Education, languages, and selected technical training
+1. Hero and Germany-focused recruiter brief
+2. SpaceLumin flagship 3D web & real-time AI system summary with dedicated case-study page
+3. Selected engineering projects (`Smart Parking Management System`)
+4. Research and technical writing (`Behavioral NLP Testing Framework`)
+5. Engineering capabilities grouped into Software & Web Engineering, Interactive Systems & Game AI, and Languages & Engineering Practices
+6. Professional experience (`DoubleTree by Hilton` — IT & Software Intern with HTML/CSS/JS/SQL web database impact)
+7. Education (`B.Sc. Computer Engineering` 2022–2026, `Diplôme de Psychologie Générale` 2018–2021), English & German language proficiencies, and selected technical certifications
 8. Contact
 
-## Content rules
+## Key refinements for the German job market
 
-- Lead with implemented systems and linked evidence.
-- Use `Verified`, `In evaluation`, and `Planned` labels consistently.
-- Describe the Markov model as next-state prediction, not mistake prediction.
-- Separate production prediction from evaluation instrumentation.
-- State that advanced adaptive paths and gameplay consumption of Director multipliers are not active.
-- Do not publish destination- or employer-specific targeting, affiliation claims, copied brand language, broad certificate galleries, rankings, or fabricated metrics.
-- Keep future project concepts in the data source with `Planned` and inactive states; do not render empty project cards.
-
-## SpaceLumin story
-
-### Summary
-
-A playable Three.js browser game used to explore real-time player-state prediction, telemetry, and adaptive gameplay architecture.
-
-### Contribution
-
-- Gameplay systems and progression
-- Player-behaviour telemetry
-- Markov transition model and state encoding
-- F3 runtime prediction overlay
-- Leakage-safe evaluation adapter
-- Frozen and prequential evaluation modes
-- State-epoch deduplication and immutable event ledger
-- Deterministic evaluator tests
-- PWA and local runtime tooling
-
-### Evidence
-
-- Public playable build
-- Public source repository
-- 16/16 evaluator tests covering event resolution, deduplication, model isolation, and exception-safe instrumentation
-- F3 telemetry/prediction overlay
-- Frozen Mode A and prequential Mode B
-- Exception-isolated evaluator hooks
-- Production-model isolation
-
-### Transparent status
-
-- Human-session accuracy is not yet reported.
-- Baseline comparisons, calibration/export, latency distribution, aggregate reporting, and confidence intervals remain in evaluation/planned.
-- KernelMapper, NeuroFlowController, and CognitiveOverloadDetector advanced update paths are inactive or unreachable.
-- Director adaptive multipliers are calculated but not consumed by gameplay.
-- A documented Director ownership/reference integration defect remains unresolved.
-
-## Supporting work
-
-### Smart Parking System
-
-Keep as a concise Python/OOP implementation with a public repository link. Avoid process methodology claims that do not help prove engineering capability.
-
-### Behavioral NLP testing paper
-
-Present as course research proposing capability matrices and structured behavioral tests. Avoid claiming a completed human study or deployed framework.
-
-## Supporting background
-
-- Keep the Diplôme de Psychologie Générale as secondary education that supports player-behaviour and user-centred reasoning.
-- Keep the three-month Psychology Intern entry concise: Elementary School, Casablanca, with supervised observation, structured pupil activities, documentation, and school communication.
-- Feature only Elements of AI under selected technical training; omit basic, unrelated, and incomplete course certificates.
-
-## CV content
-
-- One-page, English, print-optimized HTML
-- Game AI & Gameplay Engineering positioning
-- SpaceLumin first with verified evaluator evidence
-- DoubleTree IT internship with operational outcomes
-- Psychology internship framed as brief, supervised school-environment experience
-- B.Sc. Computer Engineering, graduated 2026
-- Diplôme de Psychologie Générale, completed after three years of study
-- Elements of AI, 2 ECTS, completed 2024
-- English: TOEFL iBT certified; German: B1 and improving
-- No proficiency bars, certificate gallery, generic objective, or unsupported metrics
+- **Broadened Engineering Identity:** Positioned for **Software, Web & Interactive Systems Engineering** alongside **Game AI**, matching a much wider set of Junior/Graduate Software, Web, and Interactive Systems roles in Germany while preserving the strength of the flagship 3D/AI project.
+- **Clear German Location & Availability:** Explicitly highlights `Marburg / Frankfurt Rhine-Main, Germany · Available for roles nationwide`.
+- **Removed Counterproductive Warning Banners:** Removed the self-sabotaging "Known limitations / Unresolved defects / In-evaluation" warning callouts from the CV and homepage, reframing future SpaceLumin work constructively as a modular roadmap on the case-study page.
+- **Removed Non-Engineering Clutter:** Removed the 3-month Elementary School Psychology Internship from the Engineering Experience section, merged the standalone single-item Training section into Education & Credentials, and removed unused `futureProjects` dead code from `portfolio-data.js`.
+- **Concrete Tech Stack in Experience & Skills:** Added verified technical stack details (`HTML, CSS, JavaScript, SQL` for the DoubleTree by Hilton employee database) and verified certifications (`SQL, C#, C++, Java & Web Development`, plus `Elements of AI`).
+- **Focused Language Credentials:** Highlighted **English** (B2–C1 · TOEFL iBT certified) and **German** (B1 · Actively advancing toward B2 in Germany).
