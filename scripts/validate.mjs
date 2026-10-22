@@ -6,14 +6,14 @@ const requiredFiles = [
   "index.html",
   "spacelumin.html",
   "cv.html",
+  "cv-de.html",
   "style.css",
   "portfolio-data.js",
   "script.js",
   "favicon.svg",
   "site.webmanifest",
   "robots.txt",
-  "sitemap.xml",
-  "docs/CE472_ResearchPaper_NLP.pdf"
+  "sitemap.xml"
 ];
 
 const failures = [];
@@ -22,13 +22,16 @@ for (const file of requiredFiles) {
   if (!existsSync(resolve(root, file))) failures.push(`Missing required file: ${file}`);
 }
 
-const htmlFiles = ["index.html", "spacelumin.html", "cv.html"];
+const htmlFiles = ["index.html", "spacelumin.html", "cv.html", "cv-de.html"];
 const htmlByFile = Object.fromEntries(
   htmlFiles.map((file) => [file, readFileSync(resolve(root, file), "utf8")])
 );
 
 for (const [file, html] of Object.entries(htmlByFile)) {
-  if (!/<html\s+lang="en"/i.test(html)) failures.push(`${file}: missing English language declaration`);
+  const expectedLang = file === "cv-de.html" ? "de" : "en";
+  if (!new RegExp(`<html\\s+lang="${expectedLang}"`, "i").test(html)) {
+    failures.push(`${file}: missing ${expectedLang} language declaration`);
+  }
   if (!/<main[\s>]/i.test(html)) failures.push(`${file}: missing main landmark`);
   if ((html.match(/<h1[\s>]/gi) || []).length !== 1) failures.push(`${file}: expected exactly one h1`);
 
@@ -55,7 +58,7 @@ for (const [file, html] of Object.entries(htmlByFile)) {
   }
 }
 
-const publicClaimFiles = ["index.html", "spacelumin.html", "cv.html", "portfolio-data.js"];
+const publicClaimFiles = ["index.html", "spacelumin.html", "cv.html", "cv-de.html", "portfolio-data.js"];
 const prohibitedClaims = [
   /senior computer engineering student/i,
   /expected graduation/i,
@@ -69,7 +72,11 @@ const prohibitedClaims = [
   /Based in Istanbul/i,
   /Psychology Intern/i,
   /unresolved/i,
-  /unreachable/i
+  /unreachable/i,
+  /CE472/i,
+  /Behavioral NLP Testing/i,
+  /nationwide/i,
+  /bundesweit/i
 ];
 
 for (const file of publicClaimFiles) {
@@ -82,6 +89,7 @@ for (const file of publicClaimFiles) {
 const indexHtml = htmlByFile["index.html"];
 const caseStudyHtml = htmlByFile["spacelumin.html"];
 const cvHtml = htmlByFile["cv.html"];
+const cvDeHtml = htmlByFile["cv-de.html"];
 const countOccurrences = (content, text) => content.split(text).length - 1;
 const recruiterBrief = indexHtml.match(/<aside class="brief-panel"[\s\S]*?<\/aside>/i)?.[0] ?? "";
 const footer = indexHtml.match(/<footer class="site-footer"[\s\S]*?<\/footer>/i)?.[0] ?? "";
@@ -95,7 +103,7 @@ if (!/<dt>Location<\/dt>[\s\S]*?<dd>Marburg \/ Frankfurt Area, DE<\/dd>/i.test(r
 if (!/<dt>Primary focus<\/dt>[\s\S]*?<dd>Software &amp; Web Engineering<\/dd>/i.test(recruiterBrief)) {
   failures.push("index.html: recruiter brief is missing the primary-focus wording");
 }
-if (countOccurrences(footer, "Marburg / Frankfurt Rhine-Main, Germany · Open to opportunities nationwide") !== 1) {
+if (countOccurrences(footer, "<p>Marburg / Frankfurt Rhine-Main, Germany</p>") !== 1) {
   failures.push("index.html: footer must contain the Germany location line exactly once");
 }
 
@@ -123,6 +131,13 @@ for (const [file, html] of [["index.html", indexHtml], ["cv.html", cvHtml]]) {
   }
 }
 
+if (!cvDeHtml.includes("Raum Marburg / Frankfurt Rhein-Main, Deutschland")) {
+  failures.push("cv-de.html: missing German location line");
+}
+if (!cvDeHtml.includes("Bundesfreiwilligendienst (BFD)")) {
+  failures.push("cv-de.html: missing BFD entry");
+}
+
 JSON.parse(readFileSync(resolve(root, "site.webmanifest"), "utf8"));
 
 if (failures.length) {
@@ -130,4 +145,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents, Germany market positioning verified.`);
+console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents (EN & DE), Germany market positioning verified.`);

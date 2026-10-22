@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ali Sibai - one-page Software, Web & Interactive Systems Engineering CV (Germany).">
+  <meta name="description" content="Ali Sibai - one-page Software, Web & Interactive Systems Engineering CV (English).">
   <meta name="theme-color" content="#0b0f12">
   <link rel="canonical" href="https://alisibai.vercel.app/cv.html">
+  <link rel="alternate" hreflang="en" href="https://alisibai.vercel.app/cv.html">
+  <link rel="alternate" hreflang="de" href="https://alisibai.vercel.app/cv-de.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Ali Sibai - Engineering Portfolio">
-  <meta property="og:title" content="Ali Sibai | Engineering CV">
+  <meta property="og:title" content="Ali Sibai | Engineering CV (English)">
   <meta property="og:description" content="One-page Software, Web & Interactive Systems Engineering CV — Marburg / Frankfurt Rhine-Main, Germany.">
   <meta property="og:url" content="https://alisibai.vercel.app/cv.html">
   <meta name="twitter:card" content="summary">
-  <title>Ali Sibai | Engineering CV</title>
+  <title>Ali Sibai | Engineering CV (EN)</title>
   <style>
     :root {
       --ink: #172021;
@@ -54,12 +56,23 @@
       margin: 22px auto 12px;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .screen-actions__group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .screen-actions a,
     .screen-actions button {
+      display: inline-flex;
       padding: 10px 14px;
+      align-items: center;
+      gap: 6px;
       border: 1px solid #3b4b4d;
       color: #eef5f3;
       background: #11171b;
@@ -68,7 +81,12 @@
       cursor: pointer;
     }
 
-    .screen-actions button {
+    .screen-actions a:hover,
+    .screen-actions button:hover {
+      border-color: #79e0c0;
+    }
+
+    .screen-actions .action-primary {
       color: #07120f;
       background: #79e0c0;
       border-color: #79e0c0;
@@ -297,8 +315,11 @@
 </head>
 <body>
   <nav class="screen-actions" aria-label="CV actions">
-    <a href="index.html">← Portfolio</a>
-    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    <a href="index.html">← Back to Portfolio</a>
+    <div class="screen-actions__group">
+      <a href="cv-de.html" lang="de">DE · Deutscher Lebenslauf</a>
+      <button type="button" class="action-primary" onclick="window.print()">Print / Save as PDF ↓</button>
+    </div>
   </nav>
 
   <main class="page">
@@ -308,7 +329,7 @@
         <p class="role">Software, Web &amp; Interactive Systems Engineer · B.Sc. Computer Engineering</p>
       </div>
       <div class="contact">
-        <span>Marburg / Frankfurt Rhine-Main, Germany · Open to roles nationwide</span>
+        <span>Marburg / Frankfurt Rhine-Main, Germany</span>
         <a href="mailto:alisibai01@gmail.com">alisibai01@gmail.com</a>
         <span><a href="https://github.com/sibaiali">github.com/sibaiali</a> · <a href="https://www.linkedin.com/in/sibaiali/">linkedin.com/in/sibaiali</a></span>
         <a href="https://alisibai.vercel.app/">alisibai.vercel.app</a>
@@ -374,27 +395,13 @@
             <p class="stack">HTML5 · CSS3 · JavaScript · SQL · Systems &amp; Network Administration</p>
           </article>
         </section>
-
-        <section class="section" aria-labelledby="research-heading">
-          <h2 class="section-title" id="research-heading">Research &amp; technical writing</h2>
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>Behavioral NLP Testing Framework</h3>
-              <span class="entry-meta"><a href="docs/CE472_ResearchPaper_NLP.pdf">Course research paper</a></span>
-            </div>
-            <ul>
-              <li>Investigated capability matrices and minimum-functionality, invariance, and directional test suites for structured behavioral validation of NLP models.</li>
-            </ul>
-            <p class="stack">NLP · Evaluation design · Software &amp; model testing methodology</p>
-          </article>
-        </section>
       </div>
 
       <aside aria-label="Education, skills, and languages">
         <section class="side-section">
           <h2>Location &amp; availability</h2>
           <h3>Marburg / Frankfurt Area, DE</h3>
-          <p>Based in Germany · Available immediately for Junior / Graduate Engineering roles nationwide</p>
+          <p>Based in Germany · Available immediately for Junior / Graduate Engineering roles</p>
         </section>
 
         <section class="side-section">

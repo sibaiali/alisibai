@@ -3,7 +3,6 @@
 
   const data = window.portfolioData;
   const projectGrid = document.querySelector("#project-grid");
-  const researchGrid = document.querySelector("#research-grid");
   const capabilityGrid = document.querySelector("#capability-grid");
   const trainingGrid = document.querySelector("#training-grid");
 
@@ -49,25 +48,6 @@
     return article;
   }
 
-  function createResearchCard(item) {
-    const article = document.createElement("article");
-    article.className = "research-card";
-    article.innerHTML = `
-      <div>
-        <span class="status status--evaluation">${item.statusLabel}</span>
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-      </div>
-      <div class="research-card__footer">
-        <div class="tag-list" aria-label="Research topics">
-          ${item.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}
-        </div>
-        <a href="${item.link}">${item.linkLabel} <span aria-hidden="true">→</span></a>
-      </div>
-    `;
-    return article;
-  }
-
   function createTrainingCard(item) {
     const article = document.createElement("article");
     article.className = "training-card";
@@ -92,13 +72,6 @@
     const capabilityFragment = document.createDocumentFragment();
     data.capabilities.forEach((capability) => capabilityFragment.append(createCapabilityCard(capability)));
     capabilityGrid.append(capabilityFragment);
-  }
-
-  if (data && researchGrid) {
-    researchGrid.innerHTML = "";
-    const researchFragment = document.createDocumentFragment();
-    data.researchWriting.forEach((item) => researchFragment.append(createResearchCard(item)));
-    researchGrid.append(researchFragment);
   }
 
   if (data && trainingGrid) {

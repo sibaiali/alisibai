@@ -17,17 +17,6 @@ window.portfolioData = Object.freeze({
       external: true
     }
   ],
-  researchWriting: [
-    {
-      status: "evaluation",
-      statusLabel: "Course research paper",
-      title: "Behavioral NLP Testing Framework",
-      description: "Explores capability matrices and minimum-functionality, invariance, and directional tests for structured NLP evaluation. Presented as research methodology for systematic software and model validation.",
-      tags: ["NLP", "Evaluation design", "Testing methodology"],
-      link: "docs/CE472_ResearchPaper_NLP.pdf",
-      linkLabel: "Read paper"
-    }
-  ],
   capabilities: [
     {
       code: "SW",
