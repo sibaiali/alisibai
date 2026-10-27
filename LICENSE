@@ -2,60 +2,98 @@ PROPRIETARY & SOURCE-AVAILABLE EVALUATION LICENSE
 ALL RIGHTS RESERVED / ALLE RECHTE VORBEHALTEN
 
 Copyright (c) 2026 Ali Sibai
-Author & Creator: Ali Sibai (Marburg / Frankfurt Rhine-Main, Germany)
-Official Website: https://alisibai.vercel.app/
-GitHub Profile:   https://github.com/sibaiali
-Repository:       https://github.com/sibaiali/PMS
+Author & Sole Creator: Ali Sibai (Marburg / Frankfurt Rhine-Main, Germany)
+Official Website:      https://alisibai.vercel.app/
+GitHub Profile:        https://github.com/sibaiali
+Official Repositories: https://github.com/sibaiali/alisibai
+                       https://github.com/sibaiali/SpaceLumin
+                       https://github.com/sibaiali/PMS
 
-1. OWNERSHIP AND INTELLECTUAL PROPERTY RIGHTS
-This software, including all source code, algorithms, system architecture, database
-schemas, user interface designs, simulation models, graphics, and documentation
-comprising "SmartPark Guardian AI" and "Smart Parking Management System (PMS)"
-(collectively, the "Software"), is the original creation and exclusive intellectual
+================================================================================
+1. OWNERSHIP AND INTELLECTUAL PROPERTY RIGHTS (GERMAN & EU LAW)
+================================================================================
+This website, software portfolio, and all associated projects — including all
+source code, algorithms, system architectures, database schemas, user interface
+designs, CSS design systems, 3D/interactive simulations, telemetry pipelines,
+graphics, texts, and bilingual CV documents comprising the "Ali Sibai
+Engineering Portfolio", "SpaceLumin / Lumin Flow: Utopia Run", and "SmartPark
+Guardian AI / Smart Parking Management System (PMS)" (collectively, the
+"Protected Works") — are the original creation and exclusive intellectual
 property of Ali Sibai.
 
-The Software is protected by:
+The Protected Works are legally protected under:
 - The German Copyright Act (Gesetz über Urheberrecht und verwandte Schutzrechte —
-  Urheberrechtsgesetz, UrhG), in particular §§ 2, 7, 12–14 (Urheberpersönlichkeitsrecht /
-  inalienable moral rights of authorship), and §§ 69a–69g UrhG (Protection of Computer
-  Programs);
-- European Union Copyright Directives (Directive 2009/24/EC on the legal protection
-  of computer programs); and
-- The Berne Convention for the Protection of Literary and Artistic Works and WIPO
-  Copyright Treaty (WCT).
+  Urheberrechtsgesetz, UrhG), in particular:
+  * §§ 2 Abs. 1 Nr. 1, 4, 7 & 69a UrhG (Protection of computer programs,
+    literary/technical works, and web design architecture);
+  * §§ 12–14 & 29 UrhG (Urheberpersönlichkeitsrecht / Inalienable moral rights
+    of authorship);
+  * §§ 15–23, 19a & 69c UrhG (Exclusive rights of reproduction, adaptation,
+    distribution, and making available to the public);
+  * §§ 87a–87e UrhG (Protection of databases and structured data);
+  * §§ 95a & 95c UrhG (Protection of technological measures and copyright
+    management information);
+  * §§ 97, 97a, 106 & 108a UrhG (Civil injunctive relief, damages, and criminal
+    penalties for unauthorized reproduction or commercial exploitation);
+- The German Act Against Unfair Competition (Gesetz gegen den unlauteren
+  Wettbewerb — UWG), in particular § 4 Nr. 3 UWG (Prohibition of commercial
+  imitation, cloning, and misappropriation of reputation / Nachahmungsschutz);
+- European Union Copyright Directives:
+  * Directive 2009/24/EC on the legal protection of computer programs;
+  * Directive 2001/29/EC (InfoSoc Directive);
+  * Directive (EU) 2019/790 (DSM Directive), including explicit reservation of
+    rights pursuant to Article 4(3) and § 44b Abs. 3 UrhG; and
+- The Berne Convention for the Protection of Literary and Artistic Works (Art.
+  6bis) and the WIPO Copyright Treaty (WCT).
 
-Under §§ 12–14 and § 29 UrhG, the authorship (Urheberschaft) of Ali Sibai is legally
-inalienable and cannot be transferred, waived, or appropriated by any third party.
+Under §§ 12–14 and § 29 UrhG, the authorship (Urheberschaft) of Ali Sibai is
+legally inalienable and cannot be transferred, waived, or appropriated by any
+third party.
 
+================================================================================
 2. LIMITED GRANT FOR RECRUITER, ACADEMIC, AND TECHNICAL EVALUATION ONLY
-Permission is hereby granted solely to prospective employers, technical recruiters,
-admissions committees, and peer reviewers to:
-(a) View and inspect the source code and documentation in the official repository; and
-(b) Clone and execute the Software locally on a personal or corporate evaluation
-    machine for the sole purpose of verifying the technical qualifications and
-    engineering work of Ali Sibai.
+================================================================================
+Permission is hereby granted solely to prospective employers, human resources
+representatives, technical recruiters, admissions committees, and peer reviewers
+to:
+(a) Access, view, and inspect the live website, interactive demonstrations, CVs,
+    and source code in the official repositories; and
+(b) Download or print the CV documents (cv.html / cv-de.html) or locally execute
+    the software strictly for the purpose of evaluating the qualifications and
+    engineering work of Ali Sibai for employment or academic collaboration.
 
-3. STRICT PROHIBITIONS
-Except as expressly permitted under Section 2 above, NO license or right is granted,
-whether express, implied, or by estoppel. Without the prior written consent of
-Ali Sibai, you may NOT:
-(a) Copy, reproduce, republish, upload, post, transmit, or distribute the Software
-    or any substantial portion thereof in any public or private repository;
-(b) Claim authorship, ownership, or credit for the Software, its architecture,
-    or its design (plagiarism and misappropriation are strictly prohibited);
-(c) Remove, obscure, alter, or falsify any copyright notices, authorship metadata,
-    watermarks, cryptographic attribution, or license files embedded in the Software;
-(d) Modify, adapt, translate, reverse-engineer, or create derivative works based on
-    the Software;
-(e) Frame, mirror, or re-host the web application or simulation interface on any
+================================================================================
+3. STRICT PROHIBITIONS (NO CLONING, RESALE, REDISTRIBUTION, OR PLAGIARISM)
+================================================================================
+Except as expressly permitted under Section 2 above, NO license or right of any
+kind is granted, whether express, implied, or by estoppel. Without the explicit
+prior written consent of Ali Sibai, you may NOT:
+(a) Clone, copy, fork for redistribution, mirror, scrape, republish, upload, or
+    distribute the Protected Works or any substantial portion thereof in any
+    public or private repository, website, template marketplace, or archive;
+(b) Sell, license, sublicense, rent, lease, or otherwise commercially exploit
+    the Protected Works, UI/UX design, or source code (§ 108a UrhG & § 4 Nr. 3
+    UWG);
+(c) Claim authorship, ownership, or credit for the Protected Works, their
+    architecture, or their visual design (plagiarism and passing off are
+    strictly prohibited);
+(d) Remove, obscure, alter, or falsify any copyright notices, authorship
+    metadata, watermarks, JSON-LD ownership records, or license files embedded
+    in the Protected Works (§ 95c UrhG);
+(e) Modify, adapt, translate, reverse-engineer, or create derivative works or
+    portfolio templates based on the Protected Works (§§ 23, 69c Nr. 2 UrhG);
+(f) Frame, embed, or re-host any page or interactive simulation on any
     unauthorized domain or server; or
-(f) Use the Software or any part thereof for any commercial, production, or
-    revenue-generating purpose.
+(g) Perform automated Text and Data Mining (TDM), web harvesting, or AI/ML model
+    training on the Protected Works. All rights are expressly reserved pursuant
+    to § 44b Abs. 3 UrhG and Article 4(3) of Directive (EU) 2019/790.
 
+================================================================================
 4. DISCLAIMER OF WARRANTY & LIABILITY
-THE SOFTWARE IS PROVIDED "AS IS" FOR TECHNICAL DEMONSTRATION AND EVALUATION ONLY,
-WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHOR OR
-COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM
-THE USE OF OR INABILITY TO USE THE SOFTWARE.
+================================================================================
+THE PROTECTED WORKS ARE PROVIDED "AS IS" FOR TECHNICAL DEMONSTRATION AND
+RECRUITER EVALUATION ONLY, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN
+NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES,
+OR OTHER LIABILITY ARISING FROM THE USE OF OR INABILITY TO USE THE SOFTWARE.
 
 © 2026 Ali Sibai. All Rights Reserved. Alle Rechte vorbehalten.

@@ -170,4 +170,51 @@
       }
     });
   }
+
+  /* =========================================================================
+   * Security, Anti-Framing, Domain Integrity & German/EU Copyright (UrhG)
+   * ========================================================================= */
+  try {
+    if (window.top !== window.self) {
+      window.top.location.replace(window.self.location.href);
+    }
+  } catch (frameError) {
+    document.documentElement.style.display = "none";
+  }
+
+  const host = (window.location.hostname || "").toLowerCase();
+  const isAuthorizedHost =
+    !host ||
+    host === "alisibai.vercel.app" ||
+    host.endsWith(".vercel.app") ||
+    host === "localhost" ||
+    host === "127.0.0.1";
+
+  if (!isAuthorizedHost && document.body) {
+    const warningBanner = document.createElement("div");
+    warningBanner.setAttribute("role", "alert");
+    warningBanner.style.cssText =
+      "position:sticky;top:0;z-index:99999;padding:12px 16px;background:#7f1d1d;color:#ffffff;font:600 13px/1.4 system-ui,sans-serif;text-align:center;border-bottom:2px solid #ef4444;";
+    warningBanner.innerHTML =
+      'UNAUTHORIZED MIRROR DETECTED: This website is the copyrighted property of <strong>Ali Sibai</strong> (protected under German UrhG §§ 2, 69a, 95c, 97, 106 &amp; EU Law). Official portfolio: <a href="https://alisibai.vercel.app/" style="color:#fde047;text-decoration:underline;">https://alisibai.vercel.app/</a>';
+    document.body.prepend(warningBanner);
+  }
+
+  document.addEventListener("copy", function (event) {
+    const selection = window.getSelection ? String(window.getSelection()).trim() : "";
+    if (selection.length > 160 && event.clipboardData) {
+      const attribution =
+        "\n\n---\n© 2026 Ali Sibai (https://alisibai.vercel.app/) · All Rights Reserved / Alle Rechte vorbehalten gemäß deutschem Urheberrechtsgesetz (UrhG).";
+      event.clipboardData.setData("text/plain", selection + attribution);
+      event.preventDefault();
+    }
+  });
+
+  if (typeof console !== "undefined" && typeof console.info === "function") {
+    console.info(
+      "%c© 2026 Ali Sibai · All Rights Reserved / Alle Rechte vorbehalten (UrhG & EU Law)\n%cProtected under §§ 2, 12-14, 69a, 95c, 97, 106 UrhG & § 4 Nr. 3 UWG. Unauthorized cloning, redistribution, scraping (Art. 4(3) EU Directive 2019/790), or commercial resale is strictly prohibited. Official Website: https://alisibai.vercel.app/",
+      "color:#38bdf8;font-weight:700;font-size:13px;",
+      "color:#94a3b8;font-size:11px;"
+    );
+  }
 })();

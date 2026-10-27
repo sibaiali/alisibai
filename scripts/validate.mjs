@@ -13,7 +13,12 @@ const requiredFiles = [
   "favicon.svg",
   "site.webmanifest",
   "robots.txt",
-  "sitemap.xml"
+  "sitemap.xml",
+  "LICENSE",
+  "COPYRIGHT.md",
+  "vercel.json",
+  ".well-known/tdmrep.json",
+  ".well-known/security.txt"
 ];
 
 const failures = [];
@@ -34,6 +39,8 @@ for (const [file, html] of Object.entries(htmlByFile)) {
   }
   if (!/<main[\s>]/i.test(html)) failures.push(`${file}: missing main landmark`);
   if ((html.match(/<h1[\s>]/gi) || []).length !== 1) failures.push(`${file}: expected exactly one h1`);
+  if (!/<meta\s+name="copyright"/i.test(html)) failures.push(`${file}: missing copyright meta tag`);
+  if (!/<meta\s+name="tdm-reservation"\s+content="1"/i.test(html)) failures.push(`${file}: missing EU TDM reservation meta tag`);
 
   const ids = new Set(Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1]));
   const duplicateIds = Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1])

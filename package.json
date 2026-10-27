@@ -1,8 +1,10 @@
 {
   "name": "ali-sibai-engineering-portfolio",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
-  "description": "Static Software, Web & Interactive Systems Engineering portfolio.",
+  "license": "UNLICENSED",
+  "author": "Ali Sibai <alisibai01@gmail.com> (https://alisibai.vercel.app/)",
+  "description": "Proprietary Software, Web & Interactive Systems Engineering Portfolio of Ali Sibai. All Rights Reserved (UrhG).",
   "scripts": {
     "check": "node scripts/validate.mjs"
   },
