@@ -3,17 +3,17 @@ window.portfolioData = Object.freeze({
     {
       index: "02.1",
       status: "verified",
-      statusLabel: "Public source",
-      title: "Smart Parking Management System",
-      description: "A Python parking-management system that models slot availability, vehicle allocation, and occupancy records with object-oriented data structures.",
+      statusLabel: "25/25 Tests · Live Sim",
+      title: "SmartPark Guardian AI (Smart Parking Management System)",
+      description: "A barrier-free, intelligent, and accident-aware Python parking ecosystem with SQLite persistence, explainable space allocation, Guardian Shield security correlation, and A* garage simulation.",
       points: [
-        "Implements automated parking-slot allocation, release workflows, and live occupancy tracking",
-        "Encapsulates parking state and vehicle records behind clean object-oriented boundaries",
-        "Provides a readable, inspectable Python implementation in a public repository"
+        "Implements barrier-free arrival/departure authorization, HMAC-SHA256 privacy badges, and 7-step walk-up digital key verification",
+        "Features safety-weighted A* pathfinding, proactive pedestrian crosswalk yielding, and DST-safe Decimal billing backed by SQLite WAL transactions",
+        "Verified by 25/25 deterministic unit, concurrency, security, and fail-safe tests alongside a 12-screen Tkinter GUI and interactive web simulator"
       ],
-      stack: ["Python", "OOP", "Data structures", "State management"],
-      link: "https://github.com/sibaiali/PMS/blob/main/pms.py",
-      linkLabel: "Inspect source",
+      stack: ["Python 3.12", "SQLite", "A* Pathfinding", "HMAC Security", "25/25 Tests"],
+      link: "https://github.com/sibaiali/PMS",
+      linkLabel: "Inspect repository",
       external: true
     }
   ],
