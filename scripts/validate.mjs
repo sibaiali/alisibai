@@ -5,6 +5,7 @@ const root = resolve(import.meta.dirname, "..");
 const requiredFiles = [
   "index.html",
   "spacelumin.html",
+  "smartpark.html",
   "cv.html",
   "cv-de.html",
   "style.css",
