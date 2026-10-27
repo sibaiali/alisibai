@@ -131,11 +131,19 @@ for (const [file, html] of [["index.html", indexHtml], ["cv.html", cvHtml]]) {
   }
 }
 
-if (!cvDeHtml.includes("Raum Marburg / Frankfurt Rhein-Main, Deutschland")) {
+if (!cvDeHtml.includes("Marburg / Raum Frankfurt Rhein-Main, Deutschland")) {
   failures.push("cv-de.html: missing German location line");
 }
-if (!cvDeHtml.includes("Bundesfreiwilligendienst (BFD)")) {
+if (!cvDeHtml.includes("Bundesfreiwilligendienst (BFD) im Gesundheitswesen")) {
   failures.push("cv-de.html: missing BFD entry");
+}
+if (/[—–]/.test(cvDeHtml)) {
+  failures.push("cv-de.html: contains prohibited em dash (—) or en dash (–)");
+}
+for (const color of ["#FFFFFF", "#F8FAFC", "#0F2C59", "#1E3A8A", "#0284C7", "#1F2937", "#4B5563", "#E2E8F0"]) {
+  if (!cvDeHtml.includes(color)) {
+    failures.push(`cv-de.html: missing required corporate color token ${color}`);
+  }
 }
 
 JSON.parse(readFileSync(resolve(root, "site.webmanifest"), "utf8"));
