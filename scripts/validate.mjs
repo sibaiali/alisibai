@@ -134,16 +134,44 @@ for (const [file, html] of [["index.html", indexHtml], ["cv.html", cvHtml]]) {
   if (!html.includes("Bundesfreiwilligendienst")) {
     failures.push(`${file}: missing BFD experience in Germany`);
   }
-  if (!html.includes("Daily workplace use in Germany")) {
-    failures.push(`${file}: missing daily German workplace proficiency wording`);
-  }
+}
+
+if (!cvHtml.includes("University Hospital Giessen and Marburg (UKGM)")) {
+  failures.push("cv.html: missing UKGM hospital BFD entry");
+}
+if (!cvHtml.includes("+49 177 6763484")) {
+  failures.push("cv.html: missing German phone number");
+}
+if (!cvHtml.includes("Cloud Infrastructure")) {
+  failures.push("cv.html: missing Cloud Infrastructure in CBI internship");
+}
+if (!cvHtml.includes("05/2025 (Intensive Engineering Internship) · Istanbul, Turkey")) {
+  failures.push("cv.html: missing DoubleTree by Hilton updated date line");
+}
+if (!cvHtml.includes("Goethe-Institut")) {
+  failures.push("cv.html: missing Goethe-Institut B2 language progression wording");
 }
 
 if (!cvDeHtml.includes("Marburg / Raum Frankfurt Rhein-Main, Deutschland")) {
   failures.push("cv-de.html: missing German location line");
 }
-if (!cvDeHtml.includes("Bundesfreiwilligendienst (BFD) im Gesundheitswesen")) {
-  failures.push("cv-de.html: missing BFD entry");
+if (!cvDeHtml.includes("+49 177 6763484")) {
+  failures.push("cv-de.html: missing German phone number");
+}
+if (!cvDeHtml.includes("Bundesfreiwilligendienst (BFD) · Universitätsklinikum Gießen und Marburg (UKGM)")) {
+  failures.push("cv-de.html: missing UKGM BFD entry");
+}
+if (!cvDeHtml.includes("Cloud-Infrastruktur")) {
+  failures.push("cv-de.html: missing Cloud-Infrastruktur in CBI entry");
+}
+if (!cvDeHtml.includes("05/2025 (Intensiv-Pflichtpraktikum) · Istanbul, Türkei")) {
+  failures.push("cv-de.html: missing DoubleTree by Hilton updated date line");
+}
+if (!cvDeHtml.includes("Compagnie Bureautique et Informatique")) {
+  failures.push("cv-de.html: missing CBI internship entry");
+}
+if (!cvDeHtml.includes("Hume AI API")) {
+  failures.push("cv-de.html: missing VoidLumin / Hume AI API project entry");
 }
 if (/[—–]/.test(cvDeHtml)) {
   failures.push("cv-de.html: contains prohibited em dash (—) or en dash (–)");
