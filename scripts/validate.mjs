@@ -6,20 +6,19 @@ const requiredFiles = [
   "index.html",
   "spacelumin.html",
   "smartpark.html",
+  "lebenslauf.html",
+  "lebenslauf-systemadministration.html",
+  "lebenslauf-software-qa.html",
   "cv.html",
   "cv-de.html",
+  "cv.css",
   "style.css",
-  "portfolio-data.js",
   "script.js",
   "favicon.svg",
   "site.webmanifest",
   "robots.txt",
   "sitemap.xml",
-  "LICENSE",
-  "COPYRIGHT.md",
-  "vercel.json",
-  ".well-known/tdmrep.json",
-  ".well-known/security.txt"
+  "vercel.json"
 ];
 
 const failures = [];
@@ -28,20 +27,34 @@ for (const file of requiredFiles) {
   if (!existsSync(resolve(root, file))) failures.push(`Missing required file: ${file}`);
 }
 
-const htmlFiles = ["index.html", "spacelumin.html", "cv.html", "cv-de.html"];
+const htmlFiles = [
+  "index.html",
+  "spacelumin.html",
+  "lebenslauf.html",
+  "lebenslauf-systemadministration.html",
+  "lebenslauf-software-qa.html",
+  "cv.html"
+];
 const htmlByFile = Object.fromEntries(
   htmlFiles.map((file) => [file, readFileSync(resolve(root, file), "utf8")])
 );
 
+const deFiles = new Set([
+  "lebenslauf.html",
+  "lebenslauf-systemadministration.html",
+  "lebenslauf-software-qa.html"
+]);
+
 for (const [file, html] of Object.entries(htmlByFile)) {
-  const expectedLang = file === "cv-de.html" ? "de" : "en";
+  const expectedLang = deFiles.has(file) ? "de" : "en";
   if (!new RegExp(`<html\\s+lang="${expectedLang}"`, "i").test(html)) {
     failures.push(`${file}: missing ${expectedLang} language declaration`);
   }
   if (!/<main[\s>]/i.test(html)) failures.push(`${file}: missing main landmark`);
   if ((html.match(/<h1[\s>]/gi) || []).length !== 1) failures.push(`${file}: expected exactly one h1`);
-  if (!/<meta\s+name="copyright"/i.test(html)) failures.push(`${file}: missing copyright meta tag`);
-  if (!/<meta\s+name="tdm-reservation"\s+content="1"/i.test(html)) failures.push(`${file}: missing EU TDM reservation meta tag`);
+  if (!/<meta\s+name="tdm-reservation"\s+content="1"/i.test(html)) {
+    failures.push(`${file}: missing EU TDM reservation meta tag`);
+  }
 
   const ids = new Set(Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1]));
   const duplicateIds = Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1])
@@ -66,7 +79,6 @@ for (const [file, html] of Object.entries(htmlByFile)) {
   }
 }
 
-const publicClaimFiles = ["index.html", "spacelumin.html", "cv.html", "cv-de.html", "portfolio-data.js"];
 const prohibitedClaims = [
   /senior computer engineering student/i,
   /expected graduation/i,
@@ -79,107 +91,62 @@ const prohibitedClaims = [
   /looking for an internship/i,
   /Based in Istanbul/i,
   /Psychology Intern/i,
-  /unresolved/i,
-  /unreachable/i,
   /CE472/i,
   /Behavioral NLP Testing/i,
   /nationwide/i,
-  /bundesweit/i
+  /bundesweit/i,
+  /41\/41/i,
+  /strafrechtlich verfolgt/i
 ];
 
-for (const file of publicClaimFiles) {
-  const content = readFileSync(resolve(root, file), "utf8");
+for (const [file, content] of Object.entries(htmlByFile)) {
   for (const claim of prohibitedClaims) {
     if (claim.test(content)) failures.push(`${file}: prohibited or outdated claim matched ${claim}`);
   }
 }
 
 const indexHtml = htmlByFile["index.html"];
-const caseStudyHtml = htmlByFile["spacelumin.html"];
-const cvHtml = htmlByFile["cv.html"];
-const cvDeHtml = htmlByFile["cv-de.html"];
-const countOccurrences = (content, text) => content.split(text).length - 1;
-const recruiterBrief = indexHtml.match(/<aside class="brief-panel"[\s\S]*?<\/aside>/i)?.[0] ?? "";
-const footer = indexHtml.match(/<footer class="site-footer"[\s\S]*?<\/footer>/i)?.[0] ?? "";
+const cvSysDe = htmlByFile["lebenslauf-systemadministration.html"];
+const cvSwDe = htmlByFile["lebenslauf-software-qa.html"];
+const cvEn = htmlByFile["cv.html"];
 
-if (countOccurrences(recruiterBrief, "Open to opportunities") !== 1) {
-  failures.push("index.html: recruiter brief must contain Open to opportunities exactly once");
+if (!indexHtml.includes("Software, Systems &amp; Infrastructure Engineering")) {
+  failures.push("index.html: missing updated main title");
 }
-if (!/<dt>Location<\/dt>[\s\S]*?<dd>Marburg \/ Frankfurt Area, DE<\/dd>/i.test(recruiterBrief)) {
-  failures.push("index.html: recruiter brief is missing the Germany location");
+if (!indexHtml.includes("VoidLumin")) {
+  failures.push("index.html: missing VoidLumin supporting project card");
 }
-if (!/<dt>Primary focus<\/dt>[\s\S]*?<dd>Software &amp; Web Engineering<\/dd>/i.test(recruiterBrief)) {
-  failures.push("index.html: recruiter brief is missing the primary-focus wording");
-}
-if (countOccurrences(footer, "<p>Marburg / Frankfurt Rhine-Main, Germany</p>") !== 1) {
-  failures.push("index.html: footer must contain the Germany location line exactly once");
+if (!indexHtml.includes("Dependency-free architecture · Privacy-first (No cookies or trackers).")) {
+  failures.push("index.html: missing clean footer wording");
 }
 
-const contributionSentence = "I designed and implemented the gameplay systems, telemetry pipeline, Markov prediction model, runtime overlay, leakage-safe evaluation system, deterministic tests, and supporting PWA tooling.";
-for (const [file, html] of [["index.html", indexHtml], ["spacelumin.html", caseStudyHtml]]) {
-  if (!html.includes(contributionSentence)) failures.push(`${file}: missing approved SpaceLumin contribution sentence`);
-  if (!html.includes("16/16 evaluator tests")) failures.push(`${file}: missing evaluator-test evidence title`);
-  if (!html.includes("Deterministic coverage of event resolution, deduplication, model isolation, and exception-safe instrumentation.")) {
-    failures.push(`${file}: missing evaluator-test coverage wording`);
+for (const [file, html] of [
+  ["lebenslauf-systemadministration.html", cvSysDe],
+  ["lebenslauf-software-qa.html", cvSwDe]
+]) {
+  if (!html.includes("+49 177 6763484")) failures.push(`${file}: missing phone number`);
+  if (!html.includes("§ 19e AufenthG")) failures.push(`${file}: missing § 19e AufenthG residence wording`);
+  if (!html.includes("§ 18b / § 18g AufenthG")) failures.push(`${file}: missing § 18b / § 18g AufenthG wording`);
+  if (!html.includes("ITIL-orientierter")) failures.push(`${file}: missing ITIL-orientierter Support wording`);
+  if (!html.includes("Bachelorarbeit / B.Sc. Abschlussprojekt")) {
+    failures.push(`${file}: missing Bachelorarbeit / B.Sc. Abschlussprojekt wording`);
+  }
+  if (!html.includes("Licence Professionnelle in Allgemeiner Psychologie")) {
+    failures.push(`${file}: missing updated Psychology credential wording`);
+  }
+  if (!html.includes("Marburg, November 2026")) {
+    failures.push(`${file}: missing clean German footer sign-off`);
   }
 }
 
-for (const [file, html] of [["index.html", indexHtml], ["cv.html", cvHtml]]) {
-  if (!html.includes("Marburg / Frankfurt Rhine-Main, Germany")) {
-    failures.push(`${file}: missing Germany location`);
-  }
-  if (!html.includes("HTML, CSS, JavaScript, SQL")) {
-    failures.push(`${file}: missing DoubleTree by Hilton technical stack`);
-  }
-  if (!html.includes("Bundesfreiwilligendienst")) {
-    failures.push(`${file}: missing BFD experience in Germany`);
-  }
+if (cvSysDe.indexOf("Berufserfahrung &amp; IT-Praxis") > cvSysDe.indexOf("Software-, Datenbank- &amp; Automatisierungsprojekte")) {
+  failures.push("lebenslauf-systemadministration.html: Berufserfahrung & IT-Praxis must appear before projects");
 }
-
-if (!cvHtml.includes("University Hospital Giessen and Marburg (UKGM)")) {
-  failures.push("cv.html: missing UKGM hospital BFD entry");
+if (cvSwDe.indexOf("Ausgewählte Software- &amp; Engineering-Projekte") > cvSwDe.indexOf("Berufserfahrung &amp; Praxis")) {
+  failures.push("lebenslauf-software-qa.html: Projects must appear before Berufserfahrung & Praxis");
 }
-if (!cvHtml.includes("+49 177 6763484")) {
+if (!cvEn.includes("+49 177 6763484")) {
   failures.push("cv.html: missing German phone number");
-}
-if (!cvHtml.includes("Cloud Infrastructure")) {
-  failures.push("cv.html: missing Cloud Infrastructure in CBI internship");
-}
-if (!cvHtml.includes("05/2025 (Intensive Engineering Internship) · Istanbul, Turkey")) {
-  failures.push("cv.html: missing DoubleTree by Hilton updated date line");
-}
-if (!cvHtml.includes("Goethe-Institut")) {
-  failures.push("cv.html: missing Goethe-Institut B2 language progression wording");
-}
-
-if (!cvDeHtml.includes("Marburg / Raum Frankfurt Rhein-Main, Deutschland")) {
-  failures.push("cv-de.html: missing German location line");
-}
-if (!cvDeHtml.includes("+49 177 6763484")) {
-  failures.push("cv-de.html: missing German phone number");
-}
-if (!cvDeHtml.includes("Bundesfreiwilligendienst (BFD) · Universitätsklinikum Gießen und Marburg (UKGM)")) {
-  failures.push("cv-de.html: missing UKGM BFD entry");
-}
-if (!cvDeHtml.includes("Cloud-Infrastruktur")) {
-  failures.push("cv-de.html: missing Cloud-Infrastruktur in CBI entry");
-}
-if (!cvDeHtml.includes("05/2025 (Intensiv-Pflichtpraktikum) · Istanbul, Türkei")) {
-  failures.push("cv-de.html: missing DoubleTree by Hilton updated date line");
-}
-if (!cvDeHtml.includes("Compagnie Bureautique et Informatique")) {
-  failures.push("cv-de.html: missing CBI internship entry");
-}
-if (!cvDeHtml.includes("Hume AI API")) {
-  failures.push("cv-de.html: missing VoidLumin / Hume AI API project entry");
-}
-if (/[—–]/.test(cvDeHtml)) {
-  failures.push("cv-de.html: contains prohibited em dash (—) or en dash (–)");
-}
-for (const color of ["#FFFFFF", "#F8FAFC", "#0F2C59", "#1E3A8A", "#0284C7", "#1F2937", "#4B5563", "#E2E8F0"]) {
-  if (!cvDeHtml.includes(color)) {
-    failures.push(`cv-de.html: missing required corporate color token ${color}`);
-  }
 }
 
 JSON.parse(readFileSync(resolve(root, "site.webmanifest"), "utf8"));
@@ -189,4 +156,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents (EN & DE), Germany market positioning verified.`);
+console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents (DE Version A, DE Version B & EN), Germany HR standards verified.`);

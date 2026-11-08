@@ -4,466 +4,171 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Ali Sibai">
-  <meta name="copyright" content="Copyright (c) 2026 Ali Sibai. All Rights Reserved. Alle Rechte vorbehalten (UrhG &amp; EU Directive 2019/790 Art. 4(3)).">
   <meta name="tdm-reservation" content="1">
-  <meta name="description" content="Ali Sibai - one-page Software, Systems &amp; QA Automation Engineering CV (English).">
-  <meta name="theme-color" content="#0b0f12">
+  <meta name="description" content="Ali Sibai · CV (English) · Software, Systems &amp; QA Automation Engineer (B.Sc. Computer Engineering) · Marburg, Germany">
+  <meta name="theme-color" content="#1E3A8A">
   <link rel="canonical" href="https://alisibai.vercel.app/cv.html">
-  <link rel="alternate" hreflang="en" href="https://alisibai.vercel.app/cv.html">
-  <link rel="alternate" hreflang="de" href="https://alisibai.vercel.app/cv-de.html">
+  <link rel="alternate" hreflang="de" href="https://alisibai.vercel.app/lebenslauf-software-qa.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta property="og:type" content="profile">
-  <meta property="og:site_name" content="Ali Sibai - Engineering Portfolio">
-  <meta property="og:title" content="Ali Sibai | Engineering CV (English)">
-  <meta property="og:description" content="One-page Software, Systems &amp; QA Automation Engineering CV — Marburg / Frankfurt Rhine-Main, Germany.">
-  <meta property="og:url" content="https://alisibai.vercel.app/cv.html">
-  <meta name="twitter:card" content="summary">
-  <title>Ali Sibai | Engineering CV (EN)</title>
-  <style>
-    :root {
-      --ink: #172021;
-      --muted: #536061;
-      --line: #cdd5d3;
-      --accent: #086a59;
-      --paper: #fff;
-      --screen: #0b0f12;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { background: var(--screen); }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--screen);
-      font-family: var(--sans);
-      font-size: 9.25px;
-      line-height: 1.38;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    p, h1, h2, h3, ul { margin-top: 0; }
-
-    :focus-visible {
-      outline: 3px solid #79e0c0;
-      outline-offset: 3px;
-    }
-
-    .screen-actions {
-      display: flex;
-      width: min(calc(100% - 32px), 210mm);
-      margin: 22px auto 12px;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .screen-actions__group {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .screen-actions a,
-    .screen-actions button {
-      display: inline-flex;
-      padding: 10px 14px;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid #3b4b4d;
-      color: #eef5f3;
-      background: #11171b;
-      border-radius: 7px;
-      font: 700 12px var(--sans);
-      cursor: pointer;
-    }
-
-    .screen-actions a:hover,
-    .screen-actions button:hover {
-      border-color: #79e0c0;
-    }
-
-    .screen-actions .action-primary {
-      color: #07120f;
-      background: #79e0c0;
-      border-color: #79e0c0;
-    }
-
-    .page {
-      width: min(calc(100% - 32px), 210mm);
-      min-height: 297mm;
-      margin: 0 auto 28px;
-      padding: 8.5mm 11.5mm 7.5mm;
-      background: var(--paper);
-      box-shadow: 0 28px 90px rgb(0 0 0 / 34%);
-    }
-
-    .cv-header {
-      display: grid;
-      padding-bottom: 9px;
-      border-bottom: 2px solid var(--ink);
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 20px;
-    }
-
-    .cv-header h1 {
-      margin-bottom: 3px;
-      font-size: 26px;
-      line-height: 1;
-      letter-spacing: -0.045em;
-    }
-
-    .role {
-      margin-bottom: 0;
-      color: var(--accent);
-      font-size: 11.2px;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-
-    .contact {
-      display: grid;
-      align-content: end;
-      justify-items: end;
-      gap: 2px;
-      color: var(--muted);
-      font-size: 8.4px;
-      text-align: right;
-    }
-
-    .contact a { color: var(--accent); font-weight: 700; }
-
-    .summary {
-      margin: 8.5px 0 10px;
-      color: #293536;
-      font-size: 9.4px;
-      line-height: 1.42;
-    }
-
-    .summary strong { color: var(--ink); }
-
-    .cv-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.42fr) minmax(0, 0.58fr);
-      gap: 15px;
-    }
-
-    .section { margin-bottom: 8.5px; }
-    .section:last-child { margin-bottom: 0; }
-
-    .section-title {
-      display: flex;
-      margin-bottom: 5.5px;
-      align-items: center;
-      gap: 8px;
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 7.8px;
-      text-transform: uppercase;
-      letter-spacing: 0.11em;
-    }
-
-    .section-title::after {
-      height: 1px;
-      flex: 1;
-      background: var(--line);
-      content: "";
-    }
-
-    .entry { margin-bottom: 6.5px; }
-    .entry:last-child { margin-bottom: 0; }
-
-    .entry-heading {
-      display: flex;
-      margin-bottom: 2px;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .entry-heading h2,
-    .entry-heading h3 {
-      margin-bottom: 0;
-      font-size: 10.4px;
-      line-height: 1.2;
-      letter-spacing: -0.012em;
-    }
-
-    .entry-meta {
-      min-width: max-content;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 7.3px;
-      text-align: right;
-    }
-
-    .entry-subtitle {
-      display: flex;
-      margin-bottom: 3px;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-      color: var(--accent);
-      font-size: 8.2px;
-      font-weight: 760;
-    }
-
-    .entry-subtitle a { border-bottom: 1px solid #a9c8c1; }
-
-    .entry ul {
-      display: grid;
-      padding-left: 14px;
-      margin-bottom: 3px;
-      gap: 1.8px;
-    }
-
-    .entry li { padding-left: 1px; }
-
-    .stack {
-      margin-bottom: 0;
-      color: var(--muted);
-      font: 7.15px/1.32 var(--mono);
-    }
-
-    .side-section {
-      padding-bottom: 6.5px;
-      margin-bottom: 6.5px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .side-section:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .side-section h2 {
-      margin-bottom: 4.5px;
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 7.7px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .side-section h3 {
-      margin-bottom: 1.5px;
-      font-size: 9px;
-      line-height: 1.22;
-    }
-
-    .side-section p {
-      margin-bottom: 4px;
-      color: var(--muted);
-      font-size: 8px;
-      line-height: 1.36;
-    }
-
-    .side-section p:last-child { margin-bottom: 0; }
-
-    .skill-group { margin-bottom: 5.5px; }
-    .skill-group:last-child { margin-bottom: 0; }
-
-    .skill-group strong {
-      display: block;
-      margin-bottom: 1.5px;
-      color: var(--ink);
-      font-size: 8.1px;
-    }
-
-    .skill-group p { line-height: 1.36; }
-
-    .cv-footer {
-      display: flex;
-      padding-top: 6px;
-      margin-top: 8px;
-      border-top: 1px solid var(--line);
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      color: var(--muted);
-      font: 7px var(--mono);
-    }
-
-    @page { size: A4; margin: 0; }
-
-    @media print {
-      html, body { background: #fff; }
-      body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .screen-actions { display: none !important; }
-      .page {
-        width: 210mm;
-        height: 297mm;
-        min-height: 297mm;
-        margin: 0;
-        box-shadow: none;
-        overflow: hidden;
-      }
-      a { color: inherit; }
-    }
-
-    @media (max-width: 680px) {
-      .page { min-height: 0; padding: 28px 22px; }
-      .cv-header, .cv-grid { grid-template-columns: 1fr; }
-      .contact { justify-items: start; text-align: left; }
-      .entry-heading, .entry-subtitle { align-items: flex-start; flex-direction: column; gap: 2px; }
-      .entry-meta { text-align: left; }
-    }
-  </style>
+  <title>Ali Sibai | CV (English)</title>
+  <link rel="stylesheet" href="cv.css">
 </head>
 <body>
-  <nav class="screen-actions" aria-label="CV actions">
-    <a href="index.html">← Back to Portfolio</a>
-    <div class="screen-actions__group">
-      <a href="cv-de.html" lang="de">DE · Deutscher Lebenslauf</a>
-      <button type="button" class="action-primary" onclick="window.print()">Print / Save as PDF ↓</button>
+  <nav class="cv-toolbar" aria-label="CV navigation">
+    <a href="index.html">Back to portfolio</a>
+    <div class="cv-toolbar__group">
+      <a href="lebenslauf-systemadministration.html" lang="de">Lebenslauf: Systems &amp; IT-Admin (DE)</a>
+      <a href="lebenslauf-software-qa.html" lang="de">Lebenslauf: Software &amp; QA (DE)</a>
+      <a href="cv.html" aria-current="page">CV (English)</a>
+      <button type="button" class="is-primary" onclick="window.print()">Print / Save as PDF</button>
     </div>
   </nav>
 
   <main class="page">
-    <header class="cv-header">
-      <div>
-        <h1>Ali Sibai</h1>
-        <p class="role">Software, Systems &amp; QA Automation Engineer (B.Sc. Computer Engineering)</p>
+    <div>
+      <header class="cv-header">
+        <div>
+          <h1>Ali Sibai</h1>
+          <p class="cv-role">Software, Systems &amp; QA Automation Engineer (B.Sc. Computer Engineering)</p>
+        </div>
+        <div class="cv-contact">
+          <span>Marburg, Hesse, Germany (open to commuting or relocating within Giessen / Wetzlar / Frankfurt Rhine-Main)</span>
+          <span><a href="tel:+491776763484">+49 177 6763484</a> · <a href="mailto:alisibai01@gmail.com">alisibai01@gmail.com</a></span>
+          <span><a href="https://github.com/sibaiali">github.com/sibaiali</a> · <a href="https://www.linkedin.com/in/sibaiali/">linkedin.com/in/sibaiali</a> · <a href="https://alisibai.vercel.app/">alisibai.vercel.app</a></span>
+        </div>
+      </header>
+
+      <section class="cv-profile" aria-labelledby="profile-en">
+        <h2 id="profile-en">Profile</h2>
+        <p>Computer Engineering graduate (B.Sc., 2026; degree and university listed as H+ in Anabin) based in Marburg. Builds modular web applications with JavaScript (ES6+) and Python 3, relational database tools with SQL, REST integrations, real-time telemetry pipelines, and deterministic automated test suites (16/16 and 25/25 tests in public repositories). Hands-on IT operations experience in system administration, Active Directory, hardware rollouts, and network migration.</p>
+      </section>
+
+      <div class="cv-grid">
+        <div>
+          <section class="cv-section" aria-labelledby="projects-en">
+            <h2 id="projects-en">Selected engineering projects</h2>
+
+            <article class="entry">
+              <div class="entry-head">
+                <h3>SpaceLumin · B.Sc. Thesis Project</h3>
+                <span class="entry-meta"><span class="badge">16/16 Unit Tests</span></span>
+              </div>
+              <div class="entry-sub">Interactive 3D Web Architecture, Real-Time Telemetry &amp; Predictive State Modeling · <a href="https://spacelumin.vercel.app/">Live build</a> · <a href="https://github.com/sibaiali/SpaceLumin">Source</a></div>
+              <ul>
+                <li>Modular 3D browser application in JavaScript (ES6+), Three.js, HTML5/CSS3, and a PWA service worker with persistent client storage.</li>
+                <li>Real-time telemetry pipeline with discrete state encoding and a Markov next-state prediction model.</li>
+                <li>Leakage-safe evaluation (frozen and prequential modes) with an immutable event ledger, verified by 16/16 deterministic unit tests.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <h3>SmartPark Guardian AI · Parking &amp; Security System</h3>
+                <span class="entry-meta"><span class="badge">25/25 Tests</span></span>
+              </div>
+              <div class="entry-sub"><a href="smartpark.html">Interactive simulator</a> · <a href="https://github.com/sibaiali/PMS">Source</a></div>
+              <ul>
+                <li>Python 3.12 with SQLite (WAL mode), explainable space allocation, HMAC-SHA256 signed access tokens, A* pathfinding, and timezone-safe Decimal billing; covered by 25/25 automated tests.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <h3>VoidLumin · Real-Time API &amp; Affective State Prototype</h3>
+                <span class="entry-meta">Prototype</span>
+              </div>
+              <ul>
+                <li>Interactive software modules integrating the Hume AI REST API for real-time processing of human-centric signals and state models (JavaScript ES6+).</li>
+              </ul>
+            </article>
+          </section>
+
+          <section class="cv-section" aria-labelledby="experience-en">
+            <h2 id="experience-en">Experience</h2>
+
+            <article class="entry">
+              <div class="entry-head">
+                <h3>Federal Volunteer Service (BFD) · University Hospital Giessen and Marburg (UKGM)</h3>
+                <span class="entry-meta">09/2026 – Present · Marburg</span>
+              </div>
+              <ul>
+                <li>Full-time on-site service at a major German university hospital: structured process documentation and daily professional communication in German, while transitioning into an engineering role.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <h3>IT &amp; Enterprise Systems Intern · CBI (Compagnie Bureautique et Informatique)</h3>
+                <span class="entry-meta">05/2026 – 06/2026 · Casablanca (Remote)</span>
+              </div>
+              <ul>
+                <li>Internship topic "Développement et solutions IT, Cloud Infrastructure": cloud and enterprise IT solutions, network architecture, system diagnostics, and technical documentation.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-head">
+                <h3>IT &amp; Software Intern · DoubleTree by Hilton</h3>
+                <span class="entry-meta">05/2025 (Intensive Engineering Internship) · Istanbul</span>
+              </div>
+              <ul>
+                <li>Built and deployed an internal employee database (CRUD) with HTML, CSS, JavaScript, and SQL.</li>
+                <li>Server maintenance, Active Directory account administration, hardware rollouts, structured Ethernet network migration, and ITIL-oriented support.</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+
+        <aside class="cv-side" aria-label="Skills, education, status and languages">
+          <section class="side-block">
+            <h2>Technical skills</h2>
+            <ul class="side-list">
+              <li><strong>Core:</strong> JavaScript (ES6+), Python 3, SQL, HTML5/CSS3</li>
+              <li><strong>Foundations:</strong> C, C++, C#, Java, TypeScript</li>
+              <li><strong>Web &amp; data:</strong> REST APIs, JSON, SQLite (WAL), relational modeling, CRUD apps, PWA, Three.js</li>
+              <li><strong>Systems:</strong> Windows &amp; Linux administration, Active Directory foundations, Ethernet/TCP/IP, ITIL-oriented support</li>
+              <li><strong>QA &amp; tooling:</strong> Deterministic unit &amp; integration testing, Git / GitHub, Vercel deployment, technical documentation</li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <h2>Education</h2>
+            <ul class="side-list">
+              <li><strong>B.Sc. Computer Engineering</strong> · Altınbaş University, Istanbul · 2022 – 2026 · <span class="badge">Anabin H+</span></li>
+              <li><strong>Licence Professionnelle in General Psychology</strong> (Université Internationale de Casablanca, 2018 – 2021)</li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <h2>Status &amp; availability</h2>
+            <ul class="side-list">
+              <li><strong>Residence:</strong> Residence permit for the Federal Volunteer Service (§ 19e AufenthG) in Marburg; transition to a skilled-worker permit for graduates (§ 18b / § 18g AufenthG) planned upon signing a qualifying employment contract.</li>
+              <li><strong>Availability:</strong> At short notice by arrangement with the BFD provider.</li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <h2>Languages</h2>
+            <ul class="side-list">
+              <li><strong>German:</strong> B1 working proficiency (applied daily in hospital operations at UKGM Marburg); active preparation for Goethe-Institut B2 exam.</li>
+              <li><strong>English:</strong> Professional working proficiency (B2–C1, TOEFL iBT certified).</li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <h2>Certificates</h2>
+            <ul class="side-list">
+              <li>Elements of AI · University of Helsinki (2 ECTS, 2024)</li>
+              <li>TOEFL iBT</li>
+            </ul>
+          </section>
+        </aside>
       </div>
-      <div class="contact">
-        <span>Marburg / Frankfurt Rhine-Main, Germany</span>
-        <span><a href="tel:+491776763484">+49 177 6763484</a> · <a href="mailto:alisibai01@gmail.com">alisibai01@gmail.com</a></span>
-        <span><a href="https://github.com/sibaiali">github.com/sibaiali</a> · <a href="https://www.linkedin.com/in/sibaiali/">linkedin.com/in/sibaiali</a> · <a href="https://alisibai.vercel.app/">alisibai.vercel.app</a></span>
-      </div>
-    </header>
-
-    <p class="summary"><strong>Computer Engineering graduate (B.Sc., 2026, officially H+ recognized in Germany)</strong> with an additional degree in General Psychology (B.A. equivalent). Residing in Hesse (Frankfurt Rhine-Main area) with a valid German residence permit and available full-time at short notice. Hands-on experience in modular web architecture, RESTful workflows, real-time telemetry pipelines, relational databases (SQL), and deterministic test automation (QA). Focused on clean software architecture (JavaScript/TypeScript, Python, C++), data integrity, and AI-driven state modeling.</p>
-
-    <div class="cv-grid">
-      <div>
-        <section class="section" aria-labelledby="projects-heading">
-          <h2 class="section-title" id="projects-heading">Selected engineering projects</h2>
-
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>SpaceLumin / Lumin Flow: Utopia Run</h3>
-              <span class="entry-meta">B.Sc. Capstone &amp; Flagship · Live 3D Web App</span>
-            </div>
-            <div class="entry-subtitle">
-              <span>Senior Graduation Project · Interactive Web Architecture, Telemetry &amp; Game AI</span>
-              <span><a href="https://spacelumin.vercel.app/">Live Build</a> · <a href="https://github.com/sibaiali/SpaceLumin">Source</a></span>
-            </div>
-            <ul>
-              <li>Built a modular 3D browser application using JavaScript (ES6+), Three.js, HTML5/CSS3, and PWA service-worker tooling with HUD state synchronization and persistent client storage.</li>
-              <li>Engineered a real-time player-behaviour telemetry pipeline, discrete state encoding, a Markov next-state prediction model, and an F3 live diagnostic overlay.</li>
-              <li>Designed a leakage-safe evaluation architecture with frozen and prequential modes, state-epoch deduplication, an immutable event ledger, and exception-safe instrumentation verified by 16/16 deterministic tests.</li>
-            </ul>
-            <p class="stack">JavaScript (ES6+) · Three.js · HTML5/CSS3 · Telemetry · Markov Models · Automated Testing · PWA</p>
-          </article>
-
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>SmartPark Guardian AI (Smart Parking Management System)</h3>
-              <span class="entry-meta"><a href="smartpark.html">Interactive Simulator</a> · <a href="https://github.com/sibaiali/PMS">GitHub Repository</a></span>
-            </div>
-            <ul>
-              <li>Engineered a barrier-free Python 3.12 parking ecosystem with SQLite WAL persistence, explainable multi-criteria space allocation, Guardian Shield security correlation, HMAC-SHA256 privacy badges, safety-weighted A* pathfinding, DST-safe Decimal billing, and 25/25 deterministic unit and concurrency tests.</li>
-            </ul>
-            <p class="stack">Python 3.12 · SQLite (WAL) · A* Pathfinding · HMAC Security · Tkinter GUI · Automated Testing</p>
-          </article>
-
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>VoidLumin / AI &amp; Affective Computing Prototypes (Hume AI API Integration)</h3>
-              <span class="entry-meta"><a href="https://github.com/sibaiali">GitHub</a></span>
-            </div>
-            <ul>
-              <li>Development of interactive software modules integrating modern AI APIs (Hume AI API) for real-time processing of human-centric signals and state models.</li>
-            </ul>
-            <p class="stack">JavaScript (ES6+) · Hume AI API · REST APIs · Real-Time Signal Processing · State Modeling</p>
-          </article>
-        </section>
-
-        <section class="section" aria-labelledby="experience-heading">
-          <h2 class="section-title" id="experience-heading">Professional experience</h2>
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>Federal Volunteer Service (BFD · Bundesfreiwilligendienst) · University Hospital Giessen and Marburg (UKGM)</h3>
-              <span class="entry-meta">Since 09/2026 · Marburg, Germany</span>
-            </div>
-            <ul>
-              <li>Full-time operations at one of Germany's largest university hospitals, handling structured process coordination, documentation, and daily professional communication in German.</li>
-              <li>Planned transition into a full-time Software Engineering, Systems Integration, or QA role (short-notice release available at any time by arrangement).</li>
-            </ul>
-          </article>
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>IT &amp; Enterprise Systems Intern · CBI (Compagnie Bureautique et Informatique)</h3>
-              <span class="entry-meta">05/2026 – 06/2026 · Casablanca, Morocco (Remote)</span>
-            </div>
-            <ul>
-              <li>Hands-on experience at a leading enterprise IT systems integrator focusing on Cloud Infrastructure, IT infrastructure, network architecture, and system deployment (Topic: Développement et solutions IT - Cloud Infrastructure).</li>
-              <li>Assisted with technical documentation, system diagnostics, and enterprise client cloud and IT solutions.</li>
-            </ul>
-            <p class="stack">Cloud Infrastructure · Enterprise IT · Network &amp; Systems Integration · Technical Documentation · Troubleshooting</p>
-          </article>
-          <article class="entry">
-            <div class="entry-heading">
-              <h3>IT &amp; Software Intern · DoubleTree by Hilton</h3>
-              <span class="entry-meta">05/2025 (Intensive Engineering Internship) · Istanbul, Turkey</span>
-            </div>
-            <ul>
-              <li>Designed, built, and deployed an internal web-based employee database application (HTML, CSS, JavaScript, SQL) managing staff profiles and department CRUD workflows.</li>
-              <li>Supported server maintenance, hardware rollouts, live operational IT troubleshooting, and a structured Ethernet network migration across hotel departments.</li>
-            </ul>
-            <p class="stack">HTML5 · CSS3 · JavaScript · SQL · REST Concepts · Active Directory / Systems &amp; Network Administration · ITIL Support</p>
-          </article>
-        </section>
-      </div>
-
-      <aside aria-label="Education, skills, and languages">
-        <section class="side-section">
-          <h2>Location &amp; availability</h2>
-          <h3>Marburg / Frankfurt Area, DE</h3>
-          <p>Residing in Hesse · Valid German residence permit (§ 18g EU Blue Card / § 18b eligible) · Available full-time at short notice</p>
-        </section>
-
-        <section class="side-section">
-          <h2>Languages</h2>
-          <p><strong>German (Deutsch):</strong> Intermediate (B1) used daily in hospital operations; actively advancing to B2 (including professional German training via Goethe-Institut)<br><strong>English:</strong> Professional working proficiency (B2–C1 · TOEFL iBT certified)</p>
-        </section>
-
-        <section class="side-section">
-          <h2>Education</h2>
-          <h3>B.Sc. Computer Engineering</h3>
-          <p>Altınbaş University · 2022 – 2026<br>Officially H+ recognized in Germany (Anabin)<br>Capstone: SpaceLumin (Real-Time Web &amp; AI)</p>
-          <h3>Diplôme de Psychologie Générale</h3>
-          <p>Université Internationale de Casablanca · Licence Professionnelle (B.A. equivalent) · 2018 – 2021</p>
-        </section>
-
-        <section class="side-section">
-          <h2>Technical skills (ATS)</h2>
-          <div class="skill-group"><strong>Programming Languages</strong><p>JavaScript (ES6+), TypeScript (fundamentals), Python 3, SQL, C++, C, C#, Java</p></div>
-          <div class="skill-group"><strong>Web, Backend &amp; Data</strong><p>HTML5, CSS3, Node.js, REST APIs, JSON, SQLite (WAL), relational data modeling (PostgreSQL/MySQL concepts), Progressive Web Apps (PWA)</p></div>
-          <div class="skill-group"><strong>Interactive Systems &amp; AI</strong><p>Three.js, WebGL, Hume AI API, real-time telemetry pipelines, Markov state prediction, A* pathfinding, Human-Computer Interaction (HCI)</p></div>
-          <div class="skill-group"><strong>QA Automation, DevOps &amp; Practices</strong><p>Deterministic test automation (unit &amp; integration testing), Git / GitHub, CI/CD workflows (Vercel / GitHub Actions), Linux/Windows system administration, structured technical documentation, Agile/Scrum workflows</p></div>
-        </section>
-
-        <section class="side-section">
-          <h2>Certifications</h2>
-          <h3>Elements of AI</h3>
-          <p>University of Helsinki &amp; MinnaLearn · 2 ECTS · 2024</p>
-          <h3>Technical Certifications</h3>
-          <p>Intermediate SQL, C#, C++, Java &amp; Web Development · 2024</p>
-        </section>
-      </aside>
     </div>
 
     <footer class="cv-footer">
-      <span>© 2026 Ali Sibai · All Rights Reserved (UrhG) · Portfolio contains linked source repositories, live web build, and verification evidence.</span>
-      <span>Updated November 2026</span>
+      <div><strong>Marburg, November 2026</strong><br>Ali Sibai</div>
+      <div class="muted">Degree certificate, Anabin H+ record, and internship references available on request.</div>
     </footer>
   </main>
 </body>
