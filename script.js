@@ -68,7 +68,9 @@
   }
   if (copyButton) {
     copyButton.addEventListener("click", async function () {
-      const email = copyButton.getAttribute("data-email");
+      const email =
+        copyButton.getAttribute("data-email") ||
+        `${copyButton.getAttribute("data-user")}@${copyButton.getAttribute("data-domain")}`;
       try {
         await navigator.clipboard.writeText(email);
         copyButton.textContent = "Email copied";
