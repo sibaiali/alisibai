@@ -96,7 +96,11 @@ const prohibitedClaims = [
   /nationwide/i,
   /bundesweit/i,
   /41\/41/i,
-  /strafrechtlich verfolgt/i
+  /strafrechtlich verfolgt/i,
+  /regulärer Wechsel/i,
+  /Pflege von Benutzerkonten im Active Directory/i,
+  /Zuverlässigkeit im Schichtalltag/i,
+  /3 IT &amp; engineering stations/i
 ];
 
 for (const [file, content] of Object.entries(htmlByFile)) {
@@ -110,43 +114,47 @@ const cvSysDe = htmlByFile["lebenslauf-systemadministration.html"];
 const cvSwDe = htmlByFile["lebenslauf-software-qa.html"];
 const cvEn = htmlByFile["cv.html"];
 
-if (!indexHtml.includes("Software, Systems &amp; Infrastructure Engineering")) {
+if (!indexHtml.includes("Software, Systems &amp; QA Automation")) {
   failures.push("index.html: missing updated main title");
 }
-if (!indexHtml.includes("VoidLumin")) {
-  failures.push("index.html: missing VoidLumin supporting project card");
+if (!indexHtml.includes("BFD permit; change to a skilled-worker permit upon job offer")) {
+  failures.push("index.html: missing updated Residence wording in Recruiter brief");
 }
-if (!indexHtml.includes("Dependency-free architecture · Privacy-first (No cookies or trackers).")) {
+if (!indexHtml.includes("Windows &amp; Linux (administration foundations)")) {
+  failures.push("index.html: missing updated SYS pillar wording");
+}
+if (!indexHtml.includes("© 2026 Ali Sibai · Marburg, Hessen, Germany · No cookies, no trackers.")) {
   failures.push("index.html: missing clean footer wording");
+}
+
+for (const [file, html] of [
+  ["lebenslauf-systemadministration.html", cvSysDe],
+  ["lebenslauf-software-qa.html", cvSwDe],
+  ["cv.html", cvEn]
+]) {
+  if (!/<meta\s+name="robots"\s+content="noindex,\s*nofollow"/i.test(html)) {
+    failures.push(`${file}: missing noindex, nofollow meta tag`);
+  }
+  if (!html.includes("Intermediate SQL (2024)")) {
+    failures.push(`${file}: missing Intermediate SQL (2024) certificate`);
+  }
 }
 
 for (const [file, html] of [
   ["lebenslauf-systemadministration.html", cvSysDe],
   ["lebenslauf-software-qa.html", cvSwDe]
 ]) {
-  if (!html.includes("+49 177 6763484")) failures.push(`${file}: missing phone number`);
-  if (!html.includes("§ 19e AufenthG")) failures.push(`${file}: missing § 19e AufenthG residence wording`);
-  if (!html.includes("§ 18b / § 18g AufenthG")) failures.push(`${file}: missing § 18b / § 18g AufenthG wording`);
-  if (!html.includes("ITIL-orientierter")) failures.push(`${file}: missing ITIL-orientierter Support wording`);
-  if (!html.includes("Bachelorarbeit / B.Sc. Abschlussprojekt")) {
-    failures.push(`${file}: missing Bachelorarbeit / B.Sc. Abschlussprojekt wording`);
+  if (!html.includes("Bewerbung als ")) failures.push(`${file}: missing 'Bewerbung als' role prefix`);
+  if (!html.includes("Frühjahr/Sommer 2026 (Projektpraktikum)")) failures.push(`${file}: missing CBI date wording`);
+  if (!html.includes("Sommer 2025 (Intensiv-Praxisprojekt)")) failures.push(`${file}: missing Hilton date wording`);
+  if (!html.includes("HMAC-SHA256-Datenschutz-Tokens")) failures.push(`${file}: missing original SmartPark token wording`);
+  if (!html.includes("Programmiersprachen:")) failures.push(`${file}: missing Programmiersprachen label`);
+  if (html.indexOf("CBI (Compagnie Bureautique et Informatique)") > html.indexOf("DoubleTree by Hilton")) {
+    failures.push(`${file}: CBI must appear before DoubleTree by Hilton`);
   }
-  if (!html.includes("Licence Professionnelle in Allgemeiner Psychologie")) {
-    failures.push(`${file}: missing updated Psychology credential wording`);
+  if (html.indexOf("DoubleTree by Hilton") > html.indexOf("Universitätsklinikum Gießen und Marburg (UKGM)")) {
+    failures.push(`${file}: DoubleTree by Hilton must appear before UKGM BFD`);
   }
-  if (!html.includes("Marburg, November 2026")) {
-    failures.push(`${file}: missing clean German footer sign-off`);
-  }
-}
-
-if (cvSysDe.indexOf("Berufserfahrung &amp; IT-Praxis") > cvSysDe.indexOf("Software-, Datenbank- &amp; Automatisierungsprojekte")) {
-  failures.push("lebenslauf-systemadministration.html: Berufserfahrung & IT-Praxis must appear before projects");
-}
-if (cvSwDe.indexOf("Ausgewählte Software- &amp; Engineering-Projekte") > cvSwDe.indexOf("Berufserfahrung &amp; Praxis")) {
-  failures.push("lebenslauf-software-qa.html: Projects must appear before Berufserfahrung & Praxis");
-}
-if (!cvEn.includes("+49 177 6763484")) {
-  failures.push("cv.html: missing German phone number");
 }
 
 JSON.parse(readFileSync(resolve(root, "site.webmanifest"), "utf8"));
@@ -156,4 +164,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents (DE Version A, DE Version B & EN), Germany HR standards verified.`);
+console.log(`Portfolio validation passed: ${requiredFiles.length} files, ${htmlFiles.length} HTML documents (DE Version A, DE Version B & EN), strict German HR audit verified.`);
