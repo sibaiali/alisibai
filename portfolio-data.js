@@ -3,6 +3,22 @@ window.portfolioData = Object.freeze({
     {
       index: "02.1",
       status: "verified",
+      statusLabel: "Active Development",
+      title: "TrialAtlas (Global Free-Trial Discovery Platform)",
+      description: "A modern, responsive web application built with Next.js 15, TypeScript, Tailwind CSS, and Supabase (PostgreSQL 17, Frankfurt) to discover digital services offering free trials around the world.",
+      points: [
+        "Architected with Next.js 15 App Router, dynamic SEO metadata, and per-country trial condition overrides (pricing, currencies, trial durations, cancellation terms)",
+        "GDPR-compliant double opt-in email subscription pipeline with cryptographic tokens, rate limiting, and honeypot protection",
+        "Strict database security with Row Level Security (RLS) on all tables, automated migrations, and zero public write permissions"
+      ],
+      stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL 17 RLS"],
+      link: "https://github.com/sibaiali/trialatlas",
+      linkLabel: "Inspect repository",
+      external: true
+    },
+    {
+      index: "02.2",
+      status: "verified",
       statusLabel: "25/25 Tests · Live Sim",
       title: "SmartPark Guardian AI (Smart Parking Management System)",
       description: "A barrier-free, intelligent, and accident-aware Python parking ecosystem with SQLite persistence, explainable space allocation, Guardian Shield security correlation, and A* garage simulation.",
