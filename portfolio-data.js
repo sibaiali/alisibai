@@ -11,9 +11,9 @@ window.portfolioData = Object.freeze({
         "GDPR-compliant double opt-in email subscription pipeline with cryptographic tokens, rate limiting, and honeypot protection",
         "Strict database security with Row Level Security (RLS) on all tables, automated migrations, and zero public write permissions"
       ],
-      stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL 17 RLS"],
+      stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL 17 RLS", "Proprietary (UrhG)"],
       link: "https://github.com/sibaiali/trialatlas",
-      linkLabel: "Inspect repository",
+      linkLabel: "Private repository",
       external: true
     },
     {
